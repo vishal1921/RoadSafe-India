@@ -9,3 +9,4 @@ venv/
 *.sqlite
 .DS_Store
 Thumbs.db
+cloudflared.exe
