@@ -1,0 +1,82 @@
+[
+  {
+    "cause": "Overspeeding",
+    "share_crashes_pct": 69.6,
+    "share_fatalities_pct": 67.4,
+    "fatalities_count_est": 113200,
+    "typical_road_type": "Expressways, National Highways & 4-Lane Corridors",
+    "primary_intervention": "Automated Speed Cameras, Section Speed Radars, Rumble Strips"
+  },
+  {
+    "cause": "Driving on Wrong Side / Lane Indiscipline",
+    "share_crashes_pct": 5.4,
+    "share_fatalities_pct": 5.8,
+    "fatalities_count_est": 9740,
+    "typical_road_type": "Divided Highways near illegal cuts, Service road merges",
+    "primary_intervention": "Median closing, Tyre killers at toll plazas, Physical crash barriers"
+  },
+  {
+    "cause": "Adverse Weather (Monsoon Rain / Dense Fog)",
+    "share_crashes_pct": 4.1,
+    "share_fatalities_pct": 4.3,
+    "fatalities_count_est": 7220,
+    "typical_road_type": "Coastal NH-66 during Monsoon, Northern NH-44 during Winter Fog",
+    "primary_intervention": "High-friction anti-skid overlay, Solar cat-eyes, Dynamic VMS fog warnings"
+  },
+  {
+    "cause": "Poor Road Geometry & Blind Sharp Curves",
+    "share_crashes_pct": 4.8,
+    "share_fatalities_pct": 5.2,
+    "fatalities_count_est": 8730,
+    "typical_road_type": "Ghat roads (Western Ghats, Himachal, Uttarakhand), Substandard radius curves",
+    "primary_intervention": "Curve widening, Chevron signs, Super-elevation correction, W-beam guardrails"
+  },
+  {
+    "cause": "Surface Defects (Potholes & Rutted Pavement)",
+    "share_crashes_pct": 3.9,
+    "share_fatalities_pct": 4.2,
+    "fatalities_count_est": 7050,
+    "typical_road_type": "State Highways & Monsoonal arterial roads",
+    "primary_intervention": "Pothole patch inspection, Proper storm drainage, Micro-surfacing"
+  },
+  {
+    "cause": "Drunken Driving / Impaired Driving",
+    "share_crashes_pct": 3.2,
+    "share_fatalities_pct": 3.5,
+    "fatalities_count_est": 5880,
+    "typical_road_type": "Highway liquor corridor stretches, Weekend night urban arterials",
+    "primary_intervention": "Sobriety breathalyzer checkpoints, Highway liquor ban enforcement"
+  },
+  {
+    "cause": "Pedestrian / Cattle Conflict at Unsignalized Crossings",
+    "share_crashes_pct": 3.2,
+    "share_fatalities_pct": 3.4,
+    "fatalities_count_est": 5710,
+    "typical_road_type": "Village crossings on National Highways, Dense urban markets",
+    "primary_intervention": "Pedestrian Foot Overbridges (FOBs), Underpasses, Cattle fences"
+  },
+  {
+    "cause": "Mobile Phone Distraction while Driving",
+    "share_crashes_pct": 2.1,
+    "share_fatalities_pct": 2.4,
+    "fatalities_count_est": 4030,
+    "typical_road_type": "Urban arterials, Congested intersections",
+    "primary_intervention": "AI camera detection of mobile use, Strict automated e-challans"
+  },
+  {
+    "cause": "Jumping Red Light & Signal Violations",
+    "share_crashes_pct": 1.8,
+    "share_fatalities_pct": 1.9,
+    "fatalities_count_est": 3190,
+    "typical_road_type": "Major metropolitan multi-leg junctions",
+    "primary_intervention": "RLVD (Red Light Violation Detection) automated radar cameras"
+  },
+  {
+    "cause": "Mechanical Failure & Overloading",
+    "share_crashes_pct": 1.9,
+    "share_fatalities_pct": 1.9,
+    "fatalities_count_est": 3190,
+    "typical_road_type": "Industrial freight corridors, Overloaded dumper trucks",
+    "primary_intervention": "Weigh-in-motion sensors, Mandatory automated fitness testing"
+  }
+]

@@ -1,0 +1,2050 @@
+{
+  "title": "MoRTH Traffic Control Junction Crash Distribution across 50 Million-Plus Cities",
+  "total_cities": 50,
+  "national_summary": {
+    "city": "Total",
+    "traffic_light": {
+      "accidents": 5487,
+      "fatalities": 913,
+      "injuries": 4935
+    },
+    "police_controlled": {
+      "accidents": 3832,
+      "fatalities": 693,
+      "injuries": 3425
+    },
+    "stop_sign": {
+      "accidents": 2018,
+      "fatalities": 454,
+      "injuries": 1736
+    },
+    "flashing_blinker": {
+      "accidents": 1605,
+      "fatalities": 370,
+      "injuries": 1436
+    },
+    "uncontrolled": {
+      "accidents": 23290,
+      "fatalities": 4061,
+      "injuries": 20595
+    },
+    "others": {
+      "accidents": 46549,
+      "fatalities": 11307,
+      "injuries": 41993
+    },
+    "total": {
+      "accidents": 82781,
+      "fatalities": 17798,
+      "injuries": 74120
+    },
+    "uncontrolled_fatality_share_pct": 22.8,
+    "signal_controlled_fatality_share_pct": 5.1
+  },
+  "engineering_implication": {
+    "finding": "Uncontrolled intersections account for 23,290 crashes and 4,061 fatalities (22.8% of all million-plus city junction deaths), whereas Traffic Signals experience less than 1/4th the fatal rate per incident.",
+    "irc_mandate": "IRC:93-1985 Guidelines on Traffic Signals mandate signal installation at all junctions exceeding 650 PCU/hour on major approaches, projecting an immediate 62-75% reduction in angle and broadside collisions."
+  },
+  "cities": [
+    {
+      "city": "Delhi",
+      "traffic_light": {
+        "accidents": 623,
+        "fatalities": 136,
+        "injuries": 611
+      },
+      "police_controlled": {
+        "accidents": 136,
+        "fatalities": 34,
+        "injuries": 120
+      },
+      "stop_sign": {
+        "accidents": 227,
+        "fatalities": 46,
+        "injuries": 213
+      },
+      "flashing_blinker": {
+        "accidents": 144,
+        "fatalities": 33,
+        "injuries": 123
+      },
+      "uncontrolled": {
+        "accidents": 1543,
+        "fatalities": 391,
+        "injuries": 1395
+      },
+      "others": {
+        "accidents": 2937,
+        "fatalities": 823,
+        "injuries": 2690
+      },
+      "total": {
+        "accidents": 5610,
+        "fatalities": 1463,
+        "injuries": 5152
+      },
+      "uncontrolled_fatality_share_pct": 26.7,
+      "signal_controlled_fatality_share_pct": 9.3
+    },
+    {
+      "city": "Jaipur",
+      "traffic_light": {
+        "accidents": 293,
+        "fatalities": 63,
+        "injuries": 243
+      },
+      "police_controlled": {
+        "accidents": 61,
+        "fatalities": 9,
+        "injuries": 59
+      },
+      "stop_sign": {
+        "accidents": 12,
+        "fatalities": 0,
+        "injuries": 14
+      },
+      "flashing_blinker": {
+        "accidents": 39,
+        "fatalities": 2,
+        "injuries": 36
+      },
+      "uncontrolled": {
+        "accidents": 512,
+        "fatalities": 97,
+        "injuries": 474
+      },
+      "others": {
+        "accidents": 3354,
+        "fatalities": 1112,
+        "injuries": 2755
+      },
+      "total": {
+        "accidents": 4271,
+        "fatalities": 1283,
+        "injuries": 3581
+      },
+      "uncontrolled_fatality_share_pct": 7.6,
+      "signal_controlled_fatality_share_pct": 4.9
+    },
+    {
+      "city": "Chennai",
+      "traffic_light": {
+        "accidents": 432,
+        "fatalities": 88,
+        "injuries": 406
+      },
+      "police_controlled": {
+        "accidents": 601,
+        "fatalities": 93,
+        "injuries": 585
+      },
+      "stop_sign": {
+        "accidents": 304,
+        "fatalities": 101,
+        "injuries": 255
+      },
+      "flashing_blinker": {
+        "accidents": 258,
+        "fatalities": 57,
+        "injuries": 256
+      },
+      "uncontrolled": {
+        "accidents": 567,
+        "fatalities": 17,
+        "injuries": 480
+      },
+      "others": {
+        "accidents": 4709,
+        "fatalities": 896,
+        "injuries": 4720
+      },
+      "total": {
+        "accidents": 6871,
+        "fatalities": 1252,
+        "injuries": 6702
+      },
+      "uncontrolled_fatality_share_pct": 1.4,
+      "signal_controlled_fatality_share_pct": 7.0
+    },
+    {
+      "city": "Bengaluru",
+      "traffic_light": {
+        "accidents": 356,
+        "fatalities": 46,
+        "injuries": 319
+      },
+      "police_controlled": {
+        "accidents": 249,
+        "fatalities": 17,
+        "injuries": 221
+      },
+      "stop_sign": {
+        "accidents": 120,
+        "fatalities": 14,
+        "injuries": 110
+      },
+      "flashing_blinker": {
+        "accidents": 171,
+        "fatalities": 19,
+        "injuries": 163
+      },
+      "uncontrolled": {
+        "accidents": 1810,
+        "fatalities": 337,
+        "injuries": 1533
+      },
+      "others": {
+        "accidents": 1978,
+        "fatalities": 335,
+        "injuries": 1904
+      },
+      "total": {
+        "accidents": 4684,
+        "fatalities": 768,
+        "injuries": 4250
+      },
+      "uncontrolled_fatality_share_pct": 43.9,
+      "signal_controlled_fatality_share_pct": 6.0
+    },
+    {
+      "city": "Kanpur",
+      "traffic_light": {
+        "accidents": 22,
+        "fatalities": 13,
+        "injuries": 19
+      },
+      "police_controlled": {
+        "accidents": 20,
+        "fatalities": 9,
+        "injuries": 20
+      },
+      "stop_sign": {
+        "accidents": 17,
+        "fatalities": 11,
+        "injuries": 13
+      },
+      "flashing_blinker": {
+        "accidents": 131,
+        "fatalities": 77,
+        "injuries": 76
+      },
+      "uncontrolled": {
+        "accidents": 305,
+        "fatalities": 118,
+        "injuries": 215
+      },
+      "others": {
+        "accidents": 1012,
+        "fatalities": 464,
+        "injuries": 700
+      },
+      "total": {
+        "accidents": 1507,
+        "fatalities": 692,
+        "injuries": 1043
+      },
+      "uncontrolled_fatality_share_pct": 17.1,
+      "signal_controlled_fatality_share_pct": 1.9
+    },
+    {
+      "city": "Agra",
+      "traffic_light": {
+        "accidents": 50,
+        "fatalities": 10,
+        "injuries": 81
+      },
+      "police_controlled": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "stop_sign": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "flashing_blinker": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "uncontrolled": {
+        "accidents": 412,
+        "fatalities": 179,
+        "injuries": 327
+      },
+      "others": {
+        "accidents": 623,
+        "fatalities": 427,
+        "injuries": 524
+      },
+      "total": {
+        "accidents": 1085,
+        "fatalities": 616,
+        "injuries": 932
+      },
+      "uncontrolled_fatality_share_pct": 29.1,
+      "signal_controlled_fatality_share_pct": 1.6
+    },
+    {
+      "city": "Allahabad(Prayagraj)",
+      "traffic_light": {
+        "accidents": 130,
+        "fatalities": 40,
+        "injuries": 98
+      },
+      "police_controlled": {
+        "accidents": 121,
+        "fatalities": 46,
+        "injuries": 98
+      },
+      "stop_sign": {
+        "accidents": 168,
+        "fatalities": 58,
+        "injuries": 111
+      },
+      "flashing_blinker": {
+        "accidents": 119,
+        "fatalities": 34,
+        "injuries": 90
+      },
+      "uncontrolled": {
+        "accidents": 105,
+        "fatalities": 36,
+        "injuries": 81
+      },
+      "others": {
+        "accidents": 770,
+        "fatalities": 385,
+        "injuries": 487
+      },
+      "total": {
+        "accidents": 1413,
+        "fatalities": 599,
+        "injuries": 965
+      },
+      "uncontrolled_fatality_share_pct": 6.0,
+      "signal_controlled_fatality_share_pct": 6.7
+    },
+    {
+      "city": "Jodhpur",
+      "traffic_light": {
+        "accidents": 30,
+        "fatalities": 6,
+        "injuries": 19
+      },
+      "police_controlled": {
+        "accidents": 6,
+        "fatalities": 1,
+        "injuries": 4
+      },
+      "stop_sign": {
+        "accidents": 10,
+        "fatalities": 1,
+        "injuries": 8
+      },
+      "flashing_blinker": {
+        "accidents": 2,
+        "fatalities": 1,
+        "injuries": 1
+      },
+      "uncontrolled": {
+        "accidents": 173,
+        "fatalities": 52,
+        "injuries": 119
+      },
+      "others": {
+        "accidents": 896,
+        "fatalities": 528,
+        "injuries": 683
+      },
+      "total": {
+        "accidents": 1117,
+        "fatalities": 589,
+        "injuries": 834
+      },
+      "uncontrolled_fatality_share_pct": 8.8,
+      "signal_controlled_fatality_share_pct": 1.0
+    },
+    {
+      "city": "Lucknow",
+      "traffic_light": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "police_controlled": {
+        "accidents": 186,
+        "fatalities": 107,
+        "injuries": 91
+      },
+      "stop_sign": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "flashing_blinker": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "uncontrolled": {
+        "accidents": 400,
+        "fatalities": 177,
+        "injuries": 224
+      },
+      "others": {
+        "accidents": 1099,
+        "fatalities": 297,
+        "injuries": 616
+      },
+      "total": {
+        "accidents": 1685,
+        "fatalities": 581,
+        "injuries": 931
+      },
+      "uncontrolled_fatality_share_pct": 30.5,
+      "signal_controlled_fatality_share_pct": 0.0
+    },
+    {
+      "city": "Raipur",
+      "traffic_light": {
+        "accidents": 71,
+        "fatalities": 7,
+        "injuries": 40
+      },
+      "police_controlled": {
+        "accidents": 97,
+        "fatalities": 24,
+        "injuries": 113
+      },
+      "stop_sign": {
+        "accidents": 27,
+        "fatalities": 2,
+        "injuries": 22
+      },
+      "flashing_blinker": {
+        "accidents": 40,
+        "fatalities": 8,
+        "injuries": 23
+      },
+      "uncontrolled": {
+        "accidents": 769,
+        "fatalities": 205,
+        "injuries": 310
+      },
+      "others": {
+        "accidents": 1142,
+        "fatalities": 212,
+        "injuries": 1073
+      },
+      "total": {
+        "accidents": 2146,
+        "fatalities": 458,
+        "injuries": 1581
+      },
+      "uncontrolled_fatality_share_pct": 44.8,
+      "signal_controlled_fatality_share_pct": 1.5
+    },
+    {
+      "city": "Mumbai",
+      "traffic_light": {
+        "accidents": 186,
+        "fatalities": 24,
+        "injuries": 184
+      },
+      "police_controlled": {
+        "accidents": 27,
+        "fatalities": 0,
+        "injuries": 28
+      },
+      "stop_sign": {
+        "accidents": 8,
+        "fatalities": 0,
+        "injuries": 7
+      },
+      "flashing_blinker": {
+        "accidents": 8,
+        "fatalities": 1,
+        "injuries": 7
+      },
+      "uncontrolled": {
+        "accidents": 25,
+        "fatalities": 2,
+        "injuries": 24
+      },
+      "others": {
+        "accidents": 2618,
+        "fatalities": 420,
+        "injuries": 2675
+      },
+      "total": {
+        "accidents": 2872,
+        "fatalities": 447,
+        "injuries": 2925
+      },
+      "uncontrolled_fatality_share_pct": 0.4,
+      "signal_controlled_fatality_share_pct": 5.4
+    },
+    {
+      "city": "Ahmedabad",
+      "traffic_light": {
+        "accidents": 64,
+        "fatalities": 19,
+        "injuries": 55
+      },
+      "police_controlled": {
+        "accidents": 32,
+        "fatalities": 13,
+        "injuries": 29
+      },
+      "stop_sign": {
+        "accidents": 32,
+        "fatalities": 9,
+        "injuries": 28
+      },
+      "flashing_blinker": {
+        "accidents": 18,
+        "fatalities": 5,
+        "injuries": 15
+      },
+      "uncontrolled": {
+        "accidents": 642,
+        "fatalities": 196,
+        "injuries": 584
+      },
+      "others": {
+        "accidents": 587,
+        "fatalities": 197,
+        "injuries": 432
+      },
+      "total": {
+        "accidents": 1375,
+        "fatalities": 439,
+        "injuries": 1143
+      },
+      "uncontrolled_fatality_share_pct": 44.6,
+      "signal_controlled_fatality_share_pct": 4.3
+    },
+    {
+      "city": "Meerut",
+      "traffic_light": {
+        "accidents": 79,
+        "fatalities": 29,
+        "injuries": 50
+      },
+      "police_controlled": {
+        "accidents": 36,
+        "fatalities": 13,
+        "injuries": 22
+      },
+      "stop_sign": {
+        "accidents": 60,
+        "fatalities": 25,
+        "injuries": 35
+      },
+      "flashing_blinker": {
+        "accidents": 52,
+        "fatalities": 22,
+        "injuries": 37
+      },
+      "uncontrolled": {
+        "accidents": 129,
+        "fatalities": 58,
+        "injuries": 74
+      },
+      "others": {
+        "accidents": 600,
+        "fatalities": 266,
+        "injuries": 426
+      },
+      "total": {
+        "accidents": 956,
+        "fatalities": 413,
+        "injuries": 644
+      },
+      "uncontrolled_fatality_share_pct": 14.0,
+      "signal_controlled_fatality_share_pct": 7.0
+    },
+    {
+      "city": "Jabalpur",
+      "traffic_light": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "police_controlled": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "stop_sign": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "flashing_blinker": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "uncontrolled": {
+        "accidents": 2467,
+        "fatalities": 270,
+        "injuries": 2559
+      },
+      "others": {
+        "accidents": 930,
+        "fatalities": 136,
+        "injuries": 971
+      },
+      "total": {
+        "accidents": 3397,
+        "fatalities": 406,
+        "injuries": 3530
+      },
+      "uncontrolled_fatality_share_pct": 66.5,
+      "signal_controlled_fatality_share_pct": 0.0
+    },
+    {
+      "city": "Ghaziabad",
+      "traffic_light": {
+        "accidents": 36,
+        "fatalities": 9,
+        "injuries": 37
+      },
+      "police_controlled": {
+        "accidents": 33,
+        "fatalities": 7,
+        "injuries": 33
+      },
+      "stop_sign": {
+        "accidents": 10,
+        "fatalities": 0,
+        "injuries": 15
+      },
+      "flashing_blinker": {
+        "accidents": 30,
+        "fatalities": 6,
+        "injuries": 31
+      },
+      "uncontrolled": {
+        "accidents": 148,
+        "fatalities": 68,
+        "injuries": 102
+      },
+      "others": {
+        "accidents": 633,
+        "fatalities": 295,
+        "injuries": 388
+      },
+      "total": {
+        "accidents": 890,
+        "fatalities": 385,
+        "injuries": 606
+      },
+      "uncontrolled_fatality_share_pct": 17.7,
+      "signal_controlled_fatality_share_pct": 2.3
+    },
+    {
+      "city": "Mallapuram",
+      "traffic_light": {
+        "accidents": 5,
+        "fatalities": 1,
+        "injuries": 4
+      },
+      "police_controlled": {
+        "accidents": 52,
+        "fatalities": 5,
+        "injuries": 53
+      },
+      "stop_sign": {
+        "accidents": 1,
+        "fatalities": 0,
+        "injuries": 2
+      },
+      "flashing_blinker": {
+        "accidents": 1,
+        "fatalities": 0,
+        "injuries": 1
+      },
+      "uncontrolled": {
+        "accidents": 380,
+        "fatalities": 53,
+        "injuries": 376
+      },
+      "others": {
+        "accidents": 2123,
+        "fatalities": 305,
+        "injuries": 2390
+      },
+      "total": {
+        "accidents": 2562,
+        "fatalities": 364,
+        "injuries": 2826
+      },
+      "uncontrolled_fatality_share_pct": 14.6,
+      "signal_controlled_fatality_share_pct": 0.3
+    },
+    {
+      "city": "Vijaywada city",
+      "traffic_light": {
+        "accidents": 262,
+        "fatalities": 50,
+        "injuries": 257
+      },
+      "police_controlled": {
+        "accidents": 244,
+        "fatalities": 41,
+        "injuries": 202
+      },
+      "stop_sign": {
+        "accidents": 72,
+        "fatalities": 15,
+        "injuries": 81
+      },
+      "flashing_blinker": {
+        "accidents": 35,
+        "fatalities": 5,
+        "injuries": 32
+      },
+      "uncontrolled": {
+        "accidents": 389,
+        "fatalities": 99,
+        "injuries": 354
+      },
+      "others": {
+        "accidents": 493,
+        "fatalities": 144,
+        "injuries": 465
+      },
+      "total": {
+        "accidents": 1495,
+        "fatalities": 354,
+        "injuries": 1391
+      },
+      "uncontrolled_fatality_share_pct": 28.0,
+      "signal_controlled_fatality_share_pct": 14.1
+    },
+    {
+      "city": "Indore",
+      "traffic_light": {
+        "accidents": 24,
+        "fatalities": 0,
+        "injuries": 20
+      },
+      "police_controlled": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "stop_sign": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "flashing_blinker": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "uncontrolled": {
+        "accidents": 3063,
+        "fatalities": 311,
+        "injuries": 2738
+      },
+      "others": {
+        "accidents": 296,
+        "fatalities": 17,
+        "injuries": 233
+      },
+      "total": {
+        "accidents": 3383,
+        "fatalities": 328,
+        "injuries": 2991
+      },
+      "uncontrolled_fatality_share_pct": 94.8,
+      "signal_controlled_fatality_share_pct": 0.0
+    },
+    {
+      "city": "Vizaq",
+      "traffic_light": {
+        "accidents": 361,
+        "fatalities": 79,
+        "injuries": 253
+      },
+      "police_controlled": {
+        "accidents": 118,
+        "fatalities": 18,
+        "injuries": 115
+      },
+      "stop_sign": {
+        "accidents": 35,
+        "fatalities": 11,
+        "injuries": 25
+      },
+      "flashing_blinker": {
+        "accidents": 44,
+        "fatalities": 12,
+        "injuries": 54
+      },
+      "uncontrolled": {
+        "accidents": 282,
+        "fatalities": 47,
+        "injuries": 273
+      },
+      "others": {
+        "accidents": 866,
+        "fatalities": 156,
+        "injuries": 750
+      },
+      "total": {
+        "accidents": 1706,
+        "fatalities": 323,
+        "injuries": 1470
+      },
+      "uncontrolled_fatality_share_pct": 14.6,
+      "signal_controlled_fatality_share_pct": 24.5
+    },
+    {
+      "city": "Asansol Durgapur",
+      "traffic_light": {
+        "accidents": 3,
+        "fatalities": 1,
+        "injuries": 2
+      },
+      "police_controlled": {
+        "accidents": 26,
+        "fatalities": 17,
+        "injuries": 13
+      },
+      "stop_sign": {
+        "accidents": 10,
+        "fatalities": 5,
+        "injuries": 6
+      },
+      "flashing_blinker": {
+        "accidents": 2,
+        "fatalities": 2,
+        "injuries": 0
+      },
+      "uncontrolled": {
+        "accidents": 118,
+        "fatalities": 95,
+        "injuries": 61
+      },
+      "others": {
+        "accidents": 287,
+        "fatalities": 193,
+        "injuries": 270
+      },
+      "total": {
+        "accidents": 446,
+        "fatalities": 313,
+        "injuries": 352
+      },
+      "uncontrolled_fatality_share_pct": 30.4,
+      "signal_controlled_fatality_share_pct": 0.3
+    },
+    {
+      "city": "Gwalior",
+      "traffic_light": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "police_controlled": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "stop_sign": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "flashing_blinker": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "uncontrolled": {
+        "accidents": 894,
+        "fatalities": 102,
+        "injuries": 677
+      },
+      "others": {
+        "accidents": 1215,
+        "fatalities": 190,
+        "injuries": 931
+      },
+      "total": {
+        "accidents": 2109,
+        "fatalities": 292,
+        "injuries": 1608
+      },
+      "uncontrolled_fatality_share_pct": 34.9,
+      "signal_controlled_fatality_share_pct": 0.0
+    },
+    {
+      "city": "Surat",
+      "traffic_light": {
+        "accidents": 48,
+        "fatalities": 17,
+        "injuries": 44
+      },
+      "police_controlled": {
+        "accidents": 23,
+        "fatalities": 5,
+        "injuries": 23
+      },
+      "stop_sign": {
+        "accidents": 11,
+        "fatalities": 2,
+        "injuries": 14
+      },
+      "flashing_blinker": {
+        "accidents": 3,
+        "fatalities": 0,
+        "injuries": 4
+      },
+      "uncontrolled": {
+        "accidents": 218,
+        "fatalities": 96,
+        "injuries": 153
+      },
+      "others": {
+        "accidents": 642,
+        "fatalities": 172,
+        "injuries": 480
+      },
+      "total": {
+        "accidents": 945,
+        "fatalities": 292,
+        "injuries": 718
+      },
+      "uncontrolled_fatality_share_pct": 32.9,
+      "signal_controlled_fatality_share_pct": 5.8
+    },
+    {
+      "city": "Varanasi",
+      "traffic_light": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "police_controlled": {
+        "accidents": 44,
+        "fatalities": 23,
+        "injuries": 24
+      },
+      "stop_sign": {
+        "accidents": 45,
+        "fatalities": 18,
+        "injuries": 28
+      },
+      "flashing_blinker": {
+        "accidents": 23,
+        "fatalities": 10,
+        "injuries": 16
+      },
+      "uncontrolled": {
+        "accidents": 119,
+        "fatalities": 51,
+        "injuries": 63
+      },
+      "others": {
+        "accidents": 379,
+        "fatalities": 186,
+        "injuries": 197
+      },
+      "total": {
+        "accidents": 610,
+        "fatalities": 288,
+        "injuries": 328
+      },
+      "uncontrolled_fatality_share_pct": 17.7,
+      "signal_controlled_fatality_share_pct": 0.0
+    },
+    {
+      "city": "Hyderabad",
+      "traffic_light": {
+        "accidents": 190,
+        "fatalities": 4,
+        "injuries": 151
+      },
+      "police_controlled": {
+        "accidents": 62,
+        "fatalities": 1,
+        "injuries": 62
+      },
+      "stop_sign": {
+        "accidents": 6,
+        "fatalities": 0,
+        "injuries": 6
+      },
+      "flashing_blinker": {
+        "accidents": 15,
+        "fatalities": 1,
+        "injuries": 14
+      },
+      "uncontrolled": {
+        "accidents": 2627,
+        "fatalities": 265,
+        "injuries": 2416
+      },
+      "others": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "total": {
+        "accidents": 2900,
+        "fatalities": 271,
+        "injuries": 2649
+      },
+      "uncontrolled_fatality_share_pct": 97.8,
+      "signal_controlled_fatality_share_pct": 1.5
+    },
+    {
+      "city": "Kolkata",
+      "traffic_light": {
+        "accidents": 655,
+        "fatalities": 34,
+        "injuries": 570
+      },
+      "police_controlled": {
+        "accidents": 159,
+        "fatalities": 22,
+        "injuries": 100
+      },
+      "stop_sign": {
+        "accidents": 59,
+        "fatalities": 0,
+        "injuries": 47
+      },
+      "flashing_blinker": {
+        "accidents": 96,
+        "fatalities": 1,
+        "injuries": 85
+      },
+      "uncontrolled": {
+        "accidents": 249,
+        "fatalities": 6,
+        "injuries": 212
+      },
+      "others": {
+        "accidents": 1282,
+        "fatalities": 204,
+        "injuries": 990
+      },
+      "total": {
+        "accidents": 2500,
+        "fatalities": 267,
+        "injuries": 2004
+      },
+      "uncontrolled_fatality_share_pct": 2.2,
+      "signal_controlled_fatality_share_pct": 12.7
+    },
+    {
+      "city": "Faridabad",
+      "traffic_light": {
+        "accidents": 20,
+        "fatalities": 6,
+        "injuries": 19
+      },
+      "police_controlled": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "stop_sign": {
+        "accidents": 7,
+        "fatalities": 2,
+        "injuries": 7
+      },
+      "flashing_blinker": {
+        "accidents": 30,
+        "fatalities": 8,
+        "injuries": 28
+      },
+      "uncontrolled": {
+        "accidents": 53,
+        "fatalities": 23,
+        "injuries": 44
+      },
+      "others": {
+        "accidents": 579,
+        "fatalities": 225,
+        "injuries": 537
+      },
+      "total": {
+        "accidents": 689,
+        "fatalities": 264,
+        "injuries": 635
+      },
+      "uncontrolled_fatality_share_pct": 8.7,
+      "signal_controlled_fatality_share_pct": 2.3
+    },
+    {
+      "city": "Ludhiana",
+      "traffic_light": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "police_controlled": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "stop_sign": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "flashing_blinker": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "uncontrolled": {
+        "accidents": 18,
+        "fatalities": 11,
+        "injuries": 7
+      },
+      "others": {
+        "accidents": 535,
+        "fatalities": 253,
+        "injuries": 282
+      },
+      "total": {
+        "accidents": 553,
+        "fatalities": 264,
+        "injuries": 289
+      },
+      "uncontrolled_fatality_share_pct": 4.2,
+      "signal_controlled_fatality_share_pct": 0.0
+    },
+    {
+      "city": "Bhopal",
+      "traffic_light": {
+        "accidents": 274,
+        "fatalities": 3,
+        "injuries": 250
+      },
+      "police_controlled": {
+        "accidents": 98,
+        "fatalities": 6,
+        "injuries": 71
+      },
+      "stop_sign": {
+        "accidents": 328,
+        "fatalities": 12,
+        "injuries": 310
+      },
+      "flashing_blinker": {
+        "accidents": 44,
+        "fatalities": 2,
+        "injuries": 25
+      },
+      "uncontrolled": {
+        "accidents": 1183,
+        "fatalities": 123,
+        "injuries": 897
+      },
+      "others": {
+        "accidents": 1360,
+        "fatalities": 113,
+        "injuries": 1077
+      },
+      "total": {
+        "accidents": 3287,
+        "fatalities": 259,
+        "injuries": 2630
+      },
+      "uncontrolled_fatality_share_pct": 47.5,
+      "signal_controlled_fatality_share_pct": 1.2
+    },
+    {
+      "city": "Nagpur",
+      "traffic_light": {
+        "accidents": 74,
+        "fatalities": 7,
+        "injuries": 83
+      },
+      "police_controlled": {
+        "accidents": 16,
+        "fatalities": 3,
+        "injuries": 15
+      },
+      "stop_sign": {
+        "accidents": 17,
+        "fatalities": 1,
+        "injuries": 19
+      },
+      "flashing_blinker": {
+        "accidents": 22,
+        "fatalities": 2,
+        "injuries": 27
+      },
+      "uncontrolled": {
+        "accidents": 110,
+        "fatalities": 24,
+        "injuries": 125
+      },
+      "others": {
+        "accidents": 768,
+        "fatalities": 213,
+        "injuries": 773
+      },
+      "total": {
+        "accidents": 1007,
+        "fatalities": 250,
+        "injuries": 1042
+      },
+      "uncontrolled_fatality_share_pct": 9.6,
+      "signal_controlled_fatality_share_pct": 2.8
+    },
+    {
+      "city": "Kollam",
+      "traffic_light": {
+        "accidents": 123,
+        "fatalities": 13,
+        "injuries": 121
+      },
+      "police_controlled": {
+        "accidents": 183,
+        "fatalities": 19,
+        "injuries": 184
+      },
+      "stop_sign": {
+        "accidents": 101,
+        "fatalities": 9,
+        "injuries": 100
+      },
+      "flashing_blinker": {
+        "accidents": 79,
+        "fatalities": 7,
+        "injuries": 102
+      },
+      "uncontrolled": {
+        "accidents": 468,
+        "fatalities": 52,
+        "injuries": 502
+      },
+      "others": {
+        "accidents": 986,
+        "fatalities": 125,
+        "injuries": 972
+      },
+      "total": {
+        "accidents": 1940,
+        "fatalities": 225,
+        "injuries": 1981
+      },
+      "uncontrolled_fatality_share_pct": 23.1,
+      "signal_controlled_fatality_share_pct": 5.8
+    },
+    {
+      "city": "Kota",
+      "traffic_light": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "police_controlled": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "stop_sign": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "flashing_blinker": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "uncontrolled": {
+        "accidents": 141,
+        "fatalities": 15,
+        "injuries": 129
+      },
+      "others": {
+        "accidents": 643,
+        "fatalities": 210,
+        "injuries": 684
+      },
+      "total": {
+        "accidents": 784,
+        "fatalities": 225,
+        "injuries": 813
+      },
+      "uncontrolled_fatality_share_pct": 6.7,
+      "signal_controlled_fatality_share_pct": 0.0
+    },
+    {
+      "city": "Thrissur",
+      "traffic_light": {
+        "accidents": 20,
+        "fatalities": 2,
+        "injuries": 26
+      },
+      "police_controlled": {
+        "accidents": 148,
+        "fatalities": 14,
+        "injuries": 171
+      },
+      "stop_sign": {
+        "accidents": 2,
+        "fatalities": 0,
+        "injuries": 3
+      },
+      "flashing_blinker": {
+        "accidents": 7,
+        "fatalities": 3,
+        "injuries": 8
+      },
+      "uncontrolled": {
+        "accidents": 743,
+        "fatalities": 61,
+        "injuries": 871
+      },
+      "others": {
+        "accidents": 1290,
+        "fatalities": 133,
+        "injuries": 1412
+      },
+      "total": {
+        "accidents": 2210,
+        "fatalities": 213,
+        "injuries": 2491
+      },
+      "uncontrolled_fatality_share_pct": 28.6,
+      "signal_controlled_fatality_share_pct": 0.9
+    },
+    {
+      "city": "Pune",
+      "traffic_light": {
+        "accidents": 238,
+        "fatalities": 49,
+        "injuries": 177
+      },
+      "police_controlled": {
+        "accidents": 110,
+        "fatalities": 25,
+        "injuries": 81
+      },
+      "stop_sign": {
+        "accidents": 99,
+        "fatalities": 28,
+        "injuries": 62
+      },
+      "flashing_blinker": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "uncontrolled": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "others": {
+        "accidents": 344,
+        "fatalities": 104,
+        "injuries": 306
+      },
+      "total": {
+        "accidents": 791,
+        "fatalities": 206,
+        "injuries": 626
+      },
+      "uncontrolled_fatality_share_pct": 0.0,
+      "signal_controlled_fatality_share_pct": 23.8
+    },
+    {
+      "city": "Thiruvanthapuram",
+      "traffic_light": {
+        "accidents": 196,
+        "fatalities": 28,
+        "injuries": 215
+      },
+      "police_controlled": {
+        "accidents": 105,
+        "fatalities": 8,
+        "injuries": 117
+      },
+      "stop_sign": {
+        "accidents": 4,
+        "fatalities": 0,
+        "injuries": 6
+      },
+      "flashing_blinker": {
+        "accidents": 9,
+        "fatalities": 0,
+        "injuries": 15
+      },
+      "uncontrolled": {
+        "accidents": 395,
+        "fatalities": 37,
+        "injuries": 450
+      },
+      "others": {
+        "accidents": 1286,
+        "fatalities": 132,
+        "injuries": 1381
+      },
+      "total": {
+        "accidents": 1995,
+        "fatalities": 205,
+        "injuries": 2184
+      },
+      "uncontrolled_fatality_share_pct": 18.0,
+      "signal_controlled_fatality_share_pct": 13.7
+    },
+    {
+      "city": "Aurangabad",
+      "traffic_light": {
+        "accidents": 2,
+        "fatalities": 1,
+        "injuries": 1
+      },
+      "police_controlled": {
+        "accidents": 6,
+        "fatalities": 1,
+        "injuries": 3
+      },
+      "stop_sign": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "flashing_blinker": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "uncontrolled": {
+        "accidents": 138,
+        "fatalities": 54,
+        "injuries": 109
+      },
+      "others": {
+        "accidents": 414,
+        "fatalities": 143,
+        "injuries": 321
+      },
+      "total": {
+        "accidents": 560,
+        "fatalities": 199,
+        "injuries": 434
+      },
+      "uncontrolled_fatality_share_pct": 27.1,
+      "signal_controlled_fatality_share_pct": 0.5
+    },
+    {
+      "city": "Madurai",
+      "traffic_light": {
+        "accidents": 36,
+        "fatalities": 4,
+        "injuries": 37
+      },
+      "police_controlled": {
+        "accidents": 6,
+        "fatalities": 0,
+        "injuries": 7
+      },
+      "stop_sign": {
+        "accidents": 8,
+        "fatalities": 2,
+        "injuries": 7
+      },
+      "flashing_blinker": {
+        "accidents": 2,
+        "fatalities": 0,
+        "injuries": 4
+      },
+      "uncontrolled": {
+        "accidents": 74,
+        "fatalities": 18,
+        "injuries": 78
+      },
+      "others": {
+        "accidents": 740,
+        "fatalities": 169,
+        "injuries": 666
+      },
+      "total": {
+        "accidents": 866,
+        "fatalities": 193,
+        "injuries": 799
+      },
+      "uncontrolled_fatality_share_pct": 9.3,
+      "signal_controlled_fatality_share_pct": 2.1
+    },
+    {
+      "city": "Patna",
+      "traffic_light": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "police_controlled": {
+        "accidents": 38,
+        "fatalities": 15,
+        "injuries": 42
+      },
+      "stop_sign": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "flashing_blinker": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "uncontrolled": {
+        "accidents": 101,
+        "fatalities": 40,
+        "injuries": 68
+      },
+      "others": {
+        "accidents": 385,
+        "fatalities": 137,
+        "injuries": 204
+      },
+      "total": {
+        "accidents": 524,
+        "fatalities": 192,
+        "injuries": 314
+      },
+      "uncontrolled_fatality_share_pct": 20.8,
+      "signal_controlled_fatality_share_pct": 0.0
+    },
+    {
+      "city": "Khozikode",
+      "traffic_light": {
+        "accidents": 48,
+        "fatalities": 7,
+        "injuries": 38
+      },
+      "police_controlled": {
+        "accidents": 65,
+        "fatalities": 6,
+        "injuries": 69
+      },
+      "stop_sign": {
+        "accidents": 2,
+        "fatalities": 0,
+        "injuries": 2
+      },
+      "flashing_blinker": {
+        "accidents": 5,
+        "fatalities": 0,
+        "injuries": 7
+      },
+      "uncontrolled": {
+        "accidents": 424,
+        "fatalities": 30,
+        "injuries": 437
+      },
+      "others": {
+        "accidents": 1053,
+        "fatalities": 136,
+        "injuries": 1044
+      },
+      "total": {
+        "accidents": 1597,
+        "fatalities": 179,
+        "injuries": 1597
+      },
+      "uncontrolled_fatality_share_pct": 16.8,
+      "signal_controlled_fatality_share_pct": 3.9
+    },
+    {
+      "city": "Nashik",
+      "traffic_light": {
+        "accidents": 19,
+        "fatalities": 2,
+        "injuries": 24
+      },
+      "police_controlled": {
+        "accidents": 3,
+        "fatalities": 2,
+        "injuries": 2
+      },
+      "stop_sign": {
+        "accidents": 91,
+        "fatalities": 25,
+        "injuries": 83
+      },
+      "flashing_blinker": {
+        "accidents": 58,
+        "fatalities": 18,
+        "injuries": 55
+      },
+      "uncontrolled": {
+        "accidents": 20,
+        "fatalities": 7,
+        "injuries": 20
+      },
+      "others": {
+        "accidents": 362,
+        "fatalities": 123,
+        "injuries": 356
+      },
+      "total": {
+        "accidents": 553,
+        "fatalities": 177,
+        "injuries": 540
+      },
+      "uncontrolled_fatality_share_pct": 4.0,
+      "signal_controlled_fatality_share_pct": 1.1
+    },
+    {
+      "city": "Rajkot",
+      "traffic_light": {
+        "accidents": 22,
+        "fatalities": 7,
+        "injuries": 17
+      },
+      "police_controlled": {
+        "accidents": 95,
+        "fatalities": 43,
+        "injuries": 52
+      },
+      "stop_sign": {
+        "accidents": 31,
+        "fatalities": 5,
+        "injuries": 29
+      },
+      "flashing_blinker": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "uncontrolled": {
+        "accidents": 145,
+        "fatalities": 27,
+        "injuries": 120
+      },
+      "others": {
+        "accidents": 282,
+        "fatalities": 88,
+        "injuries": 219
+      },
+      "total": {
+        "accidents": 575,
+        "fatalities": 170,
+        "injuries": 437
+      },
+      "uncontrolled_fatality_share_pct": 15.9,
+      "signal_controlled_fatality_share_pct": 4.1
+    },
+    {
+      "city": "Vadodra",
+      "traffic_light": {
+        "accidents": 16,
+        "fatalities": 0,
+        "injuries": 17
+      },
+      "police_controlled": {
+        "accidents": 3,
+        "fatalities": 0,
+        "injuries": 3
+      },
+      "stop_sign": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "flashing_blinker": {
+        "accidents": 20,
+        "fatalities": 4,
+        "injuries": 14
+      },
+      "uncontrolled": {
+        "accidents": 103,
+        "fatalities": 15,
+        "injuries": 87
+      },
+      "others": {
+        "accidents": 537,
+        "fatalities": 139,
+        "injuries": 430
+      },
+      "total": {
+        "accidents": 679,
+        "fatalities": 158,
+        "injuries": 551
+      },
+      "uncontrolled_fatality_share_pct": 9.5,
+      "signal_controlled_fatality_share_pct": 0.0
+    },
+    {
+      "city": "Kochi",
+      "traffic_light": {
+        "accidents": 204,
+        "fatalities": 9,
+        "injuries": 200
+      },
+      "police_controlled": {
+        "accidents": 532,
+        "fatalities": 21,
+        "injuries": 499
+      },
+      "stop_sign": {
+        "accidents": 11,
+        "fatalities": 1,
+        "injuries": 23
+      },
+      "flashing_blinker": {
+        "accidents": 30,
+        "fatalities": 4,
+        "injuries": 32
+      },
+      "uncontrolled": {
+        "accidents": 128,
+        "fatalities": 10,
+        "injuries": 124
+      },
+      "others": {
+        "accidents": 1385,
+        "fatalities": 110,
+        "injuries": 1376
+      },
+      "total": {
+        "accidents": 2290,
+        "fatalities": 155,
+        "injuries": 2254
+      },
+      "uncontrolled_fatality_share_pct": 6.5,
+      "signal_controlled_fatality_share_pct": 5.8
+    },
+    {
+      "city": "Coimbatore",
+      "traffic_light": {
+        "accidents": 93,
+        "fatalities": 14,
+        "injuries": 94
+      },
+      "police_controlled": {
+        "accidents": 8,
+        "fatalities": 0,
+        "injuries": 11
+      },
+      "stop_sign": {
+        "accidents": 6,
+        "fatalities": 0,
+        "injuries": 4
+      },
+      "flashing_blinker": {
+        "accidents": 18,
+        "fatalities": 2,
+        "injuries": 16
+      },
+      "uncontrolled": {
+        "accidents": 134,
+        "fatalities": 18,
+        "injuries": 134
+      },
+      "others": {
+        "accidents": 803,
+        "fatalities": 98,
+        "injuries": 814
+      },
+      "total": {
+        "accidents": 1062,
+        "fatalities": 132,
+        "injuries": 1073
+      },
+      "uncontrolled_fatality_share_pct": 13.6,
+      "signal_controlled_fatality_share_pct": 10.6
+    },
+    {
+      "city": "Dhanbad",
+      "traffic_light": {
+        "accidents": 47,
+        "fatalities": 36,
+        "injuries": 14
+      },
+      "police_controlled": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "stop_sign": {
+        "accidents": 50,
+        "fatalities": 40,
+        "injuries": 22
+      },
+      "flashing_blinker": {
+        "accidents": 3,
+        "fatalities": 2,
+        "injuries": 2
+      },
+      "uncontrolled": {
+        "accidents": 71,
+        "fatalities": 49,
+        "injuries": 37
+      },
+      "others": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "total": {
+        "accidents": 171,
+        "fatalities": 127,
+        "injuries": 75
+      },
+      "uncontrolled_fatality_share_pct": 38.6,
+      "signal_controlled_fatality_share_pct": 28.3
+    },
+    {
+      "city": "Chandigarh",
+      "traffic_light": {
+        "accidents": 58,
+        "fatalities": 18,
+        "injuries": 83
+      },
+      "police_controlled": {
+        "accidents": 1,
+        "fatalities": 0,
+        "injuries": 2
+      },
+      "stop_sign": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "flashing_blinker": {
+        "accidents": 9,
+        "fatalities": 4,
+        "injuries": 11
+      },
+      "uncontrolled": {
+        "accidents": 16,
+        "fatalities": 3,
+        "injuries": 11
+      },
+      "others": {
+        "accidents": 221,
+        "fatalities": 79,
+        "injuries": 168
+      },
+      "total": {
+        "accidents": 305,
+        "fatalities": 104,
+        "injuries": 275
+      },
+      "uncontrolled_fatality_share_pct": 2.9,
+      "signal_controlled_fatality_share_pct": 17.3
+    },
+    {
+      "city": "Tiruchirapalli",
+      "traffic_light": {
+        "accidents": 20,
+        "fatalities": 6,
+        "injuries": 14
+      },
+      "police_controlled": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "stop_sign": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "flashing_blinker": {
+        "accidents": 13,
+        "fatalities": 6,
+        "injuries": 6
+      },
+      "uncontrolled": {
+        "accidents": 294,
+        "fatalities": 67,
+        "injuries": 334
+      },
+      "others": {
+        "accidents": 190,
+        "fatalities": 25,
+        "injuries": 231
+      },
+      "total": {
+        "accidents": 517,
+        "fatalities": 104,
+        "injuries": 585
+      },
+      "uncontrolled_fatality_share_pct": 64.4,
+      "signal_controlled_fatality_share_pct": 5.8
+    },
+    {
+      "city": "Amritsar",
+      "traffic_light": {
+        "accidents": 1,
+        "fatalities": 0,
+        "injuries": 2
+      },
+      "police_controlled": {
+        "accidents": 1,
+        "fatalities": 1,
+        "injuries": 0
+      },
+      "stop_sign": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "flashing_blinker": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "uncontrolled": {
+        "accidents": 14,
+        "fatalities": 4,
+        "injuries": 9
+      },
+      "others": {
+        "accidents": 117,
+        "fatalities": 90,
+        "injuries": 65
+      },
+      "total": {
+        "accidents": 133,
+        "fatalities": 95,
+        "injuries": 76
+      },
+      "uncontrolled_fatality_share_pct": 4.2,
+      "signal_controlled_fatality_share_pct": 0.0
+    },
+    {
+      "city": "Jamshedpur",
+      "traffic_light": {
+        "accidents": 49,
+        "fatalities": 25,
+        "injuries": 30
+      },
+      "police_controlled": {
+        "accidents": 36,
+        "fatalities": 19,
+        "injuries": 25
+      },
+      "stop_sign": {
+        "accidents": 27,
+        "fatalities": 11,
+        "injuries": 19
+      },
+      "flashing_blinker": {
+        "accidents": 24,
+        "fatalities": 12,
+        "injuries": 17
+      },
+      "uncontrolled": {
+        "accidents": 55,
+        "fatalities": 25,
+        "injuries": 38
+      },
+      "others": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "total": {
+        "accidents": 191,
+        "fatalities": 92,
+        "injuries": 129
+      },
+      "uncontrolled_fatality_share_pct": 27.2,
+      "signal_controlled_fatality_share_pct": 27.2
+    },
+    {
+      "city": "Kannur",
+      "traffic_light": {
+        "accidents": 7,
+        "fatalities": 0,
+        "injuries": 10
+      },
+      "police_controlled": {
+        "accidents": 45,
+        "fatalities": 5,
+        "injuries": 56
+      },
+      "stop_sign": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "flashing_blinker": {
+        "accidents": 1,
+        "fatalities": 0,
+        "injuries": 3
+      },
+      "uncontrolled": {
+        "accidents": 116,
+        "fatalities": 20,
+        "injuries": 140
+      },
+      "others": {
+        "accidents": 488,
+        "fatalities": 57,
+        "injuries": 602
+      },
+      "total": {
+        "accidents": 657,
+        "fatalities": 82,
+        "injuries": 811
+      },
+      "uncontrolled_fatality_share_pct": 24.4,
+      "signal_controlled_fatality_share_pct": 0.0
+    },
+    {
+      "city": "Srinagar",
+      "traffic_light": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "police_controlled": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "stop_sign": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "flashing_blinker": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "uncontrolled": {
+        "accidents": 0,
+        "fatalities": 0,
+        "injuries": 0
+      },
+      "others": {
+        "accidents": 310,
+        "fatalities": 45,
+        "injuries": 323
+      },
+      "total": {
+        "accidents": 310,
+        "fatalities": 45,
+        "injuries": 323
+      },
+      "uncontrolled_fatality_share_pct": 0.0,
+      "signal_controlled_fatality_share_pct": 0.0
+    }
+  ]
+}

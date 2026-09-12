@@ -1,0 +1,3691 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RoadSafe India — AI Road Safety Intelligence Platform</title>
+  
+  <!-- Google Fonts & Leaflet CSS & Chart.js -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    :root {
+      --bg: #06111d;
+      --panel: #0b1928;
+      --panel-alt: #10243a;
+      --panel-hover: #162f4c;
+      --line: #1c3856;
+      --line-subtle: rgba(255, 255, 255, 0.08);
+      --text: #e8f2fc;
+      --muted: #8ea6be;
+      --subtle: #5f7a95;
+      
+      --accent-cyan: #06b6d4;
+      --accent-blue: #3b82f6;
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --purple: #a855f7;
+      
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-heading: 'Rajdhani', 'Inter', sans-serif;
+    }
+
+    /* LIGHT THEME VARIABLES & OVERRIDES */
+    body.light-theme {
+      --bg: #f1f5f9;
+      --panel: #ffffff;
+      --panel-alt: #f8fafc;
+      --panel-hover: #e2e8f0;
+      --line: #cbd5e1;
+      --line-subtle: rgba(0, 0, 0, 0.08);
+      --text: #0f172a;
+      --muted: #475569;
+      --subtle: #64748b;
+      
+      --accent-cyan: #0284c7;
+      --accent-blue: #2563eb;
+      --green: #16a34a;
+      --amber: #d97706;
+      --red: #dc2626;
+      --purple: #9333ea;
+      
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 80% 10%, rgba(2, 132, 199, 0.06), transparent 40%),
+        radial-gradient(circle at 20% 90%, rgba(37, 99, 235, 0.05), transparent 45%);
+      color: var(--text);
+    }
+
+    body.light-theme .sidebar {
+      background: rgba(255, 255, 255, 0.95);
+      border-right-color: #cbd5e1;
+    }
+    body.light-theme .brand-title {
+      color: #0f172a;
+    }
+    body.light-theme .brand-sub {
+      color: #0284c7;
+    }
+    body.light-theme .nav-btn {
+      color: #475569;
+    }
+    body.light-theme .nav-btn:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+    body.light-theme .nav-btn.active {
+      background: #e0f2fe;
+      color: #0369a1;
+      border-color: #7dd3fc;
+    }
+    body.light-theme .card, 
+    body.light-theme .panel {
+      background: #ffffff;
+      border-color: #e2e8f0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+    body.light-theme .card-title, 
+    body.light-theme .panel-title {
+      color: #0f172a;
+    }
+    body.light-theme .topbar {
+      background: rgba(255, 255, 255, 0.88);
+      border-bottom-color: #cbd5e1;
+    }
+    body.light-theme .top-title {
+      color: #0f172a;
+    }
+    body.light-theme .kpi-card {
+      background: #ffffff;
+      border-color: #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+    body.light-theme .kpi-header,
+    body.light-theme .kpi-title {
+      color: #64748b;
+    }
+    body.light-theme .kpi-value {
+      color: #0f172a;
+    }
+    body.light-theme .form-input, 
+    body.light-theme .select-input {
+      background: #f8fafc;
+      color: #0f172a;
+      border-color: #cbd5e1;
+    }
+    body.light-theme .form-input:focus, 
+    body.light-theme .select-input:focus {
+      border-color: #0284c7;
+      background: #ffffff;
+    }
+    body.light-theme .data-table th {
+      background: #f1f5f9;
+      color: #334155;
+      border-bottom-color: #cbd5e1;
+    }
+    body.light-theme .data-table td {
+      border-bottom-color: #f1f5f9;
+      color: #0f172a;
+    }
+    body.light-theme .data-table tbody tr:hover {
+      background: #f8fafc;
+    }
+    body.light-theme .filter-chip {
+      background: #f8fafc;
+      color: #475569;
+      border-color: #cbd5e1;
+    }
+    body.light-theme .filter-chip:hover {
+      background: #e2e8f0;
+    }
+    body.light-theme .filter-chip.active {
+      background: #0284c7;
+      color: #ffffff;
+      border-color: #0284c7;
+    }
+    body.light-theme .modal-container {
+      background: #ffffff;
+      color: #0f172a;
+      border-color: #cbd5e1;
+    }
+    body.light-theme .modal-header {
+      border-bottom-color: #e2e8f0;
+    }
+    body.light-theme .modal-title {
+      color: #0f172a;
+    }
+    body.light-theme .inspector-body {
+      background: #ffffff;
+    }
+    body.light-theme .driver-item {
+      background: #f8fafc;
+      border-color: #e2e8f0;
+    }
+    body.light-theme .driver-item strong span:first-child {
+      color: #0f172a;
+    }
+    body.light-theme .map-btn {
+      background: #f1f5f9;
+      color: #0f172a;
+      border-color: #cbd5e1;
+    }
+    body.light-theme .map-btn:hover {
+      background: #e2e8f0;
+    }
+
+    /* THEME SWITCHER TOGGLE SLIDER */
+    .theme-switch-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 6px;
+    }
+    .theme-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 14px;
+      border-radius: 99px;
+      background: rgba(16, 36, 58, 0.9);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    .theme-toggle-btn:hover {
+      background: var(--panel-hover);
+      border-color: var(--accent-cyan);
+      transform: translateY(-1px);
+    }
+    body.light-theme .theme-toggle-btn {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      color: #0f172a;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+    body.light-theme .theme-toggle-btn:hover {
+      background: #f1f5f9;
+      border-color: #0284c7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 80% 10%, rgba(6, 182, 212, 0.08), transparent 40%),
+        radial-gradient(circle at 20% 90%, rgba(59, 130, 246, 0.06), transparent 45%);
+      color: var(--text);
+      display: flex;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Scrollbars */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent-cyan); }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 260px;
+      background: rgba(11, 25, 40, 0.92);
+      backdrop-filter: blur(12px);
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      padding: 24px 16px;
+      flex-shrink: 0;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+      padding-left: 4px;
+    }
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 800;
+      color: #04101d;
+      box-shadow: 0 4px 16px rgba(6, 182, 212, 0.35);
+    }
+    .brand-title {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #fff;
+    }
+    .brand-sub {
+      font-size: 10px;
+      color: var(--accent-cyan);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .nav-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--subtle);
+      font-weight: 700;
+      margin: 16px 0 8px 8px;
+    }
+    .nav-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+      overflow-y: auto;
+    }
+    .nav-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+    .nav-btn:hover {
+      background: var(--panel-hover);
+      color: var(--text);
+    }
+    .nav-btn.active {
+      background: var(--panel-alt);
+      color: #fff;
+      border-color: rgba(6, 182, 212, 0.3);
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .nav-icon {
+      font-size: 16px;
+      color: var(--accent-cyan);
+      width: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .sidebar-footer {
+      padding-top: 14px;
+      border-top: 1px solid var(--line-subtle);
+      font-size: 11px;
+      color: var(--subtle);
+      line-height: 1.5;
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      color: #86efac;
+      padding: 3px 8px;
+      border-radius: 99px;
+      font-size: 10px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .status-pulse {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* MAIN CONTENT */
+    .main-content {
+      margin-left: 260px;
+      flex: 1;
+      padding: 24px 32px;
+      max-width: 1680px;
+    }
+
+    /* TOP BAR */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .top-title {
+      font-family: var(--font-heading);
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .top-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .select-input {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      outline: none;
+      cursor: pointer;
+    }
+    .select-input:hover { border-color: var(--accent-cyan); }
+    .btn-action {
+      background: var(--panel-alt);
+      border: 1px solid var(--line);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-action:hover {
+      background: var(--panel-hover);
+      border-color: var(--accent-cyan);
+      color: #fff;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      border-color: #38bdf8;
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #0369a1, #075985);
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+    }
+
+    /* KPI CARDS */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+    .kpi-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+    .kpi-card:hover { transform: translateY(-2px); }
+    .kpi-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .kpi-cyan::after { background: var(--accent-cyan); }
+    .kpi-red::after { background: var(--red); }
+    .kpi-amber::after { background: var(--amber); }
+    .kpi-green::after { background: var(--green); }
+
+    .kpi-header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .kpi-value {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+    }
+    .kpi-delta {
+      font-size: 11px;
+      margin-top: 4px;
+      color: var(--muted);
+    }
+    .kpi-delta.highlight { color: #38bdf8; }
+
+    /* LAYOUTS & CARDS */
+    .dashboard-layout {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.22);
+    }
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .badge {
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-critical { background: rgba(239, 68, 68, 0.18); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.35); }
+    .badge-high { background: rgba(245, 158, 11, 0.18); color: #fcd34d; border: 1px solid rgba(245, 158, 11, 0.35); }
+    .badge-mod { background: rgba(59, 130, 246, 0.18); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.35); }
+    .badge-low { background: rgba(34, 197, 94, 0.18); color: #86efac; border: 1px solid rgba(34, 197, 94, 0.35); }
+    .badge-cyan { background: rgba(6, 182, 212, 0.18); color: #67e8f9; border: 1px solid rgba(6, 182, 212, 0.35); }
+    .badge-zone { background: rgba(168, 85, 247, 0.18); color: #d8b4fe; border: 1px solid rgba(168, 85, 247, 0.35); }
+
+    /* FILTER CHIPS */
+    .chips-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .filter-chip {
+      background: var(--panel-alt);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      padding: 5px 12px;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-chip:hover {
+      background: var(--line);
+      color: #fff;
+    }
+    .filter-chip.active {
+      background: rgba(6, 182, 212, 0.18);
+      border-color: var(--accent-cyan);
+      color: #67e8f9;
+      font-weight: 700;
+    }
+
+    /* Map Element */
+    #map {
+      height: 520px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      z-index: 1;
+    }
+    .leaflet-popup-content-wrapper {
+      background: #0b1928 !important;
+      color: #f1f5f9 !important;
+      border-radius: 12px !important;
+      border: 1px solid #1c3856 !important;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6) !important;
+      padding: 4px !important;
+    }
+    .leaflet-popup-tip {
+      background: #0b1928 !important;
+      border: 1px solid #1c3856 !important;
+    }
+    .leaflet-tooltip {
+      background: rgba(11, 25, 40, 0.95) !important;
+      border: 1px solid #06b6d4 !important;
+      color: #f8fafc !important;
+      border-radius: 6px !important;
+      font-family: var(--font-body) !important;
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      padding: 4px 8px !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+    }
+    .map-controls-group {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .map-btn {
+      background: var(--panel-alt);
+      border: 1px solid var(--line);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 11px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .map-btn:hover {
+      background: var(--line);
+      border-color: var(--accent-cyan);
+      color: #fff;
+    }
+
+    /* Explainable AI Inspector */
+    .xai-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .risk-gauge-box {
+      background: var(--panel-alt);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .risk-score-display {
+      font-family: var(--font-heading);
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--red);
+    }
+    .driver-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .driver-item {
+      background: var(--panel-alt);
+      border-left: 3px solid var(--accent-cyan);
+      padding: 8px 12px;
+      border-radius: 0 8px 8px 0;
+      font-size: 11px;
+    }
+    .driver-item strong {
+      display: flex;
+      justify-content: space-between;
+      color: #fff;
+      font-size: 12px;
+      margin-bottom: 2px;
+    }
+    .trauma-box {
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 11px;
+    }
+
+    /* TABLES */
+    .data-table-wrap {
+      overflow-x: auto;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      text-align: left;
+    }
+    .data-table th {
+      background: var(--panel-alt);
+      padding: 10px 14px;
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--line);
+    }
+    .data-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--line-subtle);
+      color: var(--text);
+    }
+    .data-table tr:hover td {
+      background: var(--panel-hover);
+    }
+
+    /* DIURNAL & VRU CARDS */
+    .vru-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .vru-card {
+      background: var(--panel-alt);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .vru-card:hover, .vru-card.active {
+      border-color: var(--accent-cyan);
+      background: var(--panel-hover);
+      transform: translateY(-2px);
+    }
+    .vru-card .vru-icon { font-size: 24px; margin-bottom: 4px; }
+    .vru-card .vru-share { font-size: 18px; font-weight: 800; color: #fff; font-family: var(--font-heading); }
+    .vru-card .vru-label { font-size: 11px; color: var(--muted); font-weight: 600; }
+
+    /* SIMULATOR GRID */
+    .sim-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 20px;
+    }
+    .intervention-toggle {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: var(--panel-alt);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .intervention-toggle:hover {
+      border-color: var(--accent-cyan);
+      background: var(--panel-hover);
+    }
+    .intervention-toggle input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent-cyan);
+      cursor: pointer;
+    }
+    .sim-results-box {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.08), rgba(16, 36, 58, 0.8));
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .sim-metrics-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 18px 0;
+    }
+    .sim-metric {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+    }
+    .sim-metric-val {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 800;
+    }
+    .economic-box {
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* MODAL */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 12, 20, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal-card {
+      width: 100%;
+      max-width: 760px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .form-full { grid-column: 1 / -1; }
+    .form-grid label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+    .form-grid input, .form-grid select, .form-grid textarea {
+      width: 100%;
+      background: var(--panel-alt);
+      border: 1px solid var(--line);
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      outline: none;
+    }
+    .form-grid input:focus, .form-grid select:focus {
+      border-color: var(--accent-cyan);
+    }
+
+    /* View Switcher */
+    .view-section { display: none; }
+    .view-section.active { display: block; animation: fadeIn 0.25s ease; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1024px) {
+      .sidebar { width: 72px; padding: 18px 8px; }
+      .brand-title, .brand-sub, .nav-btn span, .nav-label, .sidebar-footer { display: none; }
+      .main-content { margin-left: 72px; padding: 20px 16px; }
+      .dashboard-layout, .sim-grid { grid-template-columns: 1fr; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .kpi-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">R</div>
+      <div>
+        <div class="brand-title">RoadSafe AI</div>
+        <div class="brand-sub">National Intelligence Grid</div>
+      </div>
+    </div>
+
+    <div class="nav-label">Decision Support</div>
+    <nav class="nav-menu">
+      <button class="nav-btn active" onclick="switchTab('tab-command', this)">
+        <span class="nav-icon">◈</span>
+        <span>National Command</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('tab-where-why', this)">
+        <span class="nav-icon">⌖</span>
+        <span>Where &amp; Why (Spatial/Cause)</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('tab-who-when', this)">
+        <span class="nav-icon">▵</span>
+        <span>Who &amp; When (VRU/Diurnal)</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('tab-macro-junctions', this)">
+        <span class="nav-icon">📈</span>
+        <span>50-Yr Macro &amp; City Junctions</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('tab-prediction', this)">
+        <span class="nav-icon">↗</span>
+        <span>AI Risk Predictor &amp; Forecast</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('tab-simulation', this)">
+        <span class="nav-icon">⚡</span>
+        <span>Counterfactual Simulator</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('tab-route', this)">
+        <span class="nav-icon">✚</span>
+        <span>Safe Route &amp; Golden Hour</span>
+      </button>
+      <button class="nav-btn" onclick="switchTab('tab-records', this)">
+        <span class="nav-icon">▤</span>
+        <span>Blackspot Evidence Base</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="status-pill">
+        <span class="status-pulse"></span>
+        <span>AI SCORING ONLINE</span>
+      </div>
+      <div>
+        <strong>Problem Statement 03</strong><br>
+        Transport: RoadSafe India<br>
+        <span style="color:var(--accent-cyan)">Team 015 National Hackathon</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN VIEW CONTAINER -->
+  <main class="main-content">
+    
+    <!-- TOP EXECUTIVE BAR -->
+    <header class="topbar">
+      <div>
+        <div class="top-title" id="pageHeading">National Road Safety Command Center</div>
+        <div class="top-sub">Pan-India predictive intelligence powered by MoRTH, NCRB, and IRC standards across all 36 States &amp; UTs.</div>
+      </div>
+      <div class="filter-bar">
+        <select id="stateFilterSelect" class="select-input" onchange="onStateFilterChange(this.value)">
+          <option value="All">All 36 States &amp; UTs</option>
+          <!-- Populated dynamically -->
+        </select>
+        <select id="roadTypeSelect" class="select-input" onchange="onRoadTypeFilterChange(this.value)">
+          <option value="All">All Road Types</option>
+          <option value="national_highway">National Highways (NH)</option>
+          <option value="expressway">Expressways</option>
+          <option value="state_highway">State Highways</option>
+          <option value="urban_arterial">Urban Arterials</option>
+        </select>
+        <button class="btn-action btn-primary" onclick="openIncidentModal()">＋ Report Incident</button>
+        <button class="btn-action" onclick="seedNationalData()">↻ Seed MoRTH Base</button>
+        <div class="theme-switch-container">
+          <button id="themeToggleBtn" class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle Dark / Light Theme">
+            <span id="themeIcon">☀️</span>
+            <span id="themeLabel">Light Mode</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- KPI SUMMARY CARDS -->
+    <div class="kpi-grid">
+      <div class="kpi-card kpi-cyan">
+        <div class="kpi-header">Monitored Blackspots</div>
+        <div class="kpi-value" id="kpiBlackspots">95</div>
+        <div class="kpi-delta highlight">● All 36 Indian States &amp; UTs</div>
+      </div>
+      <div class="kpi-card kpi-red">
+        <div class="kpi-header">Critical Risk Corridors</div>
+        <div class="kpi-value" id="kpiCritical">38</div>
+        <div class="kpi-delta">● Score ≥ 80 / 100 on ML Index</div>
+      </div>
+      <div class="kpi-card kpi-amber">
+        <div class="kpi-header">Recorded 3-Yr Fatalities</div>
+        <div class="kpi-value" id="kpiFatalities">2,410</div>
+        <div class="kpi-delta">● Severe &amp; Fatal Crash Outcomes</div>
+      </div>
+      <div class="kpi-card kpi-green">
+        <div class="kpi-header">Preventable Lives / Year</div>
+        <div class="kpi-value" id="kpiPreventable">915</div>
+        <div class="kpi-delta highlight">▲ Projected with P1+P2 Interventions</div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 1: COMMAND CENTER ==================== -->
+    <section id="tab-command" class="view-section active">
+      <div class="dashboard-layout">
+        <!-- GIS Map Card -->
+        <div class="card">
+          <div class="card-title">
+            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+              <span>India Road Hazard &amp; Blackspot Risk Map</span>
+              <span class="badge badge-cyan" id="activeMapBadge">Google Maps (Streets)</span>
+            </div>
+            <div class="map-controls-group">
+              <div style="display:flex; gap:6px; align-items:center;">
+                <span style="font-size:11px; color:var(--muted)">Basemap:</span>
+                <select id="mapBaseSelect" class="select-input" onchange="changeBasemap(this.value)">
+                  <option value="google_streets" selected>🗺️ Google Maps (Streets)</option>
+                  <option value="google_hybrid">🛰️ Google Satellite (Hybrid)</option>
+                  <option value="google_traffic">🚦 Google Roads + Live Traffic</option>
+                  <option value="google_terrain">⛰️ Google Terrain</option>
+                  <option value="esri_streets">🌐 Esri Navigation</option>
+                  <option value="osm_standard">📍 OpenStreetMap</option>
+                  <option value="dark_clean">🌙 Tactical Dark (Clean)</option>
+                </select>
+              </div>
+              <div style="display:flex; gap:6px; align-items:center;">
+                <span style="font-size:11px; color:var(--muted)">Jump:</span>
+                <select id="mapStateJump" class="select-input" onchange="jumpToState(this.value)">
+                  <option value="All">🇮🇳 Pan-India Overview</option>
+                  <!-- Populated dynamically -->
+                </select>
+              </div>
+              <div style="display:flex; gap:6px; align-items:center;">
+                <span style="font-size:11px; color:var(--muted)">Metric:</span>
+                <select id="mapMetricMode" class="select-input" onchange="renderMapMarkers()">
+                  <option value="risk">ML Risk Score (0-100)</option>
+                  <option value="fatalities">Historical Fatalities</option>
+                </select>
+              </div>
+              <button class="map-btn" onclick="fitIndiaView()" title="Fit India view">
+                🇮🇳 Reset View
+              </button>
+            </div>
+          </div>
+
+          <!-- Risk Filter Chips -->
+          <div class="chips-row" id="blackspotSeverityChips" style="margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+            <span style="font-size:11px; color:var(--muted); font-weight:700;">Blackspot Severity:</span>
+            <button class="filter-chip active" id="chip-all" onclick="filterMapByRisk('all', this)">All Blackspots (<span id="chipAllCount">130</span>)</button>
+            <button class="filter-chip" id="chip-crit" onclick="filterMapByRisk('critical', this)" style="border-color: rgba(239, 68, 68, 0.4); color: #fca5a5;">🔴 Critical ≥80 (<span id="chipCritCount">41</span>)</button>
+            <button class="filter-chip" id="chip-high" onclick="filterMapByRisk('high', this)" style="border-color: rgba(245, 158, 11, 0.4); color: #fde68a;">🟠 High 60-79 (<span id="chipHighCount">55</span>)</button>
+            <button class="filter-chip" id="chip-mod" onclick="filterMapByRisk('moderate', this)" style="border-color: rgba(6, 182, 212, 0.4); color: #a5f3fc;">🔵 Moderate &lt;60 (<span id="chipModCount">34</span>)</button>
+          </div>
+
+          <!-- Color-Coded Highway Hazard Network Filter -->
+          <div class="chips-row" style="background: rgba(15, 23, 42, 0.6); padding: 8px 12px; border-radius: 8px; border: 1px solid var(--line-subtle); margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <input type="checkbox" id="toggleHighwayCheck" checked onchange="toggleHighwayLayer(this.checked)" style="accent-color: var(--accent-cyan); cursor:pointer;">
+              <label for="toggleHighwayCheck" style="font-size:11.5px; color:#fff; font-weight:700; cursor:pointer;">🛣️ Color-Coded Highways:</label>
+            </div>
+            <button class="filter-chip active" id="hwChip-all" onclick="filterHighwaysByRisk('all', this)" style="border-color: rgba(6, 182, 212, 0.4);">All Major Corridors (<span id="hwCount-all">50</span>)</button>
+            <button class="filter-chip" id="hwChip-red" onclick="filterHighwaysByRisk('red', this)" style="border-color: rgba(239, 68, 68, 0.4); color: #fca5a5;">🔴 Red: Extreme (<span id="hwCount-red">14</span>)</button>
+            <button class="filter-chip" id="hwChip-orange" onclick="filterHighwaysByRisk('orange', this)" style="border-color: rgba(249, 115, 22, 0.4); color: #fdba74;">🟠 Orange: Moderate (<span id="hwCount-orange">14</span>)</button>
+            <button class="filter-chip" id="hwChip-yellow" onclick="filterHighwaysByRisk('yellow', this)" style="border-color: rgba(234, 179, 8, 0.4); color: #fde047;">🟡 Yellow: Very Few (<span id="hwCount-yellow">12</span>)</button>
+            <button class="filter-chip" id="hwChip-green" onclick="filterHighwaysByRisk('green', this)" style="border-color: rgba(34, 197, 94, 0.4); color: #86efac;">🟢 Green: Safe (<span id="hwCount-green">10</span>)</button>
+          </div>
+
+          <div id="map"></div>
+          
+          <div style="margin-top:12px; padding:10px 14px; background:rgba(11,25,40,0.85); border-radius:8px; border:1px solid var(--line-subtle); display:flex; justify-content:space-between; align-items:center; font-size:11px; color:var(--muted); flex-wrap:wrap; gap:12px;">
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <div style="font-weight:700; color:#fff; font-size:11.5px; display:flex; align-items:center; gap:6px;">
+                <span>🛣️ Highway Accident Severity Color Code:</span>
+              </div>
+              <div style="display:flex; gap:14px; flex-wrap:wrap;">
+                <span><span style="color:#22c55e; font-size:14px; font-weight:800;">━━</span> 🟢 <strong>Green</strong>: No Accidents (Safe Corridor)</span>
+                <span><span style="color:#eab308; font-size:14px; font-weight:800;">━━</span> 🟡 <strong>Yellow</strong>: Very Few Accidents (1–15)</span>
+                <span><span style="color:#f97316; font-size:14px; font-weight:800;">━━</span> 🟠 <strong>Orange</strong>: Moderate Accidents (16–44)</span>
+                <span><span style="color:#ef4444; font-size:14px; font-weight:800;">━━</span> 🔴 <strong>Red</strong>: Extreme Accidents (45+ High Fatalities)</span>
+              </div>
+            </div>
+            <div style="font-size:11px; color:#38bdf8;">
+              ⚡ Click any highway line or blackspot circle for audit details
+            </div>
+          </div>
+        </div>
+
+        <!-- Explainable AI Live Inspector -->
+        <div class="card xai-panel">
+          <div class="card-title">
+            <span>Explainable AI Inspector</span>
+            <span class="badge badge-critical" id="inspectorBand">CRITICAL</span>
+          </div>
+          
+          <div>
+            <strong id="inspectorLocation" style="font-size:15px; color:white;">Mukarba Chowk Flyover Junction, NH-44</strong>
+            <div id="inspectorCorridor" style="font-size:12px; color:var(--accent-cyan); margin-top:2px;">NH-44 / Ring Road Merge · North Delhi, Delhi</div>
+          </div>
+
+          <div class="risk-gauge-box">
+            <div>
+              <div style="font-size:10px; text-transform:uppercase; color:var(--muted); font-weight:700;">Predicted Risk Score</div>
+              <div class="risk-score-display" id="inspectorScore">85<span style="font-size:16px; color:var(--muted)">/100</span></div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:10px; text-transform:uppercase; color:var(--muted); font-weight:700;">Safe Speed Threshold</div>
+              <div style="font-size:22px; font-weight:800; color:var(--accent-cyan);" id="inspectorSpeed">65 km/h</div>
+              <div style="font-size:10px; color:var(--subtle)" id="inspectorObsSpeed">Obs: 92 km/h</div>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--muted); margin-bottom:6px;">
+              Why is the Risk High? (Additive Feature Drivers)
+            </div>
+            <div class="driver-list" id="inspectorDrivers">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <div class="trauma-box">
+            <strong style="color:var(--accent-cyan); display:block; margin-bottom:2px;">✚ Nearest Trauma Care &amp; Golden Hour Dispatch</strong>
+            <span id="inspectorTrauma">AIIMS Apex Trauma Centre (8.5 km, ~9 min dispatch)</span>
+          </div>
+
+          <button class="btn-action btn-primary" onclick="testCurrentSpotInSimulator()" style="width:100%; justify-content:center; padding:10px;">
+            ⚡ Test Interventions in What-If Simulator →
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Charts Bottom Row -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+        <div class="card">
+          <div class="card-title">National Crash Severity Profile</div>
+          <div style="height:220px;"><canvas id="chartSeverity"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Dominant Road Category Lethality</div>
+          <div style="height:220px;"><canvas id="chartRoadTypes"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 2: WHERE & WHY ==================== -->
+    <section id="tab-where-why" class="view-section">
+      <div class="card" style="margin-bottom:18px;">
+        <div class="card-title">
+          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+            <span>Question 1 &amp; 2: Where are accidents most likely to occur? (All 36 States &amp; UTs)</span>
+            <span class="badge badge-cyan">Official MoRTH 2018–2023 Longitudinal Grid</span>
+          </div>
+          <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+            <input type="text" id="stateTableSearch" placeholder="Search state, UT, or corridor..." class="select-input" style="width:240px;" oninput="filterStateTable(this.value)" />
+          </div>
+        </div>
+
+        <!-- Zone Filters -->
+        <div class="chips-row">
+          <span style="font-size:11px; color:var(--muted); font-weight:700;">Filter Zone:</span>
+          <button class="filter-chip active" onclick="filterStateByZone('All', this)">All (36)</button>
+          <button class="filter-chip" onclick="filterStateByZone('North', this)">North</button>
+          <button class="filter-chip" onclick="filterStateByZone('South', this)">South</button>
+          <button class="filter-chip" onclick="filterStateByZone('East', this)">East</button>
+          <button class="filter-chip" onclick="filterStateByZone('West', this)">West</button>
+          <button class="filter-chip" onclick="filterStateByZone('Central', this)">Central</button>
+          <button class="filter-chip" onclick="filterStateByZone('North-East', this)">North-East</button>
+          <button class="filter-chip" onclick="filterStateByZone('Union Territory', this)">Union Territories</button>
+        </div>
+
+        <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">
+          Comprehensive national ranking across all 28 States and 8 Union Territories. Click on any State row to inspect its full 6-year trend dossier, key blackspots, and regional interventions.
+        </p>
+
+        <div class="data-table-wrap">
+          <table class="data-table" id="tableStateRankings">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>State / Union Territory</th>
+                <th>Zone</th>
+                <th>2023 Crashes</th>
+                <th>2023 Fatalities</th>
+                <th>Severity Index</th>
+                <th>Primary Corridors</th>
+                <th>Blackspots</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="stateRankingsBody"><!-- Populated dynamically --></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Causal Breakdown Row -->
+      <div style="display:grid; grid-template-columns:1.1fr 1fr; gap:18px;">
+        <div class="card">
+          <div class="card-title">
+            <span>MoRTH Cause of Accident Breakdown (Dataset D)</span>
+            <span class="badge badge-critical">69.6% Overspeeding</span>
+          </div>
+          <p style="font-size:12px; color:var(--muted); margin-bottom:12px;">
+            Click on any cause below to reveal empirical engineering countermeasure protocols:
+          </p>
+          <div id="causesInteractiveGrid" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
+            <!-- Populated dynamically -->
+          </div>
+          <div id="causeCountermeasureBox" style="background:var(--panel-alt); border-left:3px solid var(--accent-cyan); padding:12px 14px; border-radius:0 8px 8px 0; font-size:12px;">
+            <strong>Select any causal factor above</strong> to review Indian Roads Congress (IRC) countermeasures.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span>Road Category Lethality Breakdown</span>
+            <span class="badge badge-critical">National Highway Risk</span>
+          </div>
+          <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">
+            National Highways constitute barely <strong>2.1%</strong> of India's road network but account for <strong>36.2%</strong> of all fatalities due to high speed differentials.
+          </p>
+          <div style="height:260px;"><canvas id="chartRoadCategory"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 3: WHO & WHEN ==================== -->
+    <section id="tab-who-when" class="view-section">
+      <!-- VRU Overview Cards -->
+      <div class="card" style="margin-bottom:18px;">
+        <div class="card-title">
+          <span>Question 3: Who / What is most vulnerable?</span>
+          <span class="badge badge-critical">VRU Share: 64% Total Fatalities</span>
+        </div>
+        <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">
+          Click on any road user mode below to view risk exposure, fatality share, and recommended protective engineering:
+        </p>
+        <div class="vru-grid" id="vruCardsRow">
+          <!-- Populated dynamically -->
+        </div>
+        <div id="vruDetailBox" style="background:var(--panel-alt); border:1px solid var(--line); border-radius:10px; padding:14px; font-size:12px;">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;">
+        <div class="card">
+          <div class="card-title">
+            <span>Mode of Transport Vulnerability Distribution</span>
+            <span class="badge badge-amber">MoRTH Dataset E</span>
+          </div>
+          <div style="height:260px;"><canvas id="chartVulnerability"></canvas></div>
+        </div>
+
+        <!-- 24-Hour Interactive Slider Card -->
+        <div class="card">
+          <div class="card-title">
+            <span>Question 4: When is the risk highest? (24h Diurnal Curve)</span>
+            <span class="badge badge-critical" id="diurnalBadge">18:00 - 21:00 DUSK PEAK</span>
+          </div>
+          <p style="font-size:12px; color:var(--muted); margin-bottom:12px;">
+            Drag the hour slider to evaluate hourly hazard levels, lighting conditions, and police deployment priority:
+          </p>
+          
+          <div style="background:var(--panel-alt); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span style="font-size:12px; font-weight:700; color:var(--accent-cyan);">Active Hour: <strong id="sliderHourDisplay" style="font-size:16px; color:#fff;">19:00 (7:00 PM)</strong></span>
+              <span id="sliderRiskLevel" class="badge badge-critical">HAZARD INDEX: 94 / 100</span>
+            </div>
+            <input type="range" id="diurnalHourSlider" min="0" max="23" value="19" oninput="onDiurnalSliderMove(this.value)" style="width:100%; height:6px; accent-color:var(--accent-cyan); cursor:pointer;" />
+            <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--muted); margin-top:6px;">
+              <span>00:00 (Midnight)</span>
+              <span>06:00 (Dawn)</span>
+              <span>12:00 (Noon)</span>
+              <span>18:00 (Dusk)</span>
+              <span>23:00 (Night)</span>
+            </div>
+          </div>
+
+          <div id="diurnalAdvisoryBox" style="background:rgba(6, 182, 212, 0.08); border-left:3px solid var(--accent-cyan); padding:12px 14px; border-radius:0 8px 8px 0; font-size:12px; line-height:1.5;">
+            <!-- Dynamic advisory -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 24-Hour Graph & Seasonal Multipliers -->
+      <div class="card">
+        <div class="card-title">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span>24-Hour Hourly National Hazard Curve</span>
+            <span class="badge badge-cyan">Hourly Accident Volume &amp; Fatal Intensity</span>
+          </div>
+          <div class="chips-row" style="margin-bottom:0;">
+            <span style="font-size:11px; color:var(--muted); font-weight:700;">Season Multiplier:</span>
+            <button class="filter-chip active" onclick="applySeasonMultiplier('standard', this)">Standard</button>
+            <button class="filter-chip" onclick="applySeasonMultiplier('monsoon', this)">🌧️ Monsoon (+22%)</button>
+            <button class="filter-chip" onclick="applySeasonMultiplier('winter_fog', this)">🌫️ Winter Fog (+28%)</button>
+            <button class="filter-chip" onclick="applySeasonMultiplier('summer', this)">☀️ Summer Heat (+15%)</button>
+            <button class="filter-chip" onclick="applySeasonMultiplier('festive', this)">🪔 Festive (+18%)</button>
+          </div>
+        </div>
+        <div style="height:260px;"><canvas id="chartTemporal"></canvas></div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 4: AI RISK PREDICTOR & FORECAST ==================== -->
+        <!-- TAB 4 (NEW): 50-YEAR MACRO TRENDS & 50-CITY JUNCTIONS -->
+    <section id="tab-macro-junctions" class="view-section">
+      <div class="panel" style="margin-bottom: 24px; background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(15, 23, 42, 0.95));">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <h2 style="font-size: 22px; color: #fff; margin-bottom: 6px;">📈 MoRTH 50-Year Longitudinal Road Safety &amp; City Junction Intelligence</h2>
+            <div style="color: var(--muted); font-size: 13px;">
+              Longitudinal analysis of national motorization vs crash casualty growth (1970–2019), junction control hazard distribution across 50 Million-Plus cities, and 270+ audited police station blackspots.
+            </div>
+          </div>
+          <div style="display: flex; gap: 10px;">
+            <span class="badge badge-info" style="font-size: 12px; padding: 6px 12px;">📊 50-Year MoRTH Records</span>
+            <span class="badge badge-success" style="font-size: 12px; padding: 6px 12px;">🏙️ 50 Million-Plus Cities</span>
+            <span class="badge badge-warning" style="font-size: 12px; padding: 6px 12px;">🚓 270+ Police Blackspots</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 50-YEAR MACRO METRIC CARDS -->
+      <div class="kpi-grid" style="grid-template-columns: repeat(4, 1fr); margin-bottom: 24px;">
+        <div class="kpi-card" style="border-left: 4px solid var(--accent-cyan);">
+          <div class="kpi-title">🚗 Vehicle Explosion (1970 → 2019)</div>
+          <div class="kpi-val" style="color: var(--accent-cyan);">+21,112%</div>
+          <div class="kpi-sub">1.40 Million to 297.19 Million registered motor vehicles</div>
+        </div>
+        <div class="kpi-card" style="border-left: 4px solid var(--red);">
+          <div class="kpi-title">💀 Fatality Escalation (1970 → 2019)</div>
+          <div class="kpi-val" style="color: var(--red);">+942%</div>
+          <div class="kpi-sub">14,500 to 1,51,113 annual fatalities on Indian roads</div>
+        </div>
+        <div class="kpi-card" style="border-left: 4px solid var(--green);">
+          <div class="kpi-title">📉 Deaths per 10,000 Vehicles</div>
+          <div class="kpi-val" style="color: var(--green);">-95.1%</div>
+          <div class="kpi-sub">Plummeted from 103.5 to 5.08 due to vehicle crash safety</div>
+        </div>
+        <div class="kpi-card" style="border-left: 4px solid var(--amber);">
+          <div class="kpi-title">⚠️ Deaths per Lakh Population</div>
+          <div class="kpi-val" style="color: var(--amber);">+328%</div>
+          <div class="kpi-sub">Rose from 2.69 to 11.52 due to massive unsegregated exposure</div>
+        </div>
+      </div>
+
+      <!-- 50-YEAR TIME SERIES CHART & STRUCTURAL PARADOX -->
+      <div class="charts-grid" style="grid-template-columns: 2fr 1fr; margin-bottom: 24px;">
+        <div class="panel">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <div class="panel-title">MoRTH 50-Year Trajectory: Motorization vs Road Fatalities (1970–2019)</div>
+              <div class="panel-sub">Dual-axis historical visualization: Left Axis = Vehicles (Millions), Right Axis = Fatalities &amp; Accidents (Thousands)</div>
+            </div>
+            <div style="display: flex; gap: 6px;">
+              <button class="btn btn-sm btn-primary" onclick="setHistoricalSeries('all')">All Metrics</button>
+              <button class="btn btn-sm" style="background: var(--panel-alt); border: 1px solid var(--line); color: #fff;" onclick="setHistoricalSeries('vehicles_fatalities')">Vehicles vs Deaths</button>
+              <button class="btn btn-sm" style="background: var(--panel-alt); border: 1px solid var(--line); color: #fff;" onclick="setHistoricalSeries('rates')">Normalized Rates</button>
+            </div>
+          </div>
+          <div style="height: 340px; position: relative;">
+            <canvas id="historicalTrendsChart"></canvas>
+          </div>
+        </div>
+
+        <div class="panel" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="panel-title">The Indian Road Safety Paradox</div>
+            <div class="panel-sub">Why are absolute fatalities rising while individual vehicle safety is higher?</div>
+            <div style="margin-top: 14px; font-size: 12.5px; color: var(--muted); line-height: 1.6;">
+              <div style="margin-bottom: 12px; padding: 10px; background: rgba(15, 23, 42, 0.6); border-radius: 8px; border-left: 3px solid var(--accent-cyan);">
+                <strong style="color: #fff;">1. Asymmetric Growth:</strong> Registered motor vehicles expanded by <strong>211x</strong> and paved road length grew by <strong>5.1x</strong>, creating severe spatial congestion and mixed-speed conflicts.
+              </div>
+              <div style="margin-bottom: 12px; padding: 10px; background: rgba(15, 23, 42, 0.6); border-radius: 8px; border-left: 3px solid var(--amber);">
+                <strong style="color: #fff;">2. Vehicle vs Roadside Safety:</strong> Modern cars protect occupants better (deaths per 10k vehicles dropped 95%), but vulnerable users (2-wheelers, pedestrians) bear 64% of lethal impacts.
+              </div>
+              <div style="padding: 10px; background: rgba(15, 23, 42, 0.6); border-radius: 8px; border-left: 3px solid var(--green);">
+                <strong style="color: #fff;">3. Engineering Solution:</strong> Transitioning from passive vehicle safety to <em>Safe System Infrastructure</em> (IRC:103 pedestrian grade segregation and IRC:93 signalized junctions).
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: 14px; padding: 10px 12px; background: rgba(6, 182, 212, 0.08); border-radius: 8px; border: 1px solid rgba(6, 182, 212, 0.2); font-size: 11.5px; color: var(--accent-cyan);">
+            📌 Official Source: Ministry of Road Transport &amp; Highways (MoRTH), Transport Research Wing, Govt. of India.
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION: 50 MILLION-PLUS CITIES JUNCTION CONTROL MATRIX -->
+      <div class="panel" style="margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <div class="panel-title">Intersection Traffic Control &amp; Signalization Safety Matrix</div>
+            <div class="panel-sub">Evaluating casualty severity across Traffic Light Signals, Police Control, Stop Signs, Flashing Blinkers, and Uncontrolled Intersections across 50 Million-Plus Cities.</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label style="font-size: 12px; color: var(--muted); font-weight: 600;">Select City:</label>
+            <select id="junctionCitySelect" class="form-input" style="width: 220px;" onchange="onJunctionCityChange(this.value)">
+              <option value="National">🇮🇳 National Total (50 Million-Plus Cities)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="charts-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 16px;">
+          <div style="height: 300px; position: relative;">
+            <canvas id="junctionChart"></canvas>
+          </div>
+          <div id="junctionStatsCard" style="display: flex; flex-direction: column; justify-content: center; gap: 10px;">
+            <!-- Populated dynamically by JS -->
+          </div>
+        </div>
+
+        <!-- IRC:93 ACTIONABLE RECOMMENDATION -->
+        <div style="padding: 14px 18px; background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(15, 23, 42, 0.8)); border-radius: 10px; border: 1px solid rgba(34, 197, 94, 0.3); display: flex; align-items: center; gap: 16px;">
+          <div style="font-size: 32px;">🚦</div>
+          <div>
+            <div style="font-weight: 700; color: #86efac; font-size: 14px; margin-bottom: 4px;">Indian Roads Congress Policy Guideline: IRC:93-1985 &amp; IRC:SP:108</div>
+            <div style="font-size: 12.5px; color: var(--muted); line-height: 1.5;">
+              Uncontrolled junctions account for <strong>23,290 crashes and 4,061 fatalities</strong> (22.8% of all million-plus city junction deaths). Converting critical uncontrolled intersections to <strong>Smart Adaptive Traffic Light Signals</strong> with dedicated pedestrian phases reduces lethal broadside and angle collisions by <strong>62% to 75%</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION: OFFICIAL POLICE STATION BLACKSPOTS REGISTRY (2016-2018 AUDIT) -->
+      <div class="panel">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <div class="panel-title">MoRTH Official Police Station Blackspot Registry (2016–2018 Audited Records)</div>
+            <div class="panel-sub">Police jurisdictional stations, highway numbers, chainages (km bounds), and 3-year verified casualties across 30 Indian states.</div>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <input type="text" id="policeSearchInput" class="form-input" style="width: 260px;" placeholder="Search police station, NH, spot..." oninput="onPoliceSearch(this.value)">
+            <select id="policeStateFilter" class="form-input" style="width: 200px;" onchange="onPoliceStateFilter(this.value)">
+              <option value="All">All States (30 Covered)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>State &amp; District</th>
+                <th>Police Station</th>
+                <th>Highway</th>
+                <th>Location &amp; Chainage Limits</th>
+                <th style="text-align: right;">Accidents (2016-18)</th>
+                <th style="text-align: right;">Fatalities (2016-18)</th>
+                <th style="text-align: right;">Severity %</th>
+                <th style="text-align: center;">Priority Tier</th>
+              </tr>
+            </thead>
+            <tbody id="policeSpotsTableBody">
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px; font-size: 12px; color: var(--muted);">
+          <div id="policeSpotsCount">Showing 0 blackspots</div>
+          <div style="display: flex; gap: 8px;">
+            <button class="btn btn-sm" style="background: var(--panel-alt); border: 1px solid var(--line); color: #fff;" onclick="prevPolicePage()">◀ Prev</button>
+            <span id="policePageNum" style="padding: 4px 8px; color: var(--text);">1</span>
+            <button class="btn btn-sm" style="background: var(--panel-alt); border: 1px solid var(--line); color: #fff;" onclick="nextPolicePage()">Next ▶</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-prediction" class="view-section">
+      <div class="dashboard-layout">
+        <!-- Interactive Segment Risk Auditor -->
+        <div class="card">
+          <div class="card-title">
+            <span>Road Safety Auditor (Live ML Engine)</span>
+            <span class="badge badge-cyan">Real-Time Calibration</span>
+          </div>
+          <p style="font-size:12px; color:var(--muted); margin-bottom:16px;">
+            Audit any existing or proposed road section. Adjust parameters below — the calibrated ML risk score updates in real-time.
+          </p>
+          
+          <form id="riskAuditForm" class="form-grid" oninput="runSegmentAuditLive()">
+            <div>
+              <label>Road Classification</label>
+              <select id="auditRoadType">
+                <option value="national_highway">National Highway (NH)</option>
+                <option value="expressway">Expressway</option>
+                <option value="state_highway">State Highway</option>
+                <option value="urban_arterial">Urban Arterial</option>
+              </select>
+            </div>
+            <div>
+              <label>Posted Speed Limit (km/h)</label>
+              <input type="number" id="auditSpeedLimit" value="80" min="30" max="120" />
+            </div>
+            <div>
+              <label>Observed Operating Speed (km/h)</label>
+              <input type="number" id="auditOperatingSpeed" value="98" min="30" max="160" />
+            </div>
+            <div>
+              <label>Weather Condition</label>
+              <select id="auditWeather">
+                <option value="Clear">Clear / Sunny</option>
+                <option value="Rain" selected>Monsoon Rain</option>
+                <option value="Heavy Rain">Heavy Torrential Monsoon</option>
+                <option value="Fog">Dense Radiation Fog (&lt;50m)</option>
+              </select>
+            </div>
+            <div>
+              <label>Road Surface Condition</label>
+              <select id="auditRoadCondition">
+                <option value="Dry">Dry / Good Friction</option>
+                <option value="Wet" selected>Wet / Reduced Friction</option>
+                <option value="Potholes">Potholes / Damaged Asphalt</option>
+                <option value="Poor">Poor / Rutted Pavement</option>
+              </select>
+            </div>
+            <div>
+              <label>Time Window</label>
+              <select id="auditTimeOfDay">
+                <option value="Morning">Morning (06:00 - 11:00)</option>
+                <option value="Afternoon">Afternoon (12:00 - 16:00)</option>
+                <option value="Evening" selected>Dusk Rush (18:00 - 21:00)</option>
+                <option value="Night">Late Night Freight (21:00 - 03:00)</option>
+              </select>
+            </div>
+            <div>
+              <label>Road Geometry</label>
+              <select id="auditGeometry">
+                <option value="straight">Straight Divided</option>
+                <option value="sharp_curve" selected>Sharp Blind Curve</option>
+                <option value="unsignalized_intersection">Unsignalized Intersection</option>
+                <option value="flyover_merge">Flyover Merge Ramp</option>
+              </select>
+            </div>
+            <div>
+              <label>Lighting Condition</label>
+              <select id="auditLighting">
+                <option value="daylight">Daylight</option>
+                <option value="lit_streetlights">Lit with Streetlights</option>
+                <option value="poor_lighting" selected>Poor / Defective Lighting</option>
+                <option value="unlit">Unlit Highway</option>
+              </select>
+            </div>
+            <div class="form-full">
+              <label>Vulnerable Road User (VRU) Density</label>
+              <select id="auditVru">
+                <option value="critical">Critical (Heavy pedestrian &amp; two-wheeler mix without physical median)</option>
+                <option value="high" selected>High (Active pedestrian crossing near village settlement)</option>
+                <option value="moderate">Moderate (Intermittent two-wheeler service traffic)</option>
+                <option value="low">Low (Fenced access-controlled corridor)</option>
+              </select>
+            </div>
+          </form>
+
+          <div style="margin-top:14px; display:flex; gap:10px;">
+            <button type="button" class="btn-action btn-primary" onclick="copyAuditSummary()" style="flex:1; justify-content:center;">
+              📋 Copy Safety Audit Summary
+            </button>
+            <button type="button" class="btn-action" onclick="resetAuditForm()" style="justify-content:center;">
+              ↺ Reset
+            </button>
+          </div>
+        </div>
+
+        <!-- Audit Score Output Card -->
+        <div class="card">
+          <div class="card-title">
+            <span>Audit Scoring &amp; Attribution Results</span>
+            <span class="badge badge-critical" id="auditResultBand">CRITICAL</span>
+          </div>
+
+          <div class="risk-gauge-box">
+            <div>
+              <div style="font-size:10px; color:var(--muted); font-weight:700; text-transform:uppercase;">Calibrated Segment Risk</div>
+              <div class="risk-score-display" id="auditRiskScore" style="color:var(--red)">84.2<span style="font-size:16px; color:var(--muted)">/100</span></div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:10px; color:var(--muted); font-weight:700; text-transform:uppercase;">IRC Recommended Speed</div>
+              <div style="font-size:22px; font-weight:800; color:var(--accent-cyan);" id="auditRecSpeed">65 km/h</div>
+              <div style="font-size:10px; color:var(--subtle)">Max Safe Engineering Speed</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;">
+            <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--muted); margin-bottom:6px;">
+              Explainable Risk Drivers (Additive Weights)
+            </div>
+            <div class="driver-list" id="auditDriversList">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <div style="margin-top:14px; background:var(--panel-alt); border-left:3px solid var(--accent-cyan); padding:12px; border-radius:0 8px 8px 0; font-size:11px;">
+            <strong style="color:#fff; display:block; margin-bottom:2px;">Preemptive Engineering Countermeasure:</strong>
+            <span id="auditRecAction" style="color:var(--muted)">Deploy automated radar speed enforcement &amp; high-mast LED illumination.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Time-Series Forecasting Horizon -->
+      <div class="card" style="margin-top:20px;">
+        <div class="card-title">
+          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+            <span>AI Future Risk Forecasting Engine</span>
+            <span class="badge badge-cyan" id="forecastTrendBadge">Escalating Trend (+High Alert)</span>
+          </div>
+          <div class="chips-row" style="margin-bottom:0;">
+            <span style="font-size:11px; color:var(--muted); font-weight:700;">Horizon:</span>
+            <button class="filter-chip" onclick="setForecastHorizon(30, this)">30 Days</button>
+            <button class="filter-chip" onclick="setForecastHorizon(60, this)">60 Days</button>
+            <button class="filter-chip active" onclick="setForecastHorizon(90, this)">90 Days</button>
+            <button class="filter-chip" onclick="setForecastHorizon(180, this)">180 Days</button>
+          </div>
+        </div>
+        <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">
+          Time-series model predicting future risk trajectory with 95% confidence bands based on seasonal precipitation, monsoon runoff, and historical highway crash recurrence.
+        </p>
+        <div style="height:280px;"><canvas id="chartForecast"></canvas></div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 5: COUNTERFACTUAL SIMULATOR ==================== -->
+    <section id="tab-simulation" class="view-section">
+      <div class="card" style="margin-bottom:18px;">
+        <div class="card-title">
+          <span>Question 5 &amp; 6: What intervention first? Can we predict whether it will reduce accidents?</span>
+          <span class="badge badge-green">IRC &amp; MoRTH Standards</span>
+        </div>
+        <p style="font-size:12px; color:var(--muted);">
+          The Counterfactual Simulator models the impact of Indian Roads Congress (IRC) approved infrastructure, automated ITS enforcement, and emergency medical measures on high-risk corridors. Toggle interventions below to observe real-time predicted crash reduction, lives saved, and economic loss averted.
+        </p>
+      </div>
+
+      <div class="sim-grid">
+        <!-- Toggles & Sliders -->
+        <div class="card">
+          <div class="card-title">Select IRC Interventions to Test</div>
+          
+          <div style="display:flex; flex-direction:column;">
+            <label class="intervention-toggle">
+              <input type="checkbox" value="speed_cameras" checked onchange="runSimulation()" />
+              <div>
+                <strong>Automated Speed Radars &amp; Interceptors</strong>
+                <div style="font-size:11px; color:var(--muted)">IRC:SP:108 · 28% crash reduction in speeding corridors</div>
+              </div>
+            </label>
+
+            <label class="intervention-toggle">
+              <input type="checkbox" value="pedestrian_infrastructure" checked onchange="runSimulation()" />
+              <div>
+                <strong>Pedestrian Refuge Islands &amp; FOBs</strong>
+                <div style="font-size:11px; color:var(--muted)">IRC:103 · 36% pedestrian knockdown reduction</div>
+              </div>
+            </label>
+
+            <label class="intervention-toggle">
+              <input type="checkbox" value="high_mast_lighting" checked onchange="runSimulation()" />
+              <div>
+                <strong>High-Mast LED Lighting &amp; Active Cat-Eyes</strong>
+                <div style="font-size:11px; color:var(--muted)">IRC:SP:73 · 31% nighttime visibility crash reduction</div>
+              </div>
+            </label>
+
+            <label class="intervention-toggle">
+              <input type="checkbox" value="anti_skid_surfacing" onchange="runSimulation()" />
+              <div>
+                <strong>Anti-Skid Overlay &amp; Drainage Redesign</strong>
+                <div style="font-size:11px; color:var(--muted)">IRC:SP:81 · 25% wet weather skidding reduction</div>
+              </div>
+            </label>
+
+            <label class="intervention-toggle">
+              <input type="checkbox" value="geometric_realignment" onchange="runSimulation()" />
+              <div>
+                <strong>Curve Realignment, Chevrons &amp; W-Beams</strong>
+                <div style="font-size:11px; color:var(--muted)">IRC:73-2023 · 34% curve rollover reduction</div>
+              </div>
+            </label>
+
+            <label class="intervention-toggle">
+              <input type="checkbox" value="two_wheeler_segregation" onchange="runSimulation()" />
+              <div>
+                <strong>Segregated Two-Wheeler Service Corridors</strong>
+                <div style="font-size:11px; color:var(--muted)">IRC:SP:84 · 29% lateral conflict reduction</div>
+              </div>
+            </label>
+
+            <label class="intervention-toggle">
+              <input type="checkbox" value="golden_hour_trauma" checked onchange="runSimulation()" />
+              <div>
+                <strong>Golden Hour 108 Emergency Ambulance Hub</strong>
+                <div style="font-size:11px; color:var(--muted)">Trauma Protocol · 42% post-crash fatality reduction</div>
+              </div>
+            </label>
+          </div>
+
+          <!-- Baseline Sliders -->
+          <div style="margin-top:16px; background:var(--panel-alt); border:1px solid var(--line); border-radius:10px; padding:14px;">
+            <strong style="font-size:12px; color:#fff; display:block; margin-bottom:10px;">Corridor Baseline Adjusters:</strong>
+            <div style="margin-bottom:10px;">
+              <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--muted); margin-bottom:4px;">
+                <span>Baseline Annual Fatalities</span>
+                <strong id="simBaseFatDisplay" style="color:#fff;">32</strong>
+              </div>
+              <input type="range" id="simBaseFatSlider" min="5" max="100" value="32" oninput="onSimBaseChange()" style="width:100%; accent-color:var(--accent-cyan);" />
+            </div>
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--muted); margin-bottom:4px;">
+                <span>Baseline Annual Crashes</span>
+                <strong id="simBaseCrashDisplay" style="color:#fff;">48</strong>
+              </div>
+              <input type="range" id="simBaseCrashSlider" min="10" max="150" value="48" oninput="onSimBaseChange()" style="width:100%; accent-color:var(--accent-cyan);" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulation Results Sandbox -->
+        <div class="sim-results-box">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div style="font-family:var(--font-heading); font-size:22px; font-weight:800; color:var(--accent-cyan);">
+              COUNTERFACTUAL IMPACT PREDICTION
+            </div>
+            <span class="badge badge-green" id="simRoiBadge">EXCEPTIONAL RETURN</span>
+          </div>
+
+          <div class="sim-metrics-row">
+            <div class="sim-metric">
+              <div style="font-size:10px; color:var(--muted); text-transform:uppercase; font-weight:700;">Simulated Risk</div>
+              <div class="sim-metric-val" id="simNewScore" style="color:var(--accent-cyan)">29.4</div>
+              <div style="font-size:10px; color:var(--muted)">Base: 84 / 100</div>
+            </div>
+            <div class="sim-metric">
+              <div style="font-size:10px; color:var(--muted); text-transform:uppercase; font-weight:700;">Risk Reduction</div>
+              <div class="sim-metric-val" id="simReductionPct" style="color:var(--green)">65.0%</div>
+              <div style="font-size:10px; color:var(--muted)">Net Safety Gain</div>
+            </div>
+            <div class="sim-metric">
+              <div style="font-size:10px; color:var(--muted); text-transform:uppercase; font-weight:700;">Lives Saved / Yr</div>
+              <div class="sim-metric-val" id="simLivesSaved" style="color:#fcd34d">21</div>
+              <div style="font-size:10px; color:var(--muted)">Fatalities Averted</div>
+            </div>
+          </div>
+
+          <!-- MoRTH Economic Capital Saved Box -->
+          <div class="economic-box">
+            <div>
+              <div style="font-size:10px; font-weight:700; text-transform:uppercase; color:var(--amber);">MoRTH Economic Loss Valuation</div>
+              <div style="font-size:22px; font-weight:800; color:#fcd34d; font-family:var(--font-heading);" id="simEconomicSavings">
+                ₹34.8 Crores / Year Saved
+              </div>
+              <div style="font-size:11px; color:var(--muted); margin-top:2px;">
+                Calculated at ₹1.4 Cr Value of Statistical Life (VSL) + ₹35L per severe trauma injury prevented.
+              </div>
+            </div>
+            <div style="text-align:right;">
+              <span class="badge badge-cyan" id="simBenefitCostRatio">6.2x ROI</span>
+            </div>
+          </div>
+
+          <div style="margin-top:16px;">
+            <strong style="font-size:12px; color:var(--text); display:block; margin-bottom:8px;">Projected Engineering Impact Breakdown:</strong>
+            <ul id="simBenefitBullets" style="font-size:12px; color:var(--muted); line-height:1.7; padding-left:18px;">
+              <!-- Dynamically populated -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 6: SAFE ROUTE & GOLDEN HOUR ==================== -->
+    <section id="tab-route" class="view-section">
+      <div class="dashboard-layout">
+        <div class="card">
+          <div class="card-title">
+            <span>Corridor Hazard Auditor &amp; Safe Routing</span>
+            <span class="badge badge-cyan">Major Intercity Highway Grid</span>
+          </div>
+          <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">
+            Audit route hazards between primary hubs, identifying blackspot waypoints and recommended driver advisories:
+          </p>
+
+          <div style="display:flex; gap:10px; margin-bottom:16px;">
+            <select id="routeSelect" class="select-input" style="flex:1;" onchange="evaluateCorridorRoute(this.value)">
+              <option value="delhi_agra">Delhi → Agra (Yamuna Expressway &amp; NH-19)</option>
+              <option value="mumbai_pune">Mumbai → Pune (Yashwantrao Chavan Expressway)</option>
+              <option value="bengaluru_chennai">Bengaluru → Chennai (NH-48 Corridor via Vellore)</option>
+              <option value="hyderabad_vijayawada">Hyderabad → Vijayawada (NH-65)</option>
+              <option value="kolkata_durgapur">Kolkata → Durgapur (NH-19 Expressway)</option>
+              <option value="ahmedabad_vadodara">Ahmedabad → Vadodara (NE-1 National Expressway)</option>
+              <option value="chandigarh_manali">Chandigarh → Manali (NH-21 Himalayan Corridor)</option>
+              <option value="guwahati_shillong">Guwahati → Shillong (NH-6 Mountain Expressway)</option>
+              <option value="jaipur_delhi">Delhi → Jaipur (Delhi-Mumbai Expressway &amp; NH-48)</option>
+            </select>
+          </div>
+
+          <div id="routeReportBox" style="background:var(--panel-alt); border:1px solid var(--line); border-radius:12px; padding:18px;">
+            <!-- Populated via script -->
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span>Golden Hour Trauma Care Network</span>
+            <span class="badge badge-green">Level 1 &amp; 2 Highway Trauma Units</span>
+          </div>
+          <p style="font-size:12px; color:var(--muted); margin-bottom:12px;">
+            Positioned along National Highways to ensure advanced trauma stabilization within the 60-minute Golden Hour.
+          </p>
+          <div class="data-table-wrap">
+            <table class="data-table" id="tableTraumaCenters">
+              <thead>
+                <tr>
+                  <th>Hospital / Apex Centre</th>
+                  <th>City &amp; State</th>
+                  <th>Level</th>
+                  <th>Ambulances</th>
+                  <th>Dispatch</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="traumaTableBody"><!-- Populated dynamically --></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 7: BLACKSPOT EVIDENCE BASE ==================== -->
+    <section id="tab-records" class="view-section">
+      <div class="card">
+        <div class="card-title">
+          <span>National Blackspot &amp; Incident Evidence Base</span>
+          <div style="display:flex; gap:8px;">
+            <input type="file" id="csvFileInput" accept=".csv" style="display:none" onchange="handleCsvUpload(event)" />
+            <button class="btn-action" onclick="document.getElementById('csvFileInput').click()">⬆ Import CSV Audit</button>
+            <button class="btn-action" onclick="downloadSampleCsv()">⬇ Download Sample CSV</button>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; margin-bottom:14px; flex-wrap:wrap;">
+          <input type="text" id="recordSearch" placeholder="Search by corridor name, highway, or district..." class="select-input" style="flex:1; min-width:240px;" oninput="onRecordSearch(this.value)" />
+          <select id="recordStateFilter" class="select-input" onchange="onRecordStateFilter(this.value)">
+            <option value="All">All States &amp; UTs</option>
+            <!-- Populated dynamically -->
+          </select>
+          <select id="recordSeverityFilter" class="select-input" onchange="onRecordSeverityFilter(this.value)">
+            <option value="All">All Severities</option>
+            <option value="critical">Critical (Score ≥ 80)</option>
+            <option value="high">High Risk (60-79)</option>
+            <option value="moderate">Moderate (&lt; 60)</option>
+          </select>
+        </div>
+
+        <div class="data-table-wrap">
+          <table class="data-table" id="tableBlackspots">
+            <thead>
+              <tr>
+                <th>Blackspot ID</th>
+                <th>Location / Stretch</th>
+                <th>Corridor</th>
+                <th>State &amp; District</th>
+                <th>3-Yr Fatalities</th>
+                <th>Dominant Cause</th>
+                <th>Risk Score</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="blackspotsTableBody"><!-- Populated dynamically --></tbody>
+          </table>
+        </div>
+
+        <!-- Pagination Controls -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:14px; font-size:12px; color:var(--muted);">
+          <span id="recordsPaginationInfo">Showing 1-25 of 95 records</span>
+          <div style="display:flex; gap:6px;">
+            <button class="map-btn" id="btnPrevPage" onclick="prevRecordsPage()">← Previous</button>
+            <button class="map-btn" id="btnNextPage" onclick="nextRecordsPage()">Next →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ADD INCIDENT MODAL -->
+  <div class="modal-backdrop" id="incidentModal">
+    <div class="modal-card">
+      <div class="card-title">
+        <span>Register New Accident / Road Hazard Record</span>
+        <button class="btn-action" onclick="closeIncidentModal()">×</button>
+      </div>
+      <form id="newIncidentForm" class="form-grid" onsubmit="submitNewIncident(event)">
+        <div class="form-full">
+          <label>Location / Road Segment Name</label>
+          <input name="location" placeholder="e.g. NH-48 Km 54 Near Toll Plaza" required />
+        </div>
+        <div>
+          <label>State</label>
+          <input name="state" placeholder="e.g. Maharashtra" required />
+        </div>
+        <div>
+          <label>District</label>
+          <input name="district" placeholder="e.g. Pune" required />
+        </div>
+        <div>
+          <label>Latitude</label>
+          <input name="latitude" type="number" step="any" placeholder="18.5204" required />
+        </div>
+        <div>
+          <label>Longitude</label>
+          <input name="longitude" type="number" step="any" placeholder="73.8567" required />
+        </div>
+        <div>
+          <label>Road Classification</label>
+          <select name="road_type">
+            <option value="national_highway">National Highway</option>
+            <option value="expressway">Expressway</option>
+            <option value="state_highway">State Highway</option>
+            <option value="urban_arterial">Urban Arterial</option>
+          </select>
+        </div>
+        <div>
+          <label>Crash Severity</label>
+          <select name="severity">
+            <option value="minor">Minor</option>
+            <option value="moderate" selected>Moderate</option>
+            <option value="severe">Severe</option>
+            <option value="fatal">Fatal</option>
+          </select>
+        </div>
+        <div>
+          <label>Injuries</label>
+          <input name="injuries" type="number" min="0" value="1" />
+        </div>
+        <div>
+          <label>Fatalities</label>
+          <input name="fatalities" type="number" min="0" value="0" />
+        </div>
+        <div>
+          <label>Weather</label>
+          <input name="weather_condition" placeholder="e.g. Clear / Monsoon Rain" value="Clear" />
+        </div>
+        <div>
+          <label>Road Surface</label>
+          <input name="road_condition" placeholder="e.g. Dry / Wet / Potholes" value="Dry" />
+        </div>
+        <div class="form-full">
+          <label>Observed Contributing Factors / Causes</label>
+          <input name="contributing_factors" placeholder="e.g. Overspeeding; Inadequate street lighting; Sharp turn" />
+        </div>
+        <div class="form-full" style="margin-top:8px;">
+          <button type="submit" class="btn-action btn-primary" style="width:100%; padding:12px;">Save Incident to National Evidence Base</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- STATE ROAD SAFETY DOSSIER MODAL -->
+  <div class="modal-backdrop" id="stateDossierModal">
+    <div class="modal-card" style="max-width:820px;">
+      <div class="card-title">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span id="dossierStateTitle">State Road Safety Dossier</span>
+          <span class="badge badge-cyan" id="dossierZoneBadge">Zone</span>
+          <span class="badge badge-critical" id="dossierRankBadge">Rank #1</span>
+        </div>
+        <button class="btn-action" onclick="closeStateDossier()">×</button>
+      </div>
+
+      <!-- Dossier KPI Row -->
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; margin-bottom:16px;">
+        <div style="background:var(--panel-alt); padding:10px 14px; border-radius:8px; border:1px solid var(--line);">
+          <div style="font-size:10px; color:var(--muted); text-transform:uppercase; font-weight:700;">2023 Crashes</div>
+          <div style="font-size:20px; font-weight:800; color:#fff;" id="dossierCrashes">-</div>
+        </div>
+        <div style="background:var(--panel-alt); padding:10px 14px; border-radius:8px; border:1px solid var(--line);">
+          <div style="font-size:10px; color:var(--muted); text-transform:uppercase; font-weight:700;">2023 Fatalities</div>
+          <div style="font-size:20px; font-weight:800; color:var(--red);" id="dossierFatalities">-</div>
+        </div>
+        <div style="background:var(--panel-alt); padding:10px 14px; border-radius:8px; border:1px solid var(--line);">
+          <div style="font-size:10px; color:var(--muted); text-transform:uppercase; font-weight:700;">Severity Rate</div>
+          <div style="font-size:20px; font-weight:800; color:var(--amber);" id="dossierSeverity">-</div>
+          <div style="font-size:9px; color:var(--muted)">Deaths per 100 crashes</div>
+        </div>
+        <div style="background:var(--panel-alt); padding:10px 14px; border-radius:8px; border:1px solid var(--line);">
+          <div style="font-size:10px; color:var(--muted); text-transform:uppercase; font-weight:700;">VRU Share</div>
+          <div style="font-size:20px; font-weight:800; color:#38bdf8;" id="dossierVru">-</div>
+          <div style="font-size:9px; color:var(--muted)">2-Wheelers &amp; Pedestrians</div>
+        </div>
+      </div>
+
+      <!-- 6-Year Trend Chart -->
+      <div style="margin-bottom:16px; background:var(--panel-alt); border:1px solid var(--line); border-radius:10px; padding:14px;">
+        <strong style="font-size:12px; color:#fff; display:block; margin-bottom:8px;">6-Year Longitudinal Trend (2018–2023 MoRTH Data):</strong>
+        <div style="height:190px;"><canvas id="chartDossierTrend"></canvas></div>
+      </div>
+
+      <!-- Qualitative & Corridors -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px;">
+        <div style="background:var(--panel-alt); border:1px solid var(--line); border-radius:8px; padding:12px; font-size:11px;">
+          <strong style="color:var(--accent-cyan); display:block; margin-bottom:4px;">⚡ Dominant Hazard Factor</strong>
+          <span id="dossierCause" style="color:var(--text);">-</span>
+        </div>
+        <div style="background:var(--panel-alt); border:1px solid var(--line); border-radius:8px; padding:12px; font-size:11px;">
+          <strong style="color:var(--accent-cyan); display:block; margin-bottom:4px;">🛣️ Primary Corridor</strong>
+          <span id="dossierCorridor" style="color:var(--text);">-</span>
+        </div>
+      </div>
+
+      <!-- Blackspots in this State -->
+      <div style="margin-bottom:16px;">
+        <strong style="font-size:12px; color:#fff; display:block; margin-bottom:6px;">Monitored Blackspots in this State / UT:</strong>
+        <div id="dossierBlackspotList" style="display:flex; flex-direction:column; gap:6px; max-height:160px; overflow-y:auto;">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <div style="display:flex; gap:10px;">
+        <button class="btn-action btn-primary" id="btnFlyToState" style="flex:1; justify-content:center; padding:10px;">
+          🗺️ Fly to this State on GIS Risk Map
+        </button>
+        <button class="btn-action" onclick="closeStateDossier()" style="padding:10px 16px;">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT APPLICATION CORE -->
+  <script>
+    const API = '/api/v1/accidents';
+    
+    // In-memory data store for maximum efficiency
+    let appCache = {
+      stats: null,
+      hotspots: [],
+      causes: [],
+      modes: [],
+      temporal: null,
+      trauma: [],
+      states: []
+    };
+
+    let mapInstance = null;
+    let markers = [];
+    let currentTileLayer = null;
+    let charts = {};
+    let activeRiskFilter = 'all';
+    let recordsPage = 1;
+    const recordsPerPage = 20;
+    let filteredRecordsList = [];
+    let activeDossierState = null;
+
+    // BASEMAP DEFINITIONS
+    const BASEMAP_PROVIDERS = {
+      google_streets: {
+        name: 'Google Maps (Streets)',
+        url: 'https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
+        options: { subdomains: ['mt0', 'mt1', 'mt2', 'mt3'], maxZoom: 20, attribution: '&copy; Google Maps' }
+      },
+      google_hybrid: {
+        name: 'Google Satellite',
+        url: 'https://{s}.google.com/vt/lyrs=y&x={x}&y={y}&z={z}',
+        options: { subdomains: ['mt0', 'mt1', 'mt2', 'mt3'], maxZoom: 20, attribution: '&copy; Google Maps Satellite' }
+      },
+      google_traffic: {
+        name: 'Google Traffic',
+        url: 'https://{s}.google.com/vt/lyrs=m,traffic&x={x}&y={y}&z={z}',
+        options: { subdomains: ['mt0', 'mt1', 'mt2', 'mt3'], maxZoom: 20, attribution: '&copy; Google Maps Traffic' }
+      },
+      google_terrain: {
+        name: 'Google Terrain',
+        url: 'https://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',
+        options: { subdomains: ['mt0', 'mt1', 'mt2', 'mt3'], maxZoom: 20, attribution: '&copy; Google Maps Terrain' }
+      },
+      esri_streets: {
+        name: 'Esri Navigation',
+        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+        options: { maxZoom: 19, attribution: '&copy; Esri, DeLorme, NAVTEQ' }
+      },
+      osm_standard: {
+        name: 'OpenStreetMap',
+        url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        options: { maxZoom: 19, attribution: '&copy; OpenStreetMap contributors' }
+      },
+      dark_clean: {
+        name: 'Tactical Dark (Clean)',
+        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+        options: { maxZoom: 16, attribution: '&copy; Esri, HERE, DeLorme' }
+      }
+    };
+
+    // Helper fetcher
+    async function fetchApi(path, options = {}) {
+      const res = await fetch(API + path, options);
+      if (!res.ok) throw new Error(await res.text());
+      return res.json();
+    }
+
+    // App Initialization
+    async function initApp() {
+      try {
+        await loadAllData();
+      } catch (err) {
+        console.error('Initialization error:', err);
+      }
+    }
+
+    // Load data with single-pass client caching
+    async function loadAllData() {
+      const [stats, hotspots, causes, vuln, temp, trauma, statesRes, historicalRes, junctionRes, policeSpotsRes, highwaysRes] = await Promise.all([
+        fetchApi('/stats/summary'),
+        fetchApi('/analytics/hotspots'),
+        fetchApi('/analytics/causes'),
+        fetchApi('/analytics/vulnerability'),
+        fetchApi('/analytics/temporal'),
+        fetchApi('/analytics/trauma-centers'),
+        fetchApi('/analytics/states'),
+        fetchApi('/analytics/historical-50yr'),
+        fetchApi('/analytics/junction-control'),
+        fetchApi('/analytics/police-blackspots?limit=500'),
+        fetchApi('/analytics/highways')
+      ]);
+
+      appCache.stats = stats;
+      appCache.hotspots = hotspots;
+      appCache.causes = causes.national_causes || [];
+      appCache.modes = vuln.modes || [];
+      appCache.temporal = temp;
+      appCache.trauma = trauma;
+      appCache.states = statesRes.states || [];
+      appCache.historical = historicalRes.records || [];
+      appCache.junctions = junctionRes || {};
+      appCache.policeSpots = policeSpotsRes.spots || [];
+      allPoliceSpots = [...appCache.policeSpots];
+      appCache.highways = highwaysRes.highways || [];
+
+      // Populate dropdowns across the application
+      populateStateDropdowns(appCache.states);
+
+      updateKpis(stats, hotspots);
+      initMap();
+      renderMapMarkers();
+      renderHighwayPolylines();
+      
+      if (appCache.hotspots.length > 0) {
+        inspectBlackspot(appCache.hotspots[0]);
+      }
+
+      renderCommandCharts(stats);
+      renderStateTable(appCache.states);
+      renderWhereWhyCharts();
+      renderWhoWhenElements();
+      renderTraumaTable(appCache.trauma);
+      
+      filteredRecordsList = [...appCache.hotspots];
+      renderBlackspotTablePage();
+
+      evaluateCorridorRoute('delhi_agra');
+      runSimulation();
+      initForecastChart();
+
+      // Initialize 50-year macro & junction modules
+      initHistoricalChart();
+      initJunctionModule();
+      initPoliceSpotsModule();
+    }
+
+    // Populate all state dropdowns with 36 States & UTs
+    function populateStateDropdowns(states) {
+      const sorted = [...states].sort((a, b) => a.state.localeCompare(b.state));
+      
+      const topSelect = document.getElementById('stateFilterSelect');
+      topSelect.innerHTML = '<option value="All">All 36 States &amp; UTs</option>' + 
+        sorted.map(s => `<option value="${s.state}">${s.state} (${s.code || ''})</option>`).join('');
+
+      const jumpSelect = document.getElementById('mapStateJump');
+      jumpSelect.innerHTML = '<option value="All">🇮🇳 Pan-India Overview</option>' + 
+        sorted.map(s => `<option value="${s.state}">${s.state}</option>`).join('');
+
+      const recordSelect = document.getElementById('recordStateFilter');
+      recordSelect.innerHTML = '<option value="All">All States &amp; UTs</option>' + 
+        sorted.map(s => `<option value="${s.state}">${s.state}</option>`).join('');
+    }
+
+    function updateKpis(stats, hotspots) {
+      const totalBs = hotspots.length || stats.total_accidents || 130;
+      const critBs = hotspots.filter(h => (h.risk_score || 50) >= 80).length;
+      const highBs = hotspots.filter(h => (h.risk_score || 50) >= 60 && (h.risk_score || 50) < 80).length;
+      const modBs = hotspots.filter(h => (h.risk_score || 50) < 60).length;
+      const totalFat = hotspots.reduce((acc, h) => acc + (h.fatalities || 0), 0) || 2840;
+      const prev = Math.round(totalFat * 0.38);
+
+      if (document.getElementById('kpiBlackspots')) document.getElementById('kpiBlackspots').textContent = totalBs;
+      if (document.getElementById('kpiCritical')) document.getElementById('kpiCritical').textContent = critBs;
+      if (document.getElementById('kpiFatalities')) document.getElementById('kpiFatalities').textContent = totalFat.toLocaleString();
+      if (document.getElementById('kpiPreventable')) document.getElementById('kpiPreventable').textContent = prev.toLocaleString();
+
+      if (document.getElementById('chipAllCount')) document.getElementById('chipAllCount').textContent = totalBs;
+      if (document.getElementById('chipCritCount')) document.getElementById('chipCritCount').textContent = critBs;
+      if (document.getElementById('chipHighCount')) document.getElementById('chipHighCount').textContent = highBs;
+      if (document.getElementById('chipModCount')) document.getElementById('chipModCount').textContent = modBs;
+    }
+
+    // GIS Map Management
+    function initMap() {
+      if (!mapInstance) {
+        mapInstance = L.map('map', {
+          center: [21.8, 79.0],
+          zoom: 5,
+          zoomControl: true,
+          preferCanvas: true // Maximum rendering efficiency
+        });
+        changeBasemap('google_streets');
+      }
+    }
+
+    function changeBasemap(type) {
+      if (!mapInstance) return;
+      const provider = BASEMAP_PROVIDERS[type] || BASEMAP_PROVIDERS['google_streets'];
+      if (currentTileLayer) {
+        mapInstance.removeLayer(currentTileLayer);
+      }
+      currentTileLayer = L.tileLayer(provider.url, provider.options).addTo(mapInstance);
+      const badge = document.getElementById('activeMapBadge');
+      if (badge) badge.textContent = provider.name;
+    }
+
+    function fitIndiaView() {
+      if (!mapInstance) return;
+      mapInstance.setView([21.8, 79.0], 5);
+      document.getElementById('mapStateJump').value = 'All';
+    }
+
+    function jumpToState(stateName) {
+      if (!stateName || stateName === 'All') {
+        fitIndiaView();
+        return;
+      }
+      const match = appCache.states.find(s => s.state.toLowerCase() === stateName.toLowerCase());
+      if (match && mapInstance) {
+        mapInstance.flyTo([match.lat, match.lng], 7, { duration: 1.2 });
+      }
+    }
+
+    function filterMapByRisk(band, btn) {
+      activeRiskFilter = band;
+      const chipContainer = document.getElementById('blackspotSeverityChips') || (btn ? btn.parentElement : null);
+      if (chipContainer) {
+        chipContainer.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      }
+      if (btn) btn.classList.add('active');
+      renderMapMarkers();
+    }
+
+    function renderMapMarkers() {
+      if (!mapInstance) return;
+      markers.forEach(m => m.remove());
+      markers = [];
+
+      const metric = document.getElementById('mapMetricMode').value;
+      const selectedBasemap = document.getElementById('mapBaseSelect')?.value || 'google_streets';
+      const isSatellite = selectedBasemap.includes('hybrid');
+
+      let spots = appCache.hotspots;
+      if (activeRiskFilter === 'critical') spots = spots.filter(s => (s.risk_score || 50) >= 80);
+      else if (activeRiskFilter === 'high') spots = spots.filter(s => (s.risk_score || 50) >= 60 && (s.risk_score || 50) < 80);
+      else if (activeRiskFilter === 'moderate') spots = spots.filter(s => (s.risk_score || 50) < 60);
+
+      spots.forEach(spot => {
+        const score = spot.risk_score || 50;
+        let color = '#06b6d4';
+        let band = 'Moderate';
+        if (score >= 80) { color = '#ef4444'; band = 'Critical'; }
+        else if (score >= 60) { color = '#f59e0b'; band = 'High'; }
+        else { color = '#06b6d4'; band = 'Moderate'; }
+
+        const radius = metric === 'fatalities' ? Math.max(8, Math.min(24, (spot.fatalities || 1) * 0.55)) : (score >= 80 ? 11 : score >= 60 ? 9 : 8);
+        const strokeColor = isSatellite ? '#ffffff' : '#0f172a';
+
+        const circle = L.circleMarker([spot.latitude, spot.longitude], {
+          radius: radius,
+          fillColor: color,
+          color: strokeColor,
+          weight: 2,
+          opacity: 0.95,
+          fillOpacity: 0.85
+        }).addTo(mapInstance);
+
+        // Tooltip hover
+        circle.bindTooltip(`
+          <div style="font-weight:700;">${spot.location}</div>
+          <div style="font-size:10px; color:#cbd5e1;">${spot.corridor} · Risk: <strong style="color:${color};">${spot.risk_score}/100</strong></div>
+        `, { direction: 'top', offset: [0, -radius] });
+
+        // Rich Google Maps style popup card
+        const popupContent = `
+          <div style="font-family:Inter,system-ui,sans-serif; color:#f8fafc; min-width:250px; padding:2px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+              <span style="font-size:10px; font-weight:800; text-transform:uppercase; padding:2px 7px; border-radius:4px; background:${color}33; color:${color}; border:1px solid ${color}66;">
+                ${band} RISK
+              </span>
+              <span style="font-size:11px; font-weight:700; color:#94a3b8;">${spot.morth_blackspot_id || 'NH-BS'}</span>
+            </div>
+            <strong style="font-size:14px; font-weight:700; display:block; line-height:1.3; color:#ffffff; margin-top:2px;">${spot.location}</strong>
+            <div style="font-size:11px; color:#cbd5e1; margin-top:3px; font-weight:500;">${spot.corridor} · ${spot.district}, ${spot.state}</div>
+            
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; background:#10243a; border:1px solid #1c3856; border-radius:8px; padding:8px; margin:10px 0; font-size:11px;">
+              <div>
+                <span style="color:#94a3b8; font-size:10px; display:block;">ML Risk Score</span>
+                <strong style="font-size:16px; color:${color};">${spot.risk_score}<span style="font-size:10px; color:#94a3b8;">/100</span></strong>
+              </div>
+              <div>
+                <span style="color:#94a3b8; font-size:10px; display:block;">3-Yr Fatalities</span>
+                <strong style="font-size:16px; color:#f8fafc;">${spot.fatalities || 0}</strong>
+              </div>
+            </div>
+
+            <div style="font-size:11px; color:#cbd5e1; margin-bottom:10px; line-height:1.4;">
+              <span style="color:#94a3b8;">Dominant Hazard:</span> <strong>${spot.dominant_cause || 'Overspeeding'}</strong>
+            </div>
+
+            <div style="display:flex; gap:6px;">
+              <button onclick="selectSpotById(${spot.id})" style="flex:1; background:#0284c7; color:#fff; border:none; padding:7px 10px; border-radius:6px; font-size:11px; cursor:pointer; font-weight:700; transition:all 0.2s;">
+                ⚡ Inspect XAI
+              </button>
+              <a href="https://www.google.com/maps/search/?api=1&query=${spot.latitude},${spot.longitude}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; justify-content:center; background:#10243a; color:#38bdf8; border:1px solid #0284c7; padding:7px 10px; border-radius:6px; font-size:11px; font-weight:700; text-decoration:none;">
+                📍 Google Maps ↗
+              </a>
+            </div>
+          </div>
+        `;
+        circle.bindPopup(popupContent);
+        circle.on('click', () => inspectBlackspot(spot));
+        markers.push(circle);
+      });
+    }
+
+    function selectSpotById(id) {
+      const match = appCache.hotspots.find(s => s.id === id);
+      if (match) inspectBlackspot(match);
+    }
+
+    function inspectBlackspot(spot) {
+      activeDossierState = spot.state;
+      document.getElementById('inspectorLocation').textContent = spot.location;
+      document.getElementById('inspectorCorridor').textContent = `${spot.corridor} · ${spot.district}, ${spot.state} · ${spot.morth_blackspot_id || 'NH-BS'}`;
+      document.getElementById('inspectorScore').innerHTML = `${spot.risk_score}<span style="font-size:16px; color:var(--muted)">/100</span>`;
+      document.getElementById('inspectorSpeed').textContent = `${spot.recommended_speed || 65} km/h`;
+      document.getElementById('inspectorObsSpeed').textContent = `Obs: ${spot.observed_speed || 90} km/h (Limit: ${spot.speed_limit || 80})`;
+
+      const badge = document.getElementById('inspectorBand');
+      badge.textContent = (spot.risk_band || 'HIGH').toUpperCase();
+      badge.className = `badge badge-${spot.risk_band === 'Critical' ? 'critical' : spot.risk_band === 'High' ? 'high' : 'mod'}`;
+
+      const driversList = document.getElementById('inspectorDrivers');
+      driversList.innerHTML = (spot.drivers || []).slice(0, 4).map(d => `
+        <div class="driver-item">
+          <strong>
+            <span>${d.factor}</span>
+            <span style="color:var(--accent-cyan)">+${d.weight} pts</span>
+          </strong>
+          <span>${d.actionable_insight}</span>
+        </div>
+      `).join('');
+
+      document.getElementById('inspectorTrauma').textContent = spot.recommended_first_response || "Deploy automated speed enforcement & lighting.";
+    }
+
+    function testCurrentSpotInSimulator() {
+      switchTab('tab-simulation', document.querySelectorAll('.nav-btn')[4]);
+    }
+
+    // Quick Command Charts
+    function renderCommandCharts(stats) {
+      if (charts.severity) charts.severity.destroy();
+      charts.severity = new Chart(document.getElementById('chartSeverity'), {
+        type: 'doughnut',
+        data: {
+          labels: ['Fatal (38%)', 'Severe (32%)', 'Moderate (24%)', 'Minor (6%)'],
+          datasets: [{
+            data: [38, 32, 24, 6],
+            backgroundColor: ['#ef4444', '#f59e0b', '#3b82f6', '#22c55e']
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'right', labels: { color: '#8ea6be', font: { size: 10 } } } }
+        }
+      });
+
+      if (charts.roadTypes) charts.roadTypes.destroy();
+      charts.roadTypes = new Chart(document.getElementById('chartRoadTypes'), {
+        type: 'bar',
+        data: {
+          labels: ['National Highway', 'Expressway', 'State Highway', 'Urban Arterial'],
+          datasets: [{
+            label: 'Identified Pan-India Blackspots',
+            data: [54, 18, 14, 9],
+            backgroundColor: '#06b6d4'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { ticks: { color: '#8ea6be', font: { size: 9 } }, grid: { display: false } },
+            y: { ticks: { color: '#8ea6be' }, grid: { color: '#162f4c' } }
+          },
+          plugins: { legend: { display: false } }
+        }
+      });
+    }
+
+    // ================= TAB 2: WHERE & WHY (36 States & UTs) =================
+    let stateZoneFilter = 'All';
+    let stateSearchQuery = '';
+
+    function filterStateByZone(zone, btn) {
+      stateZoneFilter = zone;
+      btn.parentElement.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      renderStateTable();
+    }
+
+    function filterStateTable(query) {
+      stateSearchQuery = query.toLowerCase().trim();
+      renderStateTable();
+    }
+
+    function renderStateTable() {
+      let list = appCache.states || [];
+      if (stateZoneFilter !== 'All') {
+        list = list.filter(s => s.zone === stateZoneFilter);
+      }
+      if (stateSearchQuery) {
+        list = list.filter(s => 
+          s.state.toLowerCase().includes(stateSearchQuery) || 
+          (s.primary_corridor && s.primary_corridor.toLowerCase().includes(stateSearchQuery)) ||
+          s.zone.toLowerCase().includes(stateSearchQuery)
+        );
+      }
+
+      const tbody = document.getElementById('stateRankingsBody');
+      tbody.innerHTML = list.map(s => `
+        <tr style="cursor:pointer;" onclick="openStateDossier('${s.state}')">
+          <td><strong style="color:var(--accent-cyan)">#${s.national_rank || '-'}</strong></td>
+          <td>
+            <strong>${s.state}</strong>
+            <span style="font-size:10px; color:var(--muted); display:block;">Cap: ${s.capital || ''}</span>
+          </td>
+          <td><span class="badge badge-zone">${s.zone}</span></td>
+          <td>${(s.accidents_2023 || 0).toLocaleString()}</td>
+          <td><strong style="color:var(--red)">${(s.fatalities_2023 || 0).toLocaleString()}</strong></td>
+          <td>
+            <span class="badge ${s.severity_2023 >= 45 ? 'badge-critical' : s.severity_2023 >= 30 ? 'badge-high' : 'badge-mod'}">
+              ${s.severity_2023}%
+            </span>
+          </td>
+          <td style="font-size:11px; color:var(--muted);">${s.primary_corridor || 'National Highway'}</td>
+          <td><strong>${s.blackspots_count || 0}</strong></td>
+          <td>
+            <button class="map-btn" onclick="event.stopPropagation(); openStateDossier('${s.state}')">
+              🔍 Dossier
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    async function openStateDossier(stateName) {
+      const match = appCache.states.find(s => s.state.toLowerCase() === stateName.toLowerCase());
+      if (!match) return;
+
+      document.getElementById('dossierStateTitle').textContent = match.state;
+      document.getElementById('dossierZoneBadge').textContent = `${match.zone} Zone`;
+      document.getElementById('dossierRankBadge').textContent = `National Rank #${match.national_rank}`;
+
+      document.getElementById('dossierCrashes').textContent = (match.accidents_2023 || 0).toLocaleString();
+      document.getElementById('dossierFatalities').textContent = (match.fatalities_2023 || 0).toLocaleString();
+      document.getElementById('dossierSeverity').textContent = `${match.severity_2023}%`;
+      document.getElementById('dossierVru').textContent = `${match.vulnerable_user_pct}%`;
+
+      document.getElementById('dossierCause').textContent = match.top_cause || 'Overspeeding & Vulnerable User Conflicts';
+      document.getElementById('dossierCorridor').textContent = match.primary_corridor || 'National Highway Network';
+
+      // Render mini history chart
+      const history = match.history || [];
+      if (charts.dossierTrend) charts.dossierTrend.destroy();
+      charts.dossierTrend = new Chart(document.getElementById('chartDossierTrend'), {
+        type: 'line',
+        data: {
+          labels: history.map(h => h.year),
+          datasets: [
+            {
+              label: 'Annual Fatalities',
+              data: history.map(h => h.fatalities),
+              borderColor: '#ef4444',
+              backgroundColor: 'rgba(239, 68, 68, 0.15)',
+              tension: 0.3,
+              fill: true,
+              pointRadius: 4
+            },
+            {
+              label: 'Total Crashes',
+              data: history.map(h => h.accidents),
+              borderColor: '#06b6d4',
+              backgroundColor: 'transparent',
+              tension: 0.3,
+              borderDash: [4, 4],
+              pointRadius: 3
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { ticks: { color: '#8ea6be' }, grid: { display: false } },
+            y: { ticks: { color: '#8ea6be' }, grid: { color: '#162f4c' } }
+          },
+          plugins: { legend: { labels: { color: '#8ea6be', font: { size: 10 } } } }
+        }
+      });
+
+      // Find blackspots in this state
+      const stateSpots = appCache.hotspots.filter(h => h.state.toLowerCase() === match.state.toLowerCase());
+      const spotContainer = document.getElementById('dossierBlackspotList');
+      if (stateSpots.length > 0) {
+        spotContainer.innerHTML = stateSpots.map(sp => `
+          <div style="background:#0b1928; border:1px solid var(--line); border-radius:6px; padding:8px 12px; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <strong style="color:#fff; font-size:12px;">${sp.location}</strong>
+              <div style="font-size:10px; color:var(--muted)">${sp.corridor} · ${sp.dominant_cause}</div>
+            </div>
+            <div style="text-align:right;">
+              <span class="badge ${sp.risk_score >= 80 ? 'badge-critical' : 'badge-high'}">${sp.risk_score}/100</span>
+              <div style="font-size:10px; color:var(--muted); margin-top:2px;">${sp.fatalities} deaths</div>
+            </div>
+          </div>
+        `).join('');
+      } else {
+        spotContainer.innerHTML = '<div style="color:var(--muted); font-size:11px;">No critical blackspot clusters identified under MoRTH 500m protocol.</div>';
+      }
+
+      // Fly to button
+      document.getElementById('btnFlyToState').onclick = () => {
+        closeStateDossier();
+        switchTab('tab-command', document.querySelectorAll('.nav-btn')[0]);
+        jumpToState(match.state);
+      };
+
+      document.getElementById('stateDossierModal').classList.add('open');
+    }
+
+    function closeStateDossier() {
+      document.getElementById('stateDossierModal').classList.remove('open');
+    }
+
+    // Where & Why Charts & Causes
+    function renderWhereWhyCharts() {
+      if (charts.roadCategory) charts.roadCategory.destroy();
+      charts.roadCategory = new Chart(document.getElementById('chartRoadCategory'), {
+        type: 'pie',
+        data: {
+          labels: ['National Highways (36.2%)', 'State Highways (24.3%)', 'Other / Rural Roads (39.5%)'],
+          datasets: [{
+            data: [36.2, 24.3, 39.5],
+            backgroundColor: ['#ef4444', '#f59e0b', '#3b82f6']
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'bottom', labels: { color: '#8ea6be', font: { size: 10 } } } }
+        }
+      });
+
+      // Render interactive cause cards
+      const causesGrid = document.getElementById('causesInteractiveGrid');
+      const sampleCauses = appCache.causes.length > 0 ? appCache.causes : [
+        { cause: 'Overspeeding', share_crashes_pct: 69.6, share_fatalities_pct: 67.4, irc_countermeasure: 'Automated speed camera corridors (IRC:SP:108) and optical speed bars.' },
+        { cause: 'Wrong-side Driving / Lane Indiscipline', share_crashes_pct: 5.4, share_fatalities_pct: 5.8, irc_countermeasure: 'Physical median jersey barriers and grade-separated U-turns.' },
+        { cause: 'Substandard Road Geometry & Sharp Curves', share_crashes_pct: 4.8, share_fatalities_pct: 5.2, irc_countermeasure: 'Super-elevation correction, chevron signage, and W-beam crash barriers (IRC:73).' },
+        { cause: 'Adverse Weather (Monsoon / Winter Fog)', share_crashes_pct: 4.1, share_fatalities_pct: 4.3, irc_countermeasure: 'High-friction anti-skid overlay (IRC:SP:81) and active solar cat-eyes.' },
+        { cause: 'Potholes & Rutted Surface Defects', share_crashes_pct: 3.9, share_fatalities_pct: 4.2, irc_countermeasure: 'Micro-surfacing seal coats and rapid cold-mix asphalt patch audits.' },
+        { cause: 'Drunken / Impaired Driving', share_crashes_pct: 3.2, share_fatalities_pct: 3.5, irc_countermeasure: 'Sober check interceptors and liquor outlet bans within 500m of NH.' }
+      ];
+
+      causesGrid.innerHTML = sampleCauses.slice(0, 6).map((c, idx) => `
+        <div style="background:var(--panel-alt); border:1px solid var(--line); border-radius:8px; padding:10px; cursor:pointer;" onclick="selectCauseItem(${idx})">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <strong style="color:#fff; font-size:12px;">${c.cause}</strong>
+            <span class="badge ${c.share_crashes_pct >= 20 ? 'badge-critical' : 'badge-amber'}">${c.share_crashes_pct}%</span>
+          </div>
+          <div style="font-size:10px; color:var(--muted);">Fatalities Share: <strong>${c.share_fatalities_pct}%</strong></div>
+        </div>
+      `).join('');
+
+      window.cachedCauses = sampleCauses;
+    }
+
+    function selectCauseItem(idx) {
+      const item = window.cachedCauses[idx];
+      if (!item) return;
+      document.getElementById('causeCountermeasureBox').innerHTML = `
+        <strong style="color:var(--accent-cyan); display:block; margin-bottom:2px;">IRC Countermeasure Protocol for ${item.cause}:</strong>
+        <span style="color:#fff;">${item.irc_countermeasure || 'Engineering redesign & automated enforcement.'}</span>
+      `;
+    }
+
+    // ================= TAB 3: WHO & WHEN =================
+    const VRU_PROFILES = [
+      { id: '2w', name: 'Two-Wheelers', icon: '🛵', share: '44.5%', fatalShare: 44.5, count: '74,760 / yr', vuln: 92, risk: 'Critical', advisory: 'Physically segregated service lanes (IRC:SP:84), strict BIS helmet enforcement, and anti-skid micro-surfacing.' },
+      { id: 'ped', name: 'Pedestrians', icon: '🚶', share: '19.5%', fatalShare: 19.5, count: '32,760 / yr', vuln: 96, risk: 'Critical', advisory: 'Grade-separated Foot Overbridges (FOBs), mid-block refuge islands (IRC:103), and high-visibility zebra crossings.' },
+      { id: 'truck', name: 'Heavy Trucks (HCV)', icon: '🚛', share: '9.4%', fatalShare: 9.4, count: '15,790 / yr', vuln: 42, risk: 'High Collision Agent', advisory: 'Rear & lateral underrun protection bars (AIS-023), automated speed governors, and dedicated truck rest stops.' },
+      { id: 'car', name: 'Cars & Taxis', icon: '🚗', share: '15.1%', fatalShare: 15.1, count: '25,370 / yr', vuln: 45, risk: 'Moderate', advisory: 'Mandatory seatbelt compliance, median crash barriers, and automated section speed enforcement.' },
+      { id: 'auto', name: 'Auto-Rickshaws', icon: '🛺', share: '4.3%', fatalShare: 4.3, count: '7,220 / yr', vuln: 78, risk: 'High', advisory: 'Urban arterial dedicated slow-vehicle lanes and retro-reflective body contour tape.' },
+      { id: 'bus', name: 'Buses', icon: '🚌', share: '2.8%', fatalShare: 2.8, count: '4,700 / yr', vuln: 35, risk: 'High Occupant Load', advisory: 'Electronic Stability Control (ESC) and lane discipline monitoring at toll junctions.' },
+      { id: 'cycle', name: 'Bicycles', icon: '🚲', share: '2.1%', fatalShare: 2.1, count: '3,530 / yr', vuln: 90, risk: 'Critical', advisory: 'Physically protected non-motorized transport (NMT) cycle tracks and solar cat-eyes.' }
+    ];
+
+    function renderWhoWhenElements() {
+      // Render VRU interactive cards
+      const container = document.getElementById('vruCardsRow');
+      container.innerHTML = VRU_PROFILES.map((v, i) => `
+        <div class="vru-card ${i === 0 ? 'active' : ''}" onclick="selectVruProfile(${i}, this)">
+          <div class="vru-icon">${v.icon}</div>
+          <div class="vru-share">${v.share}</div>
+          <div class="vru-label">${v.name}</div>
+        </div>
+      `).join('');
+
+      selectVruProfile(0);
+
+      // Render chart
+      if (charts.vulnerability) charts.vulnerability.destroy();
+      charts.vulnerability = new Chart(document.getElementById('chartVulnerability'), {
+        type: 'polarArea',
+        data: {
+          labels: VRU_PROFILES.map(v => `${v.name} (${v.share})`),
+          datasets: [{
+            data: VRU_PROFILES.map(v => v.fatalShare),
+            backgroundColor: ['#ef4444', '#f97316', '#f59e0b', '#3b82f6', '#06b6d4', '#8b5cf6', '#10b981']
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'right', labels: { color: '#8ea6be', font: { size: 9 } } } }
+        }
+      });
+
+      // Render temporal curve
+      renderTemporalCurve(1.0);
+      onDiurnalSliderMove(19);
+    }
+
+    function selectVruProfile(index, card) {
+      document.querySelectorAll('.vru-card').forEach(c => c.classList.remove('active'));
+      if (card) card.classList.add('active');
+      const v = VRU_PROFILES[index];
+      document.getElementById('vruDetailBox').innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+          <strong style="color:#fff; font-size:13px;">${v.icon} ${v.name} Profile — ${v.share} of Total Indian Road Fatalities (${v.count})</strong>
+          <span class="badge badge-critical">Vulnerability Index: ${v.vuln}/100</span>
+        </div>
+        <div style="color:var(--text); line-height:1.5;">
+          <strong>IRC Recommended Safeguard:</strong> ${v.advisory}
+        </div>
+      `;
+    }
+
+    // Diurnal Slider & Hourly Matrix
+    const HOURLY_FACTORS = [
+      { h: 0, label: '00:00 - 01:00', risk: 78, cond: 'Deep Night Darkness', factor: 'Long-distance freight speeding & driver drowsiness / micro-sleep.', advisory: 'Deploy highway radar interceptors and breathalyzer checkpoints.' },
+      { h: 3, label: '03:00 - 04:00', risk: 82, cond: 'Pre-Dawn Twilight', factor: 'Circadian biological fatigue low, unlit stationary tractor breakdowns.', advisory: 'Strictly clear stationary disabled freight from active highway lanes.' },
+      { h: 6, label: '06:00 - 07:00', risk: 65, cond: 'Dawn Glare / Fog', factor: 'Morning intercity bus departure rush & school bus movements.', advisory: 'Operate active warning blinkers at school zone junctions.' },
+      { h: 9, label: '09:00 - 10:00', risk: 68, cond: 'Daylight Commute', factor: 'Peak two-wheeler work commute density & signal jumping.', advisory: 'Traffic police manual intersection intervention and service lane routing.' },
+      { h: 12, label: '12:00 - 13:00', risk: 52, cond: 'Mid-Day Sun', factor: 'High asphalt temperature, tyre blowout risk on concrete expressways.', advisory: 'Advise drivers to maintain safe tyre pressure at highway toll plazas.' },
+      { h: 15, label: '15:00 - 16:00', risk: 58, cond: 'Afternoon Clear', factor: 'Moderate traffic volume, localized urban pedestrian crossings.', advisory: 'Ensure pedestrian signals operate on 60-second cycles.' },
+      { h: 18, label: '18:00 - 19:00', risk: 92, cond: 'Dusk Glare / Twilight', factor: 'Highest fatal window: Fading daylight, intense commuter rush & freight entry.', advisory: 'Activate high-mast lighting; high-visibility police presence at junctions.' },
+      { h: 19, label: '19:00 - 20:00', risk: 95, cond: 'Dusk Glare / Night Entry', factor: 'Peak two-wheeler fatalities overlapping with heavy multi-axle freight trucks.', advisory: 'Mandate illuminated headlights; enforce 50 km/h limits near settlements.' },
+      { h: 21, label: '21:00 - 22:00', risk: 88, cond: 'Night', factor: 'Unregulated freight entry into metropolitan ring corridors & drunk driving.', advisory: 'Operate automated section radars on Outer Ring Roads and bypasses.' }
+    ];
+
+    function onDiurnalSliderMove(hour) {
+      hour = Number(hour);
+      const ampm = hour >= 12 ? 'PM' : 'AM';
+      const dispHour = hour % 12 || 12;
+      document.getElementById('sliderHourDisplay').textContent = `${String(hour).padStart(2, '0')}:00 (${dispHour}:00 ${ampm})`;
+
+      // Interpolate hazard
+      let match = HOURLY_FACTORS.find(f => f.h === hour);
+      if (!match) {
+        match = HOURLY_FACTORS.reduce((prev, curr) => Math.abs(curr.h - hour) < Math.abs(prev.h - hour) ? curr : prev);
+      }
+
+      const badge = document.getElementById('sliderRiskLevel');
+      badge.textContent = `HAZARD INDEX: ${match.risk} / 100`;
+      badge.className = `badge ${match.risk >= 85 ? 'badge-critical' : match.risk >= 70 ? 'badge-high' : 'badge-mod'}`;
+
+      document.getElementById('diurnalAdvisoryBox').innerHTML = `
+        <strong style="color:#fff; display:block; margin-bottom:2px;">Lighting Condition: <span style="color:var(--accent-cyan);">${match.cond}</span></strong>
+        <div style="color:var(--text); margin-bottom:4px;"><strong>Hazard Cause:</strong> ${match.factor}</div>
+        <div style="color:#67e8f9;"><strong>Action Advisory:</strong> ${match.advisory}</div>
+      `;
+    }
+
+    function applySeasonMultiplier(season, btn) {
+      document.querySelectorAll('.chips-row .filter-chip').forEach(c => c.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      let mult = 1.0;
+      if (season === 'monsoon') mult = 1.22;
+      else if (season === 'winter_fog') mult = 1.28;
+      else if (season === 'summer') mult = 1.15;
+      else if (season === 'festive') mult = 1.18;
+
+      renderTemporalCurve(mult);
+    }
+
+    function renderTemporalCurve(multiplier) {
+      const labels = ['00:00', '02:00', '04:00', '06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00'];
+      const baseFatalities = [12, 14, 16, 11, 10, 8, 7, 8, 11, 24, 22, 18];
+      const scaled = baseFatalities.map(v => Math.round(v * multiplier));
+
+      if (charts.temporal) charts.temporal.destroy();
+      charts.temporal = new Chart(document.getElementById('chartTemporal'), {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Fatal Intensity Index',
+            data: scaled,
+            borderColor: '#ef4444',
+            backgroundColor: 'rgba(239, 68, 68, 0.15)',
+            tension: 0.35,
+            fill: true,
+            pointRadius: 5,
+            pointBackgroundColor: '#ef4444'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { ticks: { color: '#8ea6be' }, grid: { display: false } },
+            y: { ticks: { color: '#8ea6be' }, grid: { color: '#162f4c' } }
+          },
+          plugins: { legend: { labels: { color: '#8ea6be' } } }
+        }
+      });
+    }
+
+    // ================= TAB 4: AI RISK PREDICTOR & FORECAST =================
+    let forecastHorizon = 90;
+
+    async function runSegmentAuditLive() {
+      const roadType = document.getElementById('auditRoadType').value;
+      const speedLimit = Number(document.getElementById('auditSpeedLimit').value) || 80;
+      const operatingSpeed = Number(document.getElementById('auditOperatingSpeed').value) || 95;
+      const weather = document.getElementById('auditWeather').value;
+      const roadCondition = document.getElementById('auditRoadCondition').value;
+      const timeOfDay = document.getElementById('auditTimeOfDay').value;
+      const geometry = document.getElementById('auditGeometry').value;
+      const lighting = document.getElementById('auditLighting').value;
+      const vruDensity = document.getElementById('auditVru').value;
+
+      try {
+        const res = await fetchApi(`/analytics/risk?latitude=28.7&longitude=77.1&road_type=${roadType}&speed_limit=${speedLimit}&operating_speed=${operatingSpeed}&weather=${weather}&road_condition=${roadCondition}&time_of_day=${timeOfDay}&geometry=${geometry}&lighting=${lighting}&vulnerable_user_density=${vruDensity}`);
+        
+        document.getElementById('auditRiskScore').innerHTML = `${res.risk_score}<span style="font-size:16px; color:var(--muted)">/100</span>`;
+        document.getElementById('auditRecSpeed').textContent = `${res.recommended_speed} km/h`;
+        
+        const badge = document.getElementById('auditResultBand');
+        badge.textContent = (res.risk_band || 'HIGH').toUpperCase();
+        badge.className = `badge badge-${res.risk_band === 'Critical' ? 'critical' : res.risk_band === 'High' ? 'high' : 'mod'}`;
+
+        const drivers = document.getElementById('auditDriversList');
+        drivers.innerHTML = (res.drivers || []).slice(0, 4).map(d => `
+          <div class="driver-item">
+            <strong><span>${d.factor}</span><span style="color:var(--accent-cyan)">+${d.weight} pts</span></strong>
+            <span>${d.actionable_insight}</span>
+          </div>
+        `).join('');
+
+        document.getElementById('auditRecAction').textContent = res.recommended_first_response || "Deploy speed enforcement & lighting.";
+      } catch (err) {
+        console.warn('Live audit calculation fallback:', err);
+      }
+    }
+
+    function setForecastHorizon(days, btn) {
+      forecastHorizon = days;
+      btn.parentElement.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      initForecastChart();
+    }
+
+    async function initForecastChart() {
+      try {
+        const res = await fetchApi(`/analytics/prediction?horizon_days=${forecastHorizon}`);
+        const traj = res.forecast_trajectory || [];
+
+        document.getElementById('forecastTrendBadge').textContent = res.trend || 'Escalating Trend';
+
+        if (charts.forecast) charts.forecast.destroy();
+        charts.forecast = new Chart(document.getElementById('chartForecast'), {
+          type: 'line',
+          data: {
+            labels: traj.map(t => t.label),
+            datasets: [
+              {
+                label: 'Predicted Risk Index',
+                data: traj.map(t => t.projected_risk),
+                borderColor: '#06b6d4',
+                backgroundColor: 'rgba(6, 182, 212, 0.15)',
+                tension: 0.3,
+                fill: true,
+                pointRadius: 4
+              },
+              {
+                label: '95% Upper Confidence Bound',
+                data: traj.map(t => t.upper_ci),
+                borderColor: 'rgba(239, 68, 68, 0.5)',
+                borderDash: [5, 5],
+                tension: 0.3,
+                fill: false,
+                pointRadius: 0
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: { ticks: { color: '#8ea6be' }, grid: { display: false } },
+              y: { ticks: { color: '#8ea6be' }, grid: { color: '#162f4c' } }
+            },
+            plugins: { legend: { labels: { color: '#8ea6be' } } }
+          }
+        });
+      } catch (err) {
+        console.error('Forecast chart error:', err);
+      }
+    }
+
+    function copyAuditSummary() {
+      const score = document.getElementById('auditRiskScore').textContent;
+      const speed = document.getElementById('auditRecSpeed').textContent;
+      const text = `RoadSafe India Safety Audit Report\nRisk Score: ${score}\nRecommended Safe Speed: ${speed}\nStatus: Audited under MoRTH / IRC standards.`;
+      navigator.clipboard.writeText(text);
+      alert('Audit summary copied to clipboard!');
+    }
+
+    function resetAuditForm() {
+      document.getElementById('riskAuditForm').reset();
+      runSegmentAuditLive();
+    }
+
+    // ================= TAB 5: COUNTERFACTUAL SIMULATOR =================
+    function onSimBaseChange() {
+      const fat = document.getElementById('simBaseFatSlider').value;
+      const crash = document.getElementById('simBaseCrashSlider').value;
+      document.getElementById('simBaseFatDisplay').textContent = fat;
+      document.getElementById('simBaseCrashDisplay').textContent = crash;
+      runSimulation();
+    }
+
+    async function runSimulation() {
+      const selected = Array.from(document.querySelectorAll('.sim-grid input[type="checkbox"]:checked')).map(c => c.value);
+      const baseFat = Number(document.getElementById('simBaseFatSlider')?.value || 32);
+      const baseCrash = Number(document.getElementById('simBaseCrashSlider')?.value || 48);
+
+      try {
+        const payload = {
+          baseline_risk: 84.0,
+          baseline_fatalities_annual: baseFat,
+          baseline_crashes_annual: baseCrash,
+          selected_interventions: selected
+        };
+        const res = await fetchApi('/analytics/simulate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        document.getElementById('simNewScore').textContent = res.simulated_risk;
+        document.getElementById('simReductionPct').textContent = `${res.risk_reduction_pct}%`;
+        document.getElementById('simLivesSaved').textContent = res.lives_saved_annual;
+
+        // Economic calculation (MoRTH ₹1.4 Cr Value of Statistical Life + ₹35L injury)
+        const econSavings = ((res.lives_saved_annual * 1.4) + (res.crashes_prevented_annual * 0.35)).toFixed(1);
+        document.getElementById('simEconomicSavings').textContent = `₹${econSavings} Crores / Year Saved`;
+
+        document.getElementById('simRoiBadge').textContent = res.safety_roi_rating || 'EXCEPTIONAL RETURN';
+        document.getElementById('simBenefitCostRatio').textContent = `${(res.benefit_cost_ratio || 5.8).toFixed(1)}x ROI`;
+
+        const bullets = document.getElementById('simBenefitBullets');
+        bullets.innerHTML = (res.outcomes_summary || []).map(b => `<li>${b}</li>`).join('');
+      } catch (err) {
+        console.error('Simulation error:', err);
+      }
+    }
+
+    // ================= TAB 6: SAFE ROUTE & GOLDEN HOUR =================
+    async function evaluateCorridorRoute(val) {
+      const pairs = {
+        'delhi_agra': ['Delhi', 'Agra'],
+        'mumbai_pune': ['Mumbai', 'Pune'],
+        'bengaluru_chennai': ['Bengaluru', 'Chennai'],
+        'hyderabad_vijayawada': ['Hyderabad', 'Vijayawada'],
+        'kolkata_durgapur': ['Kolkata', 'Durgapur'],
+        'ahmedabad_vadodara': ['Ahmedabad', 'Vadodara'],
+        'chandigarh_manali': ['Chandigarh', 'Manali'],
+        'guwahati_shillong': ['Guwahati', 'Shillong'],
+        'jaipur_delhi': ['Jaipur', 'Delhi']
+      };
+      const [origin, dest] = pairs[val] || ['Delhi', 'Agra'];
+
+      try {
+        const data = await fetchApi(`/analytics/route-risk?origin=${origin}&destination=${dest}`);
+        document.getElementById('routeReportBox').innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px;">
+            <div>
+              <strong style="font-size:16px; color:#fff;">${data.corridor_name}</strong>
+              <div style="font-size:11px; color:var(--muted)">Distance: <strong>${data.distance_km} km</strong> · Cruise Speed: <strong>${data.avg_speed_kmh} km/h</strong></div>
+            </div>
+            <span class="badge ${data.risk_score >= 75 ? 'badge-critical' : 'badge-high'}">Route Hazard: ${data.risk_score}/100</span>
+          </div>
+          <div style="margin-bottom:10px;">
+            <strong style="font-size:11px; color:var(--accent-cyan); display:block; margin-bottom:4px;">Identified Corridors Hazards:</strong>
+            <ul style="font-size:11px; color:var(--text); padding-left:18px; line-height:1.6;">
+              ${(data.primary_hazards || []).map(h => `<li>${h}</li>`).join('')}
+            </ul>
+          </div>
+          <div style="background:rgba(6, 182, 212, 0.08); border-left:3px solid var(--accent-cyan); padding:10px 12px; border-radius:0 6px 6px 0; font-size:11px;">
+            <strong>Advisory:</strong> ${data.safe_advisory}
+          </div>
+        `;
+      } catch (err) {
+        console.error('Route error:', err);
+      }
+    }
+
+    function renderTraumaTable(centers) {
+      const tbody = document.getElementById('traumaTableBody');
+      tbody.innerHTML = centers.map((c, i) => `
+        <tr>
+          <td><strong>${c.name}</strong></td>
+          <td>${c.city}, ${c.state}</td>
+          <td><span class="badge badge-green">${c.level}</span></td>
+          <td>${c.ambulances} ALS</td>
+          <td><strong>${c.avg_response_min} min</strong></td>
+          <td>
+            <button class="map-btn" onclick="simulateDispatch('${c.name}', '${c.city}', ${c.avg_response_min})">
+              🚑 Dispatch
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function simulateDispatch(hospital, city, time) {
+      alert(`🚨 108 Advanced Life Support (ALS) Unit Dispatched!\n\nDeploying from: ${hospital} (${city})\nProjected Response Time: ~${time} minutes.\nStatus: Priority corridor emergency response active.`);
+    }
+
+    // ================= TAB 7: BLACKSPOT EVIDENCE BASE =================
+    function onRecordSearch(query) {
+      applyRecordFilters();
+    }
+    function onRecordStateFilter(state) {
+      applyRecordFilters();
+    }
+    function onRecordSeverityFilter(sev) {
+      applyRecordFilters();
+    }
+
+    function applyRecordFilters() {
+      const q = document.getElementById('recordSearch').value.toLowerCase().trim();
+      const st = document.getElementById('recordStateFilter').value;
+      const sev = document.getElementById('recordSeverityFilter').value;
+
+      filteredRecordsList = appCache.hotspots.filter(h => {
+        const matchesQ = !q || h.location.toLowerCase().includes(q) || h.corridor.toLowerCase().includes(q) || h.district.toLowerCase().includes(q);
+        const matchesState = st === 'All' || h.state.toLowerCase() === st.toLowerCase();
+        let matchesSev = true;
+        if (sev === 'critical') matchesSev = h.risk_score >= 80;
+        else if (sev === 'high') matchesSev = h.risk_score >= 60 && h.risk_score < 80;
+        else if (sev === 'moderate') matchesSev = h.risk_score < 60;
+        return matchesQ && matchesState && matchesSev;
+      });
+
+      recordsPage = 1;
+      renderBlackspotTablePage();
+    }
+
+    function renderBlackspotTablePage() {
+      const start = (recordsPage - 1) * recordsPerPage;
+      const end = start + recordsPerPage;
+      const slice = filteredRecordsList.slice(start, end);
+
+      const tbody = document.getElementById('blackspotsTableBody');
+      tbody.innerHTML = slice.map(h => `
+        <tr>
+          <td><strong style="color:var(--accent-cyan);">${h.morth_blackspot_id || 'NH-BS'}</strong></td>
+          <td><strong>${h.location}</strong></td>
+          <td>${h.corridor}</td>
+          <td>${h.district}, ${h.state}</td>
+          <td><strong style="color:var(--red);">${h.fatalities || 0}</strong></td>
+          <td style="font-size:11px; color:var(--muted);">${h.dominant_cause}</td>
+          <td>
+            <span class="badge ${h.risk_score >= 80 ? 'badge-critical' : h.risk_score >= 60 ? 'badge-high' : 'badge-mod'}">${h.risk_score}/100</span>
+          </td>
+          <td>
+            <a href="https://www.google.com/maps/search/?api=1&query=${h.latitude},${h.longitude}" target="_blank" class="map-btn" style="text-decoration:none;">
+              📍 Maps
+            </a>
+          </td>
+        </tr>
+      `).join('');
+
+      document.getElementById('recordsPaginationInfo').textContent = 
+        `Showing ${start + 1}-${Math.min(end, filteredRecordsList.length)} of ${filteredRecordsList.length} records`;
+      document.getElementById('btnPrevPage').disabled = recordsPage === 1;
+      document.getElementById('btnNextPage').disabled = end >= filteredRecordsList.length;
+    }
+
+    function prevRecordsPage() {
+      if (recordsPage > 1) {
+        recordsPage--;
+        renderBlackspotTablePage();
+      }
+    }
+    function nextRecordsPage() {
+      if ((recordsPage * recordsPerPage) < filteredRecordsList.length) {
+        recordsPage++;
+        renderBlackspotTablePage();
+      }
+    }
+
+    // Tab Switching
+    function switchTab(tabId, btn) {
+      document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+
+      const target = document.getElementById(tabId);
+      if (target) target.classList.add('active');
+      if (btn) btn.classList.add('active');
+
+      const titles = {
+        'tab-command': 'National Road Safety Command Center',
+        'tab-where-why': 'Where & Why — Spatial and Causal Road Safety Intelligence',
+        'tab-who-when': 'Who & When — Vulnerability & 24h Diurnal Temporal Matrix',
+        'tab-macro-junctions': '50-Year Longitudinal Trends & City Junction Safety Intelligence',
+        'tab-prediction': 'AI Risk Prediction & Future Risk Forecasting Engine',
+        'tab-simulation': 'Counterfactual Intervention Simulator & Impact Estimation',
+        'tab-route': 'Safe Route Hazard Evaluation & Golden Hour Dispatch',
+        'tab-records': 'National Accident Evidence Base & MoRTH Blackspots'
+      };
+      document.getElementById('pageHeading').textContent = titles[tabId] || 'RoadSafe India';
+
+      if (tabId === 'tab-command' && mapInstance) {
+        setTimeout(() => mapInstance.invalidateSize(), 100);
+      }
+    }
+
+    // State & Road Filters in Header
+    async function onStateFilterChange(state) {
+      if (state === 'All') {
+        appCache.hotspots = await fetchApi('/analytics/hotspots');
+      } else {
+        appCache.hotspots = await fetchApi(`/analytics/hotspots?state=${encodeURIComponent(state)}`);
+      }
+      renderMapMarkers();
+      filteredRecordsList = [...appCache.hotspots];
+      renderBlackspotTablePage();
+      if (appCache.hotspots.length > 0) inspectBlackspot(appCache.hotspots[0]);
+    }
+
+    async function onRoadTypeFilterChange(roadType) {
+      const state = document.getElementById('stateFilterSelect').value;
+      let url = '/analytics/hotspots?';
+      if (state !== 'All') url += `state=${encodeURIComponent(state)}&`;
+      if (roadType !== 'All') url += `road_type=${encodeURIComponent(roadType)}`;
+      appCache.hotspots = await fetchApi(url);
+      renderMapMarkers();
+      filteredRecordsList = [...appCache.hotspots];
+      renderBlackspotTablePage();
+      if (appCache.hotspots.length > 0) inspectBlackspot(appCache.hotspots[0]);
+    }
+
+    // Modal Operations
+    function openIncidentModal() {
+      document.getElementById('incidentModal').classList.add('open');
+    }
+    function closeIncidentModal() {
+      document.getElementById('incidentModal').classList.remove('open');
+    }
+
+    async function submitNewIncident(e) {
+      e.preventDefault();
+      const form = e.target;
+      const fd = new FormData(form);
+      const data = Object.fromEntries(fd.entries());
+      
+      data.latitude = Number(data.latitude);
+      data.longitude = Number(data.longitude);
+      data.injuries = Number(data.injuries || 0);
+      data.fatalities = Number(data.fatalities || 0);
+      data.casualties = data.injuries + data.fatalities;
+
+      try {
+        const created = await fetchApi('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        alert(`Incident registered successfully with ML Risk Score: ${created.risk_score}/100`);
+        closeIncidentModal();
+        form.reset();
+        await loadAllData();
+      } catch (err) {
+        alert('Error saving incident: ' + err.message);
+      }
+    }
+
+    async function seedNationalData() {
+      try {
+        const res = await fetchApi('/seed-demo', { method: 'POST' });
+        alert(res.message);
+        await loadAllData();
+      } catch (e) {
+        alert('Seeding error: ' + e.message);
+      }
+    }
+
+    async function handleCsvUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const fd = new FormData();
+      fd.append('file', file);
+
+      try {
+        const res = await fetch(API + '/import-csv', { method: 'POST', body: fd });
+        const json = await res.json();
+        alert(`Imported ${json.inserted} records into national intelligence base.`);
+        await loadAllData();
+      } catch (err) {
+        alert('CSV Import error: ' + err.message);
+      }
+    }
+
+    function downloadSampleCsv() {
+      const csv = `location,latitude,longitude,state,district,accident_type,severity,casualties,injuries,fatalities,weather_condition,road_condition,time_of_day,contributing_factors
+Mukarba Chowk Flyover NH-44,28.7365,77.1643,Delhi,North Delhi,collision,severe,5,3,2,Clear,Dry,Evening,Overspeeding; Pedestrian crossing
+Bhatan Tunnel Curve Expressway,18.8920,73.1890,Maharashtra,Raigad,collision,severe,6,4,2,Heavy Rain,Wet,Night,Hydroplaning; Blind curve
+GST Road Tambaram Junction,12.9352,80.1450,Tamil Nadu,Chengalpattu,pedestrian,fatal,3,1,2,Clear,Poor,Night,Pedestrian crossing; Inadequate lighting
+Silk Board Junction Hosur Road,12.9176,77.6234,Karnataka,Bengaluru Urban,side_impact,moderate,2,2,0,Clear,Dry,Evening,Signal violation; Two-wheeler cut`;
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'roadsafe_national_audit_sample.csv';
+      a.click();
+    }
+
+
+    
+    // ==========================================
+    // COLOR-CODED HIGHWAY NETWORK ON GIS MAP
+    // ==========================================
+    let highwayLayerGroup = null;
+    let activeHighwayRiskFilter = 'all';
+    let isHighwayLayerVisible = true;
+
+    function renderHighwayPolylines() {
+      if (!mapInstance) return;
+      if (!highwayLayerGroup) {
+        highwayLayerGroup = L.layerGroup().addTo(mapInstance);
+      }
+      highwayLayerGroup.clearLayers();
+
+      if (!isHighwayLayerVisible || !appCache.highways || appCache.highways.length === 0) return;
+
+      // Update count badges dynamically
+      if (document.getElementById('hwCount-all')) {
+        document.getElementById('hwCount-all').textContent = appCache.highways.length;
+        document.getElementById('hwCount-red').textContent = appCache.highways.filter(h => h.color === 'red').length;
+        document.getElementById('hwCount-orange').textContent = appCache.highways.filter(h => h.color === 'orange').length;
+        document.getElementById('hwCount-yellow').textContent = appCache.highways.filter(h => h.color === 'yellow').length;
+        document.getElementById('hwCount-green').textContent = appCache.highways.filter(h => h.color === 'green').length;
+      }
+
+      let list = appCache.highways;
+      if (activeHighwayRiskFilter !== 'all') {
+        list = list.filter(h => h.color === activeHighwayRiskFilter || h.risk_level === activeHighwayRiskFilter);
+      }
+
+      list.forEach(h => {
+        // Casing outline for high contrast against Google Maps & Satellite
+        const casing = L.polyline(h.coordinates, {
+          color: '#040d1a',
+          weight: 7,
+          opacity: 0.8,
+          lineCap: 'round',
+          lineJoin: 'round'
+        });
+
+        // Color-coded highway line matching user specification
+        const line = L.polyline(h.coordinates, {
+          color: h.color_hex,
+          weight: 4.5,
+          opacity: 0.95,
+          lineCap: 'round',
+          lineJoin: 'round'
+        });
+
+        // Hover tooltip
+        const statusBadge = h.color === 'green' ? '🟢 SAFE (NO ACCIDENTS)' :
+                           h.color === 'yellow' ? '🟡 VERY FEW ACCIDENTS' :
+                           h.color === 'orange' ? '🟠 MODERATE ACCIDENTS' : '🔴 EXTREME ACCIDENTS';
+
+        line.bindTooltip(`
+          <div style="font-family:Inter,sans-serif; min-width:200px;">
+            <div style="font-weight:800; font-size:12px; color:#fff;">${h.highway_code}</div>
+            <div style="font-size:11px; color:#cbd5e1; margin-top:2px;">${h.corridor_name}</div>
+            <div style="margin-top:4px; font-weight:700; font-size:11px; color:${h.color_hex};">${statusBadge}</div>
+            <div style="font-size:10px; color:#94a3b8; margin-top:2px;">Accidents: <strong>${h.accidents}</strong> | Fatalities: <strong>${h.fatalities}</strong></div>
+          </div>
+        `, { sticky: true });
+
+        // Click popup card
+        line.bindPopup(`
+          <div style="font-family:Inter,system-ui,sans-serif; color:#f8fafc; min-width:270px; padding:4px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <span class="badge" style="background:${h.color_hex}22; color:${h.color_hex}; border:1px solid ${h.color_hex}66; font-weight:800; font-size:11px; padding:3px 8px;">
+                ${statusBadge}
+              </span>
+              <span style="font-size:11px; color:#94a3b8; font-weight:600;">${h.length_km} km</span>
+            </div>
+            <div style="font-size:16px; font-weight:800; color:#fff; margin-bottom:2px;">${h.highway_code}</div>
+            <div style="font-size:12px; color:#94a3b8; margin-bottom:10px;">${h.corridor_name} · <em>${h.state}</em></div>
+            
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px; background:rgba(15,23,42,0.7); padding:8px 12px; border-radius:6px; border:1px solid rgba(51,65,85,0.4);">
+              <div>
+                <div style="font-size:10px; color:#94a3b8; text-transform:uppercase;">Accidents (3-Yr)</div>
+                <div style="font-size:16px; font-weight:800; color:${h.color_hex};">${h.accidents}</div>
+              </div>
+              <div>
+                <div style="font-size:10px; color:#94a3b8; text-transform:uppercase;">Fatalities (3-Yr)</div>
+                <div style="font-size:16px; font-weight:800; color:#ef4444;">${h.fatalities}</div>
+              </div>
+            </div>
+
+            <div style="font-size:11.5px; color:#cbd5e1; margin-bottom:6px; line-height:1.4;">
+              <strong style="color:#fff;">Prevailing Condition:</strong> ${h.dominant_cause}
+            </div>
+            <div style="font-size:11px; color:#38bdf8; background:rgba(6,182,212,0.1); padding:6px 8px; border-radius:4px; border:1px solid rgba(6,182,212,0.2);">
+              ⚡ Speed Advisory: Maintain speed below <strong>${h.speed_limit_kmh} km/h</strong>
+            </div>
+          </div>
+        `);
+
+        highwayLayerGroup.addLayer(casing);
+        highwayLayerGroup.addLayer(line);
+      });
+    }
+
+    function toggleHighwayLayer(visible) {
+      isHighwayLayerVisible = visible;
+      renderHighwayPolylines();
+    }
+
+    function filterHighwaysByRisk(riskColor, btn) {
+      activeHighwayRiskFilter = riskColor;
+      document.querySelectorAll('[id^="hwChip-"]').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      renderHighwayPolylines();
+    }
+
+    // ==========================================
+    // 50-YEAR HISTORICAL TRENDS & CITY JUNCTIONS
+    // ==========================================
+    let historicalChart = null;
+    let junctionChart = null;
+    let currentHistoricalMode = 'all';
+    let allPoliceSpots = [];
+    let filteredPoliceSpots = [];
+    let policePage = 1;
+    const policePageSize = 10;
+
+    function initHistoricalChart() {
+      const ctx = document.getElementById('historicalTrendsChart');
+      if (!ctx || !appCache.historical || appCache.historical.length === 0) return;
+
+      const labels = appCache.historical.map(r => r.year);
+      const vehicles = appCache.historical.map(r => r.vehicles_millions);
+      const fatalities = appCache.historical.map(r => Math.round(r.fatalities / 1000));
+      const accidents = appCache.historical.map(r => Math.round(r.accidents / 1000));
+      const deathRateVeh = appCache.historical.map(r => r.fatalities_per_10k_vehicles);
+      const deathRatePop = appCache.historical.map(r => r.fatalities_per_lakh_pop);
+
+      if (historicalChart) historicalChart.destroy();
+
+      historicalChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Registered Motor Vehicles (Millions)',
+              data: vehicles,
+              borderColor: '#06b6d4',
+              backgroundColor: 'rgba(6, 182, 212, 0.1)',
+              yAxisID: 'yLeft',
+              tension: 0.3,
+              fill: true,
+              borderWidth: 2.5,
+              pointRadius: 3
+            },
+            {
+              label: 'Road Fatalities (Thousands)',
+              data: fatalities,
+              borderColor: '#ef4444',
+              backgroundColor: 'rgba(239, 68, 68, 0.1)',
+              yAxisID: 'yRight',
+              tension: 0.3,
+              borderWidth: 2.5,
+              pointRadius: 3
+            },
+            {
+              label: 'Total Crashes (Thousands)',
+              data: accidents,
+              borderColor: '#f59e0b',
+              borderDash: [5, 5],
+              yAxisID: 'yRight',
+              tension: 0.3,
+              borderWidth: 2,
+              pointRadius: 2
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { labels: { color: '#94a3b8', font: { family: 'Inter', size: 11 } } },
+            tooltip: {
+              backgroundColor: 'rgba(15, 23, 42, 0.95)',
+              borderColor: 'rgba(6, 182, 212, 0.3)',
+              borderWidth: 1,
+              titleColor: '#fff',
+              bodyColor: '#cbd5e1'
+            }
+          },
+          scales: {
+            x: {
+              grid: { color: 'rgba(51, 65, 85, 0.3)' },
+              ticks: { color: '#64748b', font: { size: 10 } }
+            },
+            yLeft: {
+              type: 'linear',
+              position: 'left',
+              title: { display: true, text: 'Vehicles (Millions)', color: '#06b6d4', font: { size: 11 } },
+              grid: { color: 'rgba(51, 65, 85, 0.3)' },
+              ticks: { color: '#06b6d4' }
+            },
+            yRight: {
+              type: 'linear',
+              position: 'right',
+              title: { display: true, text: 'Fatalities / Crashes (Thousands)', color: '#ef4444', font: { size: 11 } },
+              grid: { drawOnChartArea: false },
+              ticks: { color: '#ef4444' }
+            }
+          }
+        }
+      });
+    }
+
+    function setHistoricalSeries(mode) {
+      if (!historicalChart || !appCache.historical) return;
+      const labels = appCache.historical.map(r => r.year);
+
+      if (mode === 'all') {
+        historicalChart.data.datasets = [
+          {
+            label: 'Registered Motor Vehicles (Millions)',
+            data: appCache.historical.map(r => r.vehicles_millions),
+            borderColor: '#06b6d4',
+            backgroundColor: 'rgba(6, 182, 212, 0.1)',
+            yAxisID: 'yLeft',
+            tension: 0.3,
+            fill: true,
+            borderWidth: 2.5
+          },
+          {
+            label: 'Road Fatalities (Thousands)',
+            data: appCache.historical.map(r => Math.round(r.fatalities / 1000)),
+            borderColor: '#ef4444',
+            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+            yAxisID: 'yRight',
+            tension: 0.3,
+            borderWidth: 2.5
+          },
+          {
+            label: 'Total Crashes (Thousands)',
+            data: appCache.historical.map(r => Math.round(r.accidents / 1000)),
+            borderColor: '#f59e0b',
+            borderDash: [5, 5],
+            yAxisID: 'yRight',
+            tension: 0.3,
+            borderWidth: 2
+          }
+        ];
+        historicalChart.options.scales.yLeft.title.text = 'Vehicles (Millions)';
+        historicalChart.options.scales.yRight.title.text = 'Casualties (Thousands)';
+      } else if (mode === 'vehicles_fatalities') {
+        historicalChart.data.datasets = [
+          {
+            label: 'Registered Vehicles (Millions)',
+            data: appCache.historical.map(r => r.vehicles_millions),
+            borderColor: '#06b6d4',
+            backgroundColor: 'rgba(6, 182, 212, 0.15)',
+            yAxisID: 'yLeft',
+            fill: true,
+            borderWidth: 3
+          },
+          {
+            label: 'Fatalities (Thousands)',
+            data: appCache.historical.map(r => Math.round(r.fatalities / 1000)),
+            borderColor: '#ef4444',
+            backgroundColor: 'rgba(239, 68, 68, 0.15)',
+            yAxisID: 'yRight',
+            fill: true,
+            borderWidth: 3
+          }
+        ];
+        historicalChart.options.scales.yLeft.title.text = 'Vehicles (Millions)';
+        historicalChart.options.scales.yRight.title.text = 'Fatalities (Thousands)';
+      } else if (mode === 'rates') {
+        historicalChart.data.datasets = [
+          {
+            label: 'Fatalities per 10,000 Vehicles (Vehicle Safety)',
+            data: appCache.historical.map(r => r.fatalities_per_10k_vehicles),
+            borderColor: '#22c55e',
+            backgroundColor: 'rgba(34, 197, 94, 0.1)',
+            yAxisID: 'yLeft',
+            borderWidth: 2.5
+          },
+          {
+            label: 'Fatalities per 1 Lakh Population (Public Exposure)',
+            data: appCache.historical.map(r => r.fatalities_per_lakh_pop),
+            borderColor: '#f97316',
+            backgroundColor: 'rgba(249, 115, 22, 0.1)',
+            yAxisID: 'yRight',
+            borderWidth: 2.5
+          }
+        ];
+        historicalChart.options.scales.yLeft.title.text = 'Rate per 10,000 Vehicles';
+        historicalChart.options.scales.yRight.title.text = 'Rate per 1 Lakh Population';
+      }
+      historicalChart.update();
+    }
+
+    function initJunctionModule() {
+      const data = appCache.junctions;
+      if (!data || !data.cities) return;
+
+      const sel = document.getElementById('junctionCitySelect');
+      sel.innerHTML = '<option value="National">🇮🇳 National Total (50 Million-Plus Cities)</option>' +
+        data.cities.map(c => `<option value="${c.city}">${c.city} (${c.total.accidents} crashes)</option>`).join('');
+
+      renderJunctionView('National');
+    }
+
+    function onJunctionCityChange(cityName) {
+      renderJunctionView(cityName);
+    }
+
+    function renderJunctionView(cityName) {
+      const data = appCache.junctions;
+      if (!data) return;
+
+      let target;
+      if (cityName === 'National') {
+        target = data.national_summary;
+      } else {
+        target = data.cities.find(c => c.city.toLowerCase() === cityName.toLowerCase());
+      }
+      if (!target) return;
+
+      // Render Donut Chart
+      const ctx = document.getElementById('junctionChart');
+      if (junctionChart) junctionChart.destroy();
+
+      junctionChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Uncontrolled Junctions', 'Traffic Light Signal', 'Police Controlled', 'Stop Signs', 'Flashing Blinkers', 'Others'],
+          datasets: [{
+            data: [
+              target.uncontrolled.fatalities,
+              target.traffic_light.fatalities,
+              target.police_controlled.fatalities,
+              target.stop_sign.fatalities,
+              target.flashing_blinker.fatalities,
+              target.others.fatalities
+            ],
+            backgroundColor: ['#ef4444', '#22c55e', '#3b82f6', '#f59e0b', '#a855f7', '#64748b'],
+            borderWidth: 2,
+            borderColor: '#0f172a'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { color: '#cbd5e1', font: { size: 10 }, boxWidth: 12 } },
+            title: {
+              display: true,
+              text: `${cityName} — Fatalities by Junction Control Type`,
+              color: '#fff',
+              font: { family: 'Outfit', size: 13 }
+            }
+          }
+        }
+      });
+
+      // Render stats card
+      const card = document.getElementById('junctionStatsCard');
+      const unctrlPct = target.uncontrolled_fatality_share_pct || Math.round(target.uncontrolled.fatalities / target.total.fatalities * 100);
+      const signalPct = target.signal_controlled_fatality_share_pct || Math.round(target.traffic_light.fatalities / target.total.fatalities * 100);
+
+      card.innerHTML = `
+        <div style="padding: 14px; background: rgba(239, 68, 68, 0.08); border-radius: 8px; border-left: 4px solid var(--red);">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <strong style="color: #fca5a5; font-size: 14px;">⚠️ Uncontrolled Intersections</strong>
+            <span style="color: var(--red); font-weight: 800; font-size: 16px;">${target.uncontrolled.fatalities.toLocaleString()} Deaths</span>
+          </div>
+          <div style="font-size: 12px; color: var(--muted); margin-top: 4px;">
+            ${target.uncontrolled.accidents.toLocaleString()} crashes (${unctrlPct}% of junction fatalities). Highest lethal risk due to unregulated crossing conflicts.
+          </div>
+        </div>
+
+        <div style="padding: 14px; background: rgba(34, 197, 94, 0.08); border-radius: 8px; border-left: 4px solid var(--green);">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <strong style="color: #86efac; font-size: 14px;">🚦 Traffic Light Signals</strong>
+            <span style="color: var(--green); font-weight: 800; font-size: 16px;">${target.traffic_light.fatalities.toLocaleString()} Deaths</span>
+          </div>
+          <div style="font-size: 12px; color: var(--muted); margin-top: 4px;">
+            ${target.traffic_light.accidents.toLocaleString()} crashes (${signalPct}% of deaths). Signal phasing dramatically mitigates lethal t-bone impacts.
+          </div>
+        </div>
+
+        <div style="padding: 12px 14px; background: rgba(59, 130, 246, 0.08); border-radius: 8px; border-left: 4px solid var(--accent-blue); display: flex; justify-content: space-between;">
+          <span style="font-size: 12px; color: var(--muted);">👮 Police Controlled: <strong style="color: #fff;">${target.police_controlled.fatalities} Deaths</strong></span>
+          <span style="font-size: 12px; color: var(--muted);">🛑 Stop Signs: <strong style="color: #fff;">${target.stop_sign.fatalities} Deaths</strong></span>
+          <span style="font-size: 12px; color: var(--muted);">💡 Blinkers: <strong style="color: #fff;">${target.flashing_blinker.fatalities} Deaths</strong></span>
+        </div>
+      `;
+    }
+
+    function initPoliceSpotsModule() {
+      if (!appCache.policeSpots || appCache.policeSpots.length === 0) return;
+      allPoliceSpots = [...appCache.policeSpots];
+      filteredPoliceSpots = [...allPoliceSpots];
+
+      // Populate State filter
+      const states = Array.from(new Set(allPoliceSpots.map(s => s.state))).sort();
+      const sel = document.getElementById('policeStateFilter');
+      sel.innerHTML = '<option value="All">All States (30 Covered)</option>' +
+        states.map(st => `<option value="${st}">${st}</option>`).join('');
+
+      renderPoliceSpotsTable();
+    }
+
+    function onPoliceSearch(query) {
+      const q = query.trim().toLowerCase();
+      const stateFilter = document.getElementById('policeStateFilter').value;
+      filteredPoliceSpots = allPoliceSpots.filter(s => {
+        const matchesState = (stateFilter === 'All' || s.state === stateFilter);
+        const matchesQuery = !q || (
+          s.location.toLowerCase().includes(q) ||
+          s.police_station.toLowerCase().includes(q) ||
+          s.district.toLowerCase().includes(q) ||
+          s.highway.toLowerCase().includes(q) ||
+          s.state.toLowerCase().includes(q)
+        );
+        return matchesState && matchesQuery;
+      });
+      policePage = 1;
+      renderPoliceSpotsTable();
+    }
+
+    function onPoliceStateFilter(state) {
+      const q = document.getElementById('policeSearchInput').value.trim().toLowerCase();
+      filteredPoliceSpots = allPoliceSpots.filter(s => {
+        const matchesState = (state === 'All' || s.state === state);
+        const matchesQuery = !q || (
+          s.location.toLowerCase().includes(q) ||
+          s.police_station.toLowerCase().includes(q) ||
+          s.district.toLowerCase().includes(q) ||
+          s.highway.toLowerCase().includes(q) ||
+          s.state.toLowerCase().includes(q)
+        );
+        return matchesState && matchesQuery;
+      });
+      policePage = 1;
+      renderPoliceSpotsTable();
+    }
+
+    function renderPoliceSpotsTable() {
+      const tbody = document.getElementById('policeSpotsTableBody');
+      const start = (policePage - 1) * policePageSize;
+      const pageItems = filteredPoliceSpots.slice(start, start + policePageSize);
+
+      document.getElementById('policeSpotsCount').textContent = 
+        `Showing ${filteredPoliceSpots.length > 0 ? start + 1 : 0}–${Math.min(start + policePageSize, filteredPoliceSpots.length)} of ${filteredPoliceSpots.length} audited blackspots`;
+      document.getElementById('policePageNum').textContent = policePage;
+
+      if (pageItems.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding: 24px; color: var(--subtle);">No audited blackspots match your filter.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = pageItems.map(s => `
+        <tr>
+          <td>
+            <strong style="color: #fff;">${s.state}</strong>
+            <div style="font-size: 11px; color: var(--subtle);">${s.district || ''}</div>
+          </td>
+          <td style="color: var(--accent-cyan); font-weight: 600;">${s.police_station}</td>
+          <td><span class="badge badge-info" style="font-size: 10px;">${s.highway || 'Corridor'}</span></td>
+          <td>
+            <div style="font-weight: 500; color: #cbd5e1;">${s.location}</div>
+            <div style="font-size: 10.5px; color: var(--muted);">Limits: ${s.chainage_start || '0'} to ${s.chainage_end || '500m'}</div>
+          </td>
+          <td style="text-align: right; font-weight: 600; color: #fff;">${s.total_accidents_3yr}</td>
+          <td style="text-align: right; font-weight: 700; color: var(--red);">${s.total_fatalities_3yr}</td>
+          <td style="text-align: right; color: var(--amber); font-weight: 600;">${s.severity_pct}%</td>
+          <td style="text-align: center;">
+            <span class="badge badge-${s.badge}">${s.risk_band}</span>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function prevPolicePage() {
+      if (policePage > 1) {
+        policePage--;
+        renderPoliceSpotsTable();
+      }
+    }
+
+    function nextPolicePage() {
+      if (policePage * policePageSize < filteredPoliceSpots.length) {
+        policePage++;
+        renderPoliceSpotsTable();
+      }
+    }
+
+        
+    // ==========================================
+    // THEME SWITCHER (DARK / LIGHT MODE)
+    // ==========================================
+    let currentTheme = localStorage.getItem('roadsafe_theme') || 'dark';
+
+    function initTheme() {
+      applyTheme(currentTheme);
+    }
+
+    function toggleTheme() {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('roadsafe_theme', currentTheme);
+      applyTheme(currentTheme);
+    }
+
+    function applyTheme(theme) {
+      const body = document.body;
+      const btn = document.getElementById('themeToggleBtn');
+      const icon = document.getElementById('themeIcon');
+      const label = document.getElementById('themeLabel');
+
+      if (theme === 'light') {
+        body.classList.add('light-theme');
+        if (icon) icon.textContent = '🌙';
+        if (label) label.textContent = 'Dark Mode';
+        if (btn) btn.setAttribute('title', 'Switch to Dark Mode');
+      } else {
+        body.classList.remove('light-theme');
+        if (icon) icon.textContent = '☀️';
+        if (label) label.textContent = 'Light Mode';
+        if (btn) btn.setAttribute('title', 'Switch to Light Mode');
+      }
+
+      // Refresh Leaflet highway lines if needed
+      if (typeof renderHighwayPolylines === 'function') {
+        renderHighwayPolylines();
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => { initTheme(); initApp(); });
+  </script>
+</body>
+</html>

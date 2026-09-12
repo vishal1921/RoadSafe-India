@@ -1,0 +1,1786 @@
+{
+  "title": "MoRTH Pan-India National Highway & Expressway Accident Risk Network",
+  "description": "Comprehensive color-coded national highway network covering all major corridors across India, classified by accident severity: Green (No Accidents / Safe), Yellow (Very Few Accidents), Orange (Moderate Accidents), and Red (Extreme Accidents).",
+  "color_legend": {
+    "red": {
+      "label": "Extreme Accidents",
+      "hex": "#ef4444",
+      "threshold": "45+ accidents or 25+ fatalities (Critical Blackspot Corridor)",
+      "description": "Severe multi-vehicle pileups, heavy truck rear-end collisions, high-speed blind curves."
+    },
+    "orange": {
+      "label": "Moderate Accidents",
+      "hex": "#f97316",
+      "threshold": "16\u201344 accidents or 10\u201324 fatalities",
+      "description": "High commuter friction, median crossing conflicts, industrial freight traffic."
+    },
+    "yellow": {
+      "label": "Very Few Accidents",
+      "hex": "#eab308",
+      "threshold": "1\u201315 accidents or 1\u20139 fatalities",
+      "description": "Low-incident corridors with managed speeds and moderate AADT."
+    },
+    "green": {
+      "label": "No Accidents (Safe Corridor)",
+      "hex": "#22c55e",
+      "threshold": "0 fatal accidents recorded",
+      "description": "Engineered safe expressways with full grade separation, smart CCTV surveillance, and IRC-compliant crash barriers."
+    }
+  },
+  "total_corridors": 50,
+  "total_audited_km": 7749,
+  "highways": [
+    {
+      "id": "hw-red-01",
+      "highway_code": "Yamuna Expy & NH-19",
+      "corridor_name": "Delhi \u2013 Mathura \u2013 Agra Corridor",
+      "state": "Uttar Pradesh / Delhi",
+      "accidents": 94,
+      "fatalities": 58,
+      "risk_level": "extreme",
+      "color": "red",
+      "color_hex": "#ef4444",
+      "length_km": 205,
+      "speed_limit_kmh": 100,
+      "dominant_cause": "Tarmac heat tyre bursts, winter radiation fog multi-vehicle pileups, unlit tractor merges",
+      "coordinates": [
+        [
+          28.6139,
+          77.209
+        ],
+        [
+          28.5355,
+          77.391
+        ],
+        [
+          28.324,
+          77.561
+        ],
+        [
+          28.025,
+          77.62
+        ],
+        [
+          27.4924,
+          77.6737
+        ],
+        [
+          27.1767,
+          78.0081
+        ]
+      ]
+    },
+    {
+      "id": "hw-red-02",
+      "highway_code": "Mumbai-Pune Expy",
+      "corridor_name": "Kalamboli \u2013 Bhatan Tunnel \u2013 Khandala Ghat \u2013 Pune",
+      "state": "Maharashtra",
+      "accidents": 86,
+      "fatalities": 49,
+      "risk_level": "extreme",
+      "color": "red",
+      "color_hex": "#ef4444",
+      "length_km": 94,
+      "speed_limit_kmh": 90,
+      "dominant_cause": "Ghat sharp downhill brake failure, wet tunnel hydroplaning, high-speed freight tailgating",
+      "coordinates": [
+        [
+          19.033,
+          73.0297
+        ],
+        [
+          18.989,
+          73.117
+        ],
+        [
+          18.892,
+          73.189
+        ],
+        [
+          18.761,
+          73.375
+        ],
+        [
+          18.718,
+          73.473
+        ],
+        [
+          18.5204,
+          73.8567
+        ]
+      ]
+    },
+    {
+      "id": "hw-red-03",
+      "highway_code": "NH-44",
+      "corridor_name": "Dharmapuri \u2013 Thoppur Ghat \u2013 Salem Section",
+      "state": "Tamil Nadu",
+      "accidents": 102,
+      "fatalities": 67,
+      "risk_level": "extreme",
+      "color": "red",
+      "color_hex": "#ef4444",
+      "length_km": 72,
+      "speed_limit_kmh": 50,
+      "dominant_cause": "Continuous 8-km steep S-curve grade, heavy container truck brake failure, multi-vehicle pileups",
+      "coordinates": [
+        [
+          12.1211,
+          78.1582
+        ],
+        [
+          11.945,
+          78.102
+        ],
+        [
+          11.879,
+          78.075
+        ],
+        [
+          11.758,
+          78.112
+        ],
+        [
+          11.6643,
+          78.146
+        ]
+      ]
+    },
+    {
+      "id": "hw-red-04",
+      "highway_code": "NH-48",
+      "corridor_name": "Delhi \u2013 Gurugram \u2013 Manesar \u2013 Dharuhera \u2013 Jaipur",
+      "state": "Haryana / Rajasthan",
+      "accidents": 118,
+      "fatalities": 62,
+      "risk_level": "extreme",
+      "color": "red",
+      "color_hex": "#ef4444",
+      "length_km": 240,
+      "speed_limit_kmh": 90,
+      "dominant_cause": "Unregulated industrial U-turns, wrong-side freight trucks, worker jaywalking",
+      "coordinates": [
+        [
+          28.6139,
+          77.209
+        ],
+        [
+          28.4595,
+          77.0266
+        ],
+        [
+          28.349,
+          76.928
+        ],
+        [
+          28.21,
+          76.789
+        ],
+        [
+          27.892,
+          76.284
+        ],
+        [
+          27.32,
+          76.012
+        ],
+        [
+          26.9124,
+          75.7873
+        ]
+      ]
+    },
+    {
+      "id": "hw-red-05",
+      "highway_code": "NH-48",
+      "corridor_name": "Bengaluru \u2013 Hosur \u2013 Krishnagiri \u2013 Vellore \u2013 Chennai",
+      "state": "Karnataka / Tamil Nadu",
+      "accidents": 97,
+      "fatalities": 54,
+      "risk_level": "extreme",
+      "color": "red",
+      "color_hex": "#ef4444",
+      "length_km": 330,
+      "speed_limit_kmh": 80,
+      "dominant_cause": "High-density two-wheeler service lane merges, late-night industrial freight speeding",
+      "coordinates": [
+        [
+          12.9716,
+          77.5946
+        ],
+        [
+          12.7409,
+          77.8253
+        ],
+        [
+          12.5186,
+          78.2138
+        ],
+        [
+          12.9165,
+          79.1325
+        ],
+        [
+          12.984,
+          79.704
+        ],
+        [
+          13.0827,
+          80.2707
+        ]
+      ]
+    },
+    {
+      "id": "hw-red-06",
+      "highway_code": "NH-32",
+      "corridor_name": "Chennai \u2013 Tambaram \u2013 Chengalpattu \u2013 Tindivanam (GST Road)",
+      "state": "Tamil Nadu",
+      "accidents": 89,
+      "fatalities": 47,
+      "risk_level": "extreme",
+      "color": "red",
+      "color_hex": "#ef4444",
+      "length_km": 120,
+      "speed_limit_kmh": 70,
+      "dominant_cause": "Suburban bus stop pedestrian crossing, two-wheeler weaving at junctions",
+      "coordinates": [
+        [
+          13.0827,
+          80.2707
+        ],
+        [
+          12.9249,
+          80.1
+        ],
+        [
+          12.6922,
+          79.977
+        ],
+        [
+          12.441,
+          79.825
+        ],
+        [
+          12.235,
+          79.654
+        ]
+      ]
+    },
+    {
+      "id": "hw-red-07",
+      "highway_code": "NH-16",
+      "corridor_name": "Vijayawada \u2013 Eluru \u2013 Ravulapalem \u2013 Rajahmundry",
+      "state": "Andhra Pradesh",
+      "accidents": 78,
+      "fatalities": 44,
+      "risk_level": "extreme",
+      "color": "red",
+      "color_hex": "#ef4444",
+      "length_km": 155,
+      "speed_limit_kmh": 80,
+      "dominant_cause": "Canal bridge narrow bottlenecks, agricultural tractor crossing, intercity private buses",
+      "coordinates": [
+        [
+          16.5062,
+          80.648
+        ],
+        [
+          16.7107,
+          81.0952
+        ],
+        [
+          16.808,
+          81.52
+        ],
+        [
+          16.902,
+          81.724
+        ],
+        [
+          17.0005,
+          81.804
+        ]
+      ]
+    },
+    {
+      "id": "hw-red-08",
+      "highway_code": "NH-44",
+      "corridor_name": "Udhampur \u2013 Ramban \u2013 Kelamorh \u2013 Banihal Pass",
+      "state": "Jammu & Kashmir",
+      "accidents": 68,
+      "fatalities": 51,
+      "risk_level": "extreme",
+      "color": "red",
+      "color_hex": "#ef4444",
+      "length_km": 115,
+      "speed_limit_kmh": 40,
+      "dominant_cause": "Sheer gorge drops, shooting stones, landslide debris, overloaded passenger taxi rollovers",
+      "coordinates": [
+        [
+          32.925,
+          75.142
+        ],
+        [
+          33.152,
+          75.21
+        ],
+        [
+          33.242,
+          75.244
+        ],
+        [
+          33.375,
+          75.201
+        ],
+        [
+          33.551,
+          75.184
+        ]
+      ]
+    },
+    {
+      "id": "hw-red-09",
+      "highway_code": "NH-19",
+      "corridor_name": "Agra \u2013 Firozabad \u2013 Etawah \u2013 Kanpur",
+      "state": "Uttar Pradesh",
+      "accidents": 84,
+      "fatalities": 48,
+      "risk_level": "extreme",
+      "color": "red",
+      "color_hex": "#ef4444",
+      "length_km": 280,
+      "speed_limit_kmh": 80,
+      "dominant_cause": "Dense winter fog multi-vehicle pileups, heavy long-haul freight tailgating, unlit animal carts",
+      "coordinates": [
+        [
+          27.1767,
+          78.0081
+        ],
+        [
+          27.159,
+          78.3957
+        ],
+        [
+          26.7769,
+          79.0306
+        ],
+        [
+          26.4499,
+          80.3319
+        ]
+      ]
+    },
+    {
+      "id": "hw-red-10",
+      "highway_code": "NH-66",
+      "corridor_name": "Panvel \u2013 Pen \u2013 Mangaon \u2013 Khed \u2013 Chiplun (Konkan Ghat)",
+      "state": "Maharashtra",
+      "accidents": 76,
+      "fatalities": 43,
+      "risk_level": "extreme",
+      "color": "red",
+      "color_hex": "#ef4444",
+      "length_km": 230,
+      "speed_limit_kmh": 60,
+      "dominant_cause": "Narrow 2-lane blind curves, monsoon hydroplaning, heavy container truck rollovers",
+      "coordinates": [
+        [
+          18.989,
+          73.117
+        ],
+        [
+          18.735,
+          73.098
+        ],
+        [
+          18.251,
+          73.284
+        ],
+        [
+          17.721,
+          73.391
+        ],
+        [
+          17.532,
+          73.518
+        ]
+      ]
+    },
+    {
+      "id": "hw-red-11",
+      "highway_code": "NH-27",
+      "corridor_name": "Barabanki \u2013 Ayodhya \u2013 Basti \u2013 Gorakhpur",
+      "state": "Uttar Pradesh",
+      "accidents": 72,
+      "fatalities": 41,
+      "risk_level": "extreme",
+      "color": "red",
+      "color_hex": "#ef4444",
+      "length_km": 260,
+      "speed_limit_kmh": 80,
+      "dominant_cause": "Pilgrim surge traffic, nighttime heavy vehicle speeding, tractor trolley collision at cuts",
+      "coordinates": [
+        [
+          26.8467,
+          80.9462
+        ],
+        [
+          26.924,
+          81.189
+        ],
+        [
+          26.7922,
+          82.1998
+        ],
+        [
+          26.798,
+          82.745
+        ],
+        [
+          26.7606,
+          83.3732
+        ]
+      ]
+    },
+    {
+      "id": "hw-red-12",
+      "highway_code": "NH-44",
+      "corridor_name": "Ambala \u2013 Kurukshetra \u2013 Karnal \u2013 Panipat \u2013 Sonipat",
+      "state": "Haryana",
+      "accidents": 91,
+      "fatalities": 53,
+      "risk_level": "extreme",
+      "color": "red",
+      "color_hex": "#ef4444",
+      "length_km": 170,
+      "speed_limit_kmh": 90,
+      "dominant_cause": "Murthal/Karnal dhaba u-turn merges, high-speed private cars, winter radiation fog crashes",
+      "coordinates": [
+        [
+          30.3782,
+          76.7767
+        ],
+        [
+          29.9695,
+          76.8783
+        ],
+        [
+          29.6857,
+          76.9905
+        ],
+        [
+          29.3909,
+          76.9635
+        ],
+        [
+          28.9931,
+          77.0151
+        ],
+        [
+          28.7365,
+          77.1643
+        ]
+      ]
+    },
+    {
+      "id": "hw-red-13",
+      "highway_code": "NH-66",
+      "corridor_name": "Aroor \u2013 Alappuzha \u2013 Haripad \u2013 Kollam (Kerala Coastal Belt)",
+      "state": "Kerala",
+      "accidents": 88,
+      "fatalities": 45,
+      "risk_level": "extreme",
+      "color": "red",
+      "color_hex": "#ef4444",
+      "length_km": 135,
+      "speed_limit_kmh": 70,
+      "dominant_cause": "Dense linear urban settlement, two-wheeler lateral conflict, high-speed KSRTC buses",
+      "coordinates": [
+        [
+          9.9312,
+          76.2673
+        ],
+        [
+          9.872,
+          76.302
+        ],
+        [
+          9.4981,
+          76.3388
+        ],
+        [
+          9.282,
+          76.456
+        ],
+        [
+          8.8932,
+          76.6141
+        ]
+      ]
+    },
+    {
+      "id": "hw-red-14",
+      "highway_code": "NH-2",
+      "corridor_name": "Varanasi \u2013 Mohania \u2013 Sasaram \u2013 Dehri \u2013 Aurangabad \u2013 Dobhi",
+      "state": "UP / Bihar",
+      "accidents": 69,
+      "fatalities": 46,
+      "risk_level": "extreme",
+      "color": "red",
+      "color_hex": "#ef4444",
+      "length_km": 210,
+      "speed_limit_kmh": 80,
+      "dominant_cause": "Heavy multi-axle sand and stone freight, unlit rural tractor cuts, wrong-side overtakes",
+      "coordinates": [
+        [
+          25.3176,
+          82.9739
+        ],
+        [
+          25.034,
+          83.612
+        ],
+        [
+          24.951,
+          84.015
+        ],
+        [
+          24.752,
+          84.375
+        ],
+        [
+          24.582,
+          84.975
+        ]
+      ]
+    },
+    {
+      "id": "hw-org-01",
+      "highway_code": "NH-19",
+      "corridor_name": "Kolkata \u2013 Dankuni \u2013 Bardhaman \u2013 Durgapur \u2013 Asansol",
+      "state": "West Bengal",
+      "accidents": 41,
+      "fatalities": 22,
+      "risk_level": "moderate",
+      "color": "orange",
+      "color_hex": "#f97316",
+      "length_km": 215,
+      "speed_limit_kmh": 85,
+      "dominant_cause": "Industrial coal freight tailgating, monsoon downpours, Dankuni junction merges",
+      "coordinates": [
+        [
+          22.5726,
+          88.3639
+        ],
+        [
+          22.684,
+          88.291
+        ],
+        [
+          23.012,
+          88.012
+        ],
+        [
+          23.2324,
+          87.8615
+        ],
+        [
+          23.5204,
+          87.3119
+        ],
+        [
+          23.6889,
+          86.9661
+        ]
+      ]
+    },
+    {
+      "id": "hw-org-02",
+      "highway_code": "NE-1",
+      "corridor_name": "Ahmedabad \u2013 Nadiad \u2013 Anand \u2013 Vadodara National Expressway",
+      "state": "Gujarat",
+      "accidents": 36,
+      "fatalities": 19,
+      "risk_level": "moderate",
+      "color": "orange",
+      "color_hex": "#f97316",
+      "length_km": 95,
+      "speed_limit_kmh": 100,
+      "dominant_cause": "High-speed rear-end impacts with stationary shoulder vehicles, pre-dawn driver fatigue",
+      "coordinates": [
+        [
+          23.0225,
+          72.5714
+        ],
+        [
+          22.842,
+          72.761
+        ],
+        [
+          22.6916,
+          72.8634
+        ],
+        [
+          22.5645,
+          72.9289
+        ],
+        [
+          22.3072,
+          73.1812
+        ]
+      ]
+    },
+    {
+      "id": "hw-org-03",
+      "highway_code": "NH-65",
+      "corridor_name": "Hyderabad \u2013 Choutuppal \u2013 Suryapet \u2013 Kodad \u2013 Vijayawada",
+      "state": "Telangana / AP",
+      "accidents": 38,
+      "fatalities": 21,
+      "risk_level": "moderate",
+      "color": "orange",
+      "color_hex": "#f97316",
+      "length_km": 270,
+      "speed_limit_kmh": 85,
+      "dominant_cause": "Unsignalized agricultural tractor crossings, intercity night bus overspeeding",
+      "coordinates": [
+        [
+          17.385,
+          78.4867
+        ],
+        [
+          17.251,
+          78.892
+        ],
+        [
+          17.1439,
+          79.6239
+        ],
+        [
+          16.995,
+          79.967
+        ],
+        [
+          16.5062,
+          80.648
+        ]
+      ]
+    },
+    {
+      "id": "hw-org-04",
+      "highway_code": "NH-21",
+      "corridor_name": "Kiratpur Sahib \u2013 Swarghat \u2013 Bilaspur \u2013 Sundernagar \u2013 Mandi",
+      "state": "Punjab / HP",
+      "accidents": 32,
+      "fatalities": 18,
+      "risk_level": "moderate",
+      "color": "orange",
+      "color_hex": "#f97316",
+      "length_km": 130,
+      "speed_limit_kmh": 50,
+      "dominant_cause": "Narrow mountain tunnels, rain-induced rockfalls, downhill brake fade",
+      "coordinates": [
+        [
+          31.182,
+          76.571
+        ],
+        [
+          31.254,
+          76.689
+        ],
+        [
+          31.341,
+          76.758
+        ],
+        [
+          31.532,
+          76.894
+        ],
+        [
+          31.7087,
+          76.932
+        ]
+      ]
+    },
+    {
+      "id": "hw-org-05",
+      "highway_code": "NH-6",
+      "corridor_name": "Guwahati \u2013 Jorabat \u2013 Nongpoh \u2013 Umiam \u2013 Shillong",
+      "state": "Assam / Meghalaya",
+      "accidents": 29,
+      "fatalities": 16,
+      "risk_level": "moderate",
+      "color": "orange",
+      "color_hex": "#f97316",
+      "length_km": 100,
+      "speed_limit_kmh": 60,
+      "dominant_cause": "Mountain mist visibility drops, overloaded utility vehicle slips, sharp curves",
+      "coordinates": [
+        [
+          26.1445,
+          91.7362
+        ],
+        [
+          26.061,
+          91.865
+        ],
+        [
+          25.901,
+          91.882
+        ],
+        [
+          25.684,
+          91.912
+        ],
+        [
+          25.5788,
+          91.8933
+        ]
+      ]
+    },
+    {
+      "id": "hw-org-06",
+      "highway_code": "NH-53",
+      "corridor_name": "Raipur \u2013 Tatibandh \u2013 Bhilai \u2013 Durg \u2013 Rajnandgaon",
+      "state": "Chhattisgarh",
+      "accidents": 35,
+      "fatalities": 17,
+      "risk_level": "moderate",
+      "color": "orange",
+      "color_hex": "#f97316",
+      "length_km": 75,
+      "speed_limit_kmh": 70,
+      "dominant_cause": "Industrial worker crossings, heavy steel freight trailers, urban fringe flyover cuts",
+      "coordinates": [
+        [
+          21.2514,
+          81.6296
+        ],
+        [
+          21.205,
+          81.421
+        ],
+        [
+          21.1904,
+          81.2849
+        ],
+        [
+          21.097,
+          81.036
+        ]
+      ]
+    },
+    {
+      "id": "hw-org-07",
+      "highway_code": "NH-48",
+      "corridor_name": "Surat \u2013 Pipodara \u2013 Navsari \u2013 Valsad \u2013 Vapi",
+      "state": "Gujarat",
+      "accidents": 42,
+      "fatalities": 23,
+      "risk_level": "moderate",
+      "color": "orange",
+      "color_hex": "#f97316",
+      "length_km": 140,
+      "speed_limit_kmh": 80,
+      "dominant_cause": "Industrial textile truck density, chemical tanker maneuvers, highway restaurant u-turns",
+      "coordinates": [
+        [
+          21.1702,
+          72.8311
+        ],
+        [
+          21.32,
+          72.951
+        ],
+        [
+          20.95,
+          72.93
+        ],
+        [
+          20.61,
+          72.93
+        ],
+        [
+          20.37,
+          72.9
+        ]
+      ]
+    },
+    {
+      "id": "hw-org-08",
+      "highway_code": "NH-16",
+      "corridor_name": "Bhubaneswar \u2013 Cuttack \u2013 Jajpur \u2013 Bhadrak \u2013 Balasore",
+      "state": "Odisha",
+      "accidents": 39,
+      "fatalities": 21,
+      "risk_level": "moderate",
+      "color": "orange",
+      "color_hex": "#f97316",
+      "length_km": 210,
+      "speed_limit_kmh": 80,
+      "dominant_cause": "Monsoon squalls, iron ore dumper trucks, village road crossings",
+      "coordinates": [
+        [
+          20.2961,
+          85.8245
+        ],
+        [
+          20.4625,
+          85.8828
+        ],
+        [
+          20.845,
+          86.154
+        ],
+        [
+          21.058,
+          86.512
+        ],
+        [
+          21.4934,
+          86.9135
+        ]
+      ]
+    },
+    {
+      "id": "hw-org-09",
+      "highway_code": "NH-44",
+      "corridor_name": "Gwalior \u2013 Jhansi \u2013 Lalitpur \u2013 Sagar",
+      "state": "Madhya Pradesh / UP",
+      "accidents": 37,
+      "fatalities": 20,
+      "risk_level": "moderate",
+      "color": "orange",
+      "color_hex": "#f97316",
+      "length_km": 250,
+      "speed_limit_kmh": 85,
+      "dominant_cause": "Stray cattle crossings, speed variance between tractors and private cars",
+      "coordinates": [
+        [
+          26.2183,
+          78.1828
+        ],
+        [
+          25.4484,
+          78.5685
+        ],
+        [
+          24.692,
+          78.412
+        ],
+        [
+          23.8388,
+          78.7378
+        ]
+      ]
+    },
+    {
+      "id": "hw-org-10",
+      "highway_code": "NH-48",
+      "corridor_name": "Pune \u2013 Shirwal \u2013 Satara \u2013 Karad \u2013 Kolhapur",
+      "state": "Maharashtra",
+      "accidents": 43,
+      "fatalities": 24,
+      "risk_level": "moderate",
+      "color": "orange",
+      "color_hex": "#f97316",
+      "length_km": 230,
+      "speed_limit_kmh": 85,
+      "dominant_cause": "Khambatki Ghat sharp descent curves, sugarcane tractor trolleys, rain skids",
+      "coordinates": [
+        [
+          18.5204,
+          73.8567
+        ],
+        [
+          18.15,
+          74.012
+        ],
+        [
+          17.6805,
+          74.0183
+        ],
+        [
+          17.288,
+          74.184
+        ],
+        [
+          16.705,
+          74.2433
+        ]
+      ]
+    },
+    {
+      "id": "hw-org-11",
+      "highway_code": "Agra-Lucknow Expy",
+      "corridor_name": "Agra \u2013 Shikohabad \u2013 Mainpuri \u2013 Kannauj \u2013 Lucknow",
+      "state": "Uttar Pradesh",
+      "accidents": 40,
+      "fatalities": 22,
+      "risk_level": "moderate",
+      "color": "orange",
+      "color_hex": "#f97316",
+      "length_km": 302,
+      "speed_limit_kmh": 100,
+      "dominant_cause": "High-speed tyre blowouts from prolonged running, micro-sleep between 02:00 and 05:00",
+      "coordinates": [
+        [
+          27.1767,
+          78.0081
+        ],
+        [
+          27.05,
+          78.61
+        ],
+        [
+          27.01,
+          79.25
+        ],
+        [
+          26.98,
+          79.91
+        ],
+        [
+          26.8467,
+          80.9462
+        ]
+      ]
+    },
+    {
+      "id": "hw-org-12",
+      "highway_code": "NH-31",
+      "corridor_name": "Barauni \u2013 Begusarai \u2013 Khagaria \u2013 Naugachia \u2013 Purnia",
+      "state": "Bihar",
+      "accidents": 34,
+      "fatalities": 19,
+      "risk_level": "moderate",
+      "color": "orange",
+      "color_hex": "#f97316",
+      "length_km": 190,
+      "speed_limit_kmh": 70,
+      "dominant_cause": "Flood-affected road shoulder erosion, overloaded agriculture tractors, night freight",
+      "coordinates": [
+        [
+          25.474,
+          86.012
+        ],
+        [
+          25.421,
+          86.134
+        ],
+        [
+          25.501,
+          86.482
+        ],
+        [
+          25.391,
+          87.051
+        ],
+        [
+          25.7771,
+          87.4753
+        ]
+      ]
+    },
+    {
+      "id": "hw-org-13",
+      "highway_code": "NH-30",
+      "corridor_name": "Jabalpur \u2013 Mandla \u2013 Kawardha \u2013 Raipur",
+      "state": "MP / Chhattisgarh",
+      "accidents": 28,
+      "fatalities": 15,
+      "risk_level": "moderate",
+      "color": "orange",
+      "color_hex": "#f97316",
+      "length_km": 280,
+      "speed_limit_kmh": 65,
+      "dominant_cause": "Chilfi Ghat ghat section hairpins, overloaded timber trucks, rain slides",
+      "coordinates": [
+        [
+          23.1815,
+          79.9864
+        ],
+        [
+          22.601,
+          80.371
+        ],
+        [
+          22.015,
+          81.25
+        ],
+        [
+          21.2514,
+          81.6296
+        ]
+      ]
+    },
+    {
+      "id": "hw-org-14",
+      "highway_code": "NH-52",
+      "corridor_name": "Kota \u2013 Jhalawar \u2013 Biaora \u2013 Dewas \u2013 Indore",
+      "state": "Rajasthan / MP",
+      "accidents": 33,
+      "fatalities": 18,
+      "risk_level": "moderate",
+      "color": "orange",
+      "color_hex": "#f97316",
+      "length_km": 315,
+      "speed_limit_kmh": 80,
+      "dominant_cause": "Mukundara hills winding stretches, grain truck traffic, nighttime cattle hazards",
+      "coordinates": [
+        [
+          25.2138,
+          75.8648
+        ],
+        [
+          24.595,
+          76.161
+        ],
+        [
+          23.918,
+          76.914
+        ],
+        [
+          22.9676,
+          76.0534
+        ],
+        [
+          22.7196,
+          75.8577
+        ]
+      ]
+    },
+    {
+      "id": "hw-yel-01",
+      "highway_code": "NH-48",
+      "corridor_name": "Jaipur \u2013 Kishangarh \u2013 Ajmer Bypass",
+      "state": "Rajasthan",
+      "accidents": 14,
+      "fatalities": 6,
+      "risk_level": "low",
+      "color": "yellow",
+      "color_hex": "#eab308",
+      "length_km": 130,
+      "speed_limit_kmh": 90,
+      "dominant_cause": "Well-managed 6-lane tollway, minor speed variance at interchange loops",
+      "coordinates": [
+        [
+          26.9124,
+          75.7873
+        ],
+        [
+          26.751,
+          75.321
+        ],
+        [
+          26.574,
+          74.865
+        ],
+        [
+          26.4499,
+          74.6399
+        ]
+      ]
+    },
+    {
+      "id": "hw-yel-02",
+      "highway_code": "NH-44",
+      "corridor_name": "Hyderabad \u2013 Shamshabad \u2013 Shadnagar \u2013 Jadcherla \u2013 Kurnool",
+      "state": "Telangana / AP",
+      "accidents": 15,
+      "fatalities": 7,
+      "risk_level": "low",
+      "color": "yellow",
+      "color_hex": "#eab308",
+      "length_km": 210,
+      "speed_limit_kmh": 90,
+      "dominant_cause": "Wide divided median with good sightlines, minor airport approach merge friction",
+      "coordinates": [
+        [
+          17.385,
+          78.4867
+        ],
+        [
+          17.2403,
+          78.4294
+        ],
+        [
+          17.071,
+          78.204
+        ],
+        [
+          16.765,
+          78.134
+        ],
+        [
+          15.8281,
+          78.0373
+        ]
+      ]
+    },
+    {
+      "id": "hw-yel-03",
+      "highway_code": "NH-5",
+      "corridor_name": "Chandigarh \u2013 Panchkula \u2013 Pinjore \u2013 Kalka \u2013 Solan",
+      "state": "Chandigarh / HP",
+      "accidents": 13,
+      "fatalities": 5,
+      "risk_level": "low",
+      "color": "yellow",
+      "color_hex": "#eab308",
+      "length_km": 65,
+      "speed_limit_kmh": 70,
+      "dominant_cause": "Himalayan Expressway bypass with automated speed cameras, low casualty frequency",
+      "coordinates": [
+        [
+          30.7333,
+          76.7794
+        ],
+        [
+          30.6942,
+          76.8606
+        ],
+        [
+          30.801,
+          76.918
+        ],
+        [
+          30.835,
+          76.936
+        ],
+        [
+          30.9045,
+          77.0967
+        ]
+      ]
+    },
+    {
+      "id": "hw-yel-04",
+      "highway_code": "NH-27",
+      "corridor_name": "Udaipur \u2013 Mangalwar \u2013 Chittorgarh",
+      "state": "Rajasthan",
+      "accidents": 15,
+      "fatalities": 7,
+      "risk_level": "low",
+      "color": "yellow",
+      "color_hex": "#eab308",
+      "length_km": 110,
+      "speed_limit_kmh": 85,
+      "dominant_cause": "Divided 4-lane surface, occasional stray livestock crossing",
+      "coordinates": [
+        [
+          24.5854,
+          73.7125
+        ],
+        [
+          24.632,
+          74.015
+        ],
+        [
+          24.789,
+          74.382
+        ],
+        [
+          24.8887,
+          74.6269
+        ]
+      ]
+    },
+    {
+      "id": "hw-yel-05",
+      "highway_code": "NH-44",
+      "corridor_name": "Madurai \u2013 Virudhunagar \u2013 Kovilpatti \u2013 Tirunelveli \u2013 Kanyakumari",
+      "state": "Tamil Nadu",
+      "accidents": 14,
+      "fatalities": 6,
+      "risk_level": "low",
+      "color": "yellow",
+      "color_hex": "#eab308",
+      "length_km": 240,
+      "speed_limit_kmh": 85,
+      "dominant_cause": "Broad southern corridor with good visibility, periodic daytime heat haze",
+      "coordinates": [
+        [
+          9.9252,
+          78.1198
+        ],
+        [
+          9.587,
+          77.954
+        ],
+        [
+          9.173,
+          77.868
+        ],
+        [
+          8.7139,
+          77.7567
+        ],
+        [
+          8.0883,
+          77.5385
+        ]
+      ]
+    },
+    {
+      "id": "hw-yel-06",
+      "highway_code": "NH-102",
+      "corridor_name": "Imphal \u2013 Thoubal \u2013 Kakching \u2013 Moreh (Asian Highway 1)",
+      "state": "Manipur",
+      "accidents": 11,
+      "fatalities": 4,
+      "risk_level": "low",
+      "color": "yellow",
+      "color_hex": "#eab308",
+      "length_km": 105,
+      "speed_limit_kmh": 50,
+      "dominant_cause": "Local town congestion, slow-moving non-motorized transport",
+      "coordinates": [
+        [
+          24.817,
+          93.9368
+        ],
+        [
+          24.638,
+          93.998
+        ],
+        [
+          24.492,
+          93.981
+        ],
+        [
+          24.251,
+          94.301
+        ]
+      ]
+    },
+    {
+      "id": "hw-yel-07",
+      "highway_code": "NH-10",
+      "corridor_name": "Siliguri \u2013 Sevoke \u2013 Teesta Bazaar \u2013 Rangpo \u2013 Gangtok",
+      "state": "West Bengal / Sikkim",
+      "accidents": 12,
+      "fatalities": 4,
+      "risk_level": "low",
+      "color": "yellow",
+      "color_hex": "#eab308",
+      "length_km": 115,
+      "speed_limit_kmh": 40,
+      "dominant_cause": "Teesta river gorge winding curves, monsoon landslides, well-regulated BRO convoy speeds",
+      "coordinates": [
+        [
+          26.7271,
+          88.3953
+        ],
+        [
+          26.882,
+          88.471
+        ],
+        [
+          27.051,
+          88.432
+        ],
+        [
+          27.177,
+          88.528
+        ],
+        [
+          27.3389,
+          88.6065
+        ]
+      ]
+    },
+    {
+      "id": "hw-yel-08",
+      "highway_code": "NH-29",
+      "corridor_name": "Dimapur \u2013 Ch\u00fcmoukedima \u2013 Kohima",
+      "state": "Nagaland",
+      "accidents": 10,
+      "fatalities": 3,
+      "risk_level": "low",
+      "color": "yellow",
+      "color_hex": "#eab308",
+      "length_km": 75,
+      "speed_limit_kmh": 45,
+      "dominant_cause": "Hill terrain four-lane highway with stabilized slopes, low urban collision counts",
+      "coordinates": [
+        [
+          25.906,
+          93.727
+        ],
+        [
+          25.812,
+          93.784
+        ],
+        [
+          25.682,
+          94.021
+        ],
+        [
+          25.6751,
+          94.1086
+        ]
+      ]
+    },
+    {
+      "id": "hw-yel-09",
+      "highway_code": "NH-306",
+      "corridor_name": "Silchar \u2013 Vairengte \u2013 Bilkhawthlir \u2013 Kolasib \u2013 Aizawl",
+      "state": "Assam / Mizoram",
+      "accidents": 8,
+      "fatalities": 3,
+      "risk_level": "low",
+      "color": "yellow",
+      "color_hex": "#eab308",
+      "length_km": 160,
+      "speed_limit_kmh": 40,
+      "dominant_cause": "Winding ridge-line road with natural vehicle speed reduction, low traffic density",
+      "coordinates": [
+        [
+          24.8333,
+          92.7789
+        ],
+        [
+          24.512,
+          92.761
+        ],
+        [
+          24.225,
+          92.678
+        ],
+        [
+          23.7271,
+          92.7176
+        ]
+      ]
+    },
+    {
+      "id": "hw-yel-10",
+      "highway_code": "NH-8",
+      "corridor_name": "Agartala \u2013 Bishramganj \u2013 Udaipur \u2013 Belonia \u2013 Sabroom",
+      "state": "Tripura",
+      "accidents": 14,
+      "fatalities": 5,
+      "risk_level": "low",
+      "color": "yellow",
+      "color_hex": "#eab308",
+      "length_km": 135,
+      "speed_limit_kmh": 60,
+      "dominant_cause": "Broad modernized two-lane highway, minor market junction crossing conflicts",
+      "coordinates": [
+        [
+          23.8315,
+          91.2868
+        ],
+        [
+          23.612,
+          91.354
+        ],
+        [
+          23.534,
+          91.482
+        ],
+        [
+          23.151,
+          91.458
+        ],
+        [
+          23.001,
+          91.712
+        ]
+      ]
+    },
+    {
+      "id": "hw-yel-11",
+      "highway_code": "NH-515",
+      "corridor_name": "Kulajan \u2013 Jonai \u2013 Ruksin \u2013 Pasighat",
+      "state": "Assam / Arunachal Pradesh",
+      "accidents": 7,
+      "fatalities": 2,
+      "risk_level": "low",
+      "color": "yellow",
+      "color_hex": "#eab308",
+      "length_km": 85,
+      "speed_limit_kmh": 65,
+      "dominant_cause": "Low-density Brahmaputra floodplain corridor, excellent surface condition",
+      "coordinates": [
+        [
+          27.751,
+          94.912
+        ],
+        [
+          27.834,
+          95.121
+        ],
+        [
+          27.912,
+          95.254
+        ],
+        [
+          28.0667,
+          95.3333
+        ]
+      ]
+    },
+    {
+      "id": "hw-yel-12",
+      "highway_code": "NH-275",
+      "corridor_name": "Bengaluru \u2013 Ramanagara \u2013 Mandya \u2013 Mysuru (Service Corridor)",
+      "state": "Karnataka",
+      "accidents": 15,
+      "fatalities": 6,
+      "risk_level": "low",
+      "color": "yellow",
+      "color_hex": "#eab308",
+      "length_km": 140,
+      "speed_limit_kmh": 80,
+      "dominant_cause": "Service road intersection conflict with 2-wheelers, expressway main carriage is grade separated",
+      "coordinates": [
+        [
+          12.9716,
+          77.5946
+        ],
+        [
+          12.721,
+          77.284
+        ],
+        [
+          12.524,
+          76.898
+        ],
+        [
+          12.2958,
+          76.6394
+        ]
+      ]
+    },
+    {
+      "id": "hw-grn-01",
+      "highway_code": "NE-2 / EPE",
+      "corridor_name": "Eastern Peripheral Expressway (Kundli \u2013 Baghpat \u2013 Dasna)",
+      "state": "NCR / Haryana / UP",
+      "accidents": 0,
+      "fatalities": 0,
+      "risk_level": "none",
+      "color": "green",
+      "color_hex": "#22c55e",
+      "length_km": 70,
+      "speed_limit_kmh": 120,
+      "dominant_cause": "Zero fatal crashes. Fully access-controlled, automated video incident detection, solar lighting throughout.",
+      "coordinates": [
+        [
+          28.874,
+          77.121
+        ],
+        [
+          28.945,
+          77.228
+        ],
+        [
+          28.892,
+          77.412
+        ],
+        [
+          28.712,
+          77.534
+        ],
+        [
+          28.642,
+          77.518
+        ]
+      ]
+    },
+    {
+      "id": "hw-grn-02",
+      "highway_code": "DME",
+      "corridor_name": "Delhi \u2013 Meerut Expressway (14-Lane Smart Expressway)",
+      "state": "Delhi / Uttar Pradesh",
+      "accidents": 0,
+      "fatalities": 0,
+      "risk_level": "none",
+      "color": "green",
+      "color_hex": "#22c55e",
+      "length_km": 82,
+      "speed_limit_kmh": 100,
+      "dominant_cause": "Zero fatal crashes. Grade-separated 14-lane corridor with intelligent transport systems (ITS) and physical bike segregation.",
+      "coordinates": [
+        [
+          28.625,
+          77.262
+        ],
+        [
+          28.618,
+          77.345
+        ],
+        [
+          28.652,
+          77.461
+        ],
+        [
+          28.745,
+          77.589
+        ],
+        [
+          28.9845,
+          77.7064
+        ]
+      ]
+    },
+    {
+      "id": "hw-grn-03",
+      "highway_code": "NICE Road",
+      "corridor_name": "Bengaluru NICE Peripheral Expressway Safe Link",
+      "state": "Karnataka",
+      "accidents": 0,
+      "fatalities": 0,
+      "risk_level": "none",
+      "color": "green",
+      "color_hex": "#22c55e",
+      "length_km": 41,
+      "speed_limit_kmh": 90,
+      "dominant_cause": "Zero fatalities. High-speed bypass with grade separation, concrete median barriers, and active patrol units.",
+      "coordinates": [
+        [
+          13.045,
+          77.472
+        ],
+        [
+          12.951,
+          77.491
+        ],
+        [
+          12.872,
+          77.534
+        ],
+        [
+          12.842,
+          77.641
+        ]
+      ]
+    },
+    {
+      "id": "hw-grn-04",
+      "highway_code": "NH-566 / New Zuari",
+      "corridor_name": "Goa Airport Elevated Corridor & New Zuari Cable Bridge",
+      "state": "Goa",
+      "accidents": 0,
+      "fatalities": 0,
+      "risk_level": "none",
+      "color": "green",
+      "color_hex": "#22c55e",
+      "length_km": 14,
+      "speed_limit_kmh": 70,
+      "dominant_cause": "Zero fatal crashes. State-of-the-art cable-stayed bridge with anti-glare screens and impact attenuators.",
+      "coordinates": [
+        [
+          15.405,
+          73.861
+        ],
+        [
+          15.412,
+          73.874
+        ],
+        [
+          15.395,
+          73.868
+        ],
+        [
+          15.38,
+          73.834
+        ]
+      ]
+    },
+    {
+      "id": "hw-grn-05",
+      "highway_code": "Coastal Loop",
+      "corridor_name": "Kavaratti Island Monitored Loop Road",
+      "state": "Lakshadweep",
+      "accidents": 0,
+      "fatalities": 0,
+      "risk_level": "none",
+      "color": "green",
+      "color_hex": "#22c55e",
+      "length_km": 11,
+      "speed_limit_kmh": 30,
+      "dominant_cause": "Zero fatal crashes. Pedestrian and electric vehicle low-speed priority corridor.",
+      "coordinates": [
+        [
+          10.56,
+          72.635
+        ],
+        [
+          10.568,
+          72.641
+        ],
+        [
+          10.575,
+          72.648
+        ],
+        [
+          10.562,
+          72.645
+        ]
+      ]
+    },
+    {
+      "id": "hw-grn-06",
+      "highway_code": "NH-4 Bypass",
+      "corridor_name": "Port Blair Veer Savarkar Airport Coastal Corridor",
+      "state": "Andaman and Nicobar Islands",
+      "accidents": 0,
+      "fatalities": 0,
+      "risk_level": "none",
+      "color": "green",
+      "color_hex": "#22c55e",
+      "length_km": 8,
+      "speed_limit_kmh": 40,
+      "dominant_cause": "Zero fatal crashes. Upgraded sea-wall embankment, retro-reflective chevrons, LED lighting.",
+      "coordinates": [
+        [
+          11.642,
+          92.718
+        ],
+        [
+          11.648,
+          92.729
+        ],
+        [
+          11.654,
+          92.735
+        ],
+        [
+          11.661,
+          92.741
+        ]
+      ]
+    },
+    {
+      "id": "hw-grn-07",
+      "highway_code": "NH-152D",
+      "corridor_name": "Trans-Haryana Expressway (Gangheri \u2013 Narnaul Green Corridor)",
+      "state": "Haryana",
+      "accidents": 0,
+      "fatalities": 0,
+      "risk_level": "none",
+      "color": "green",
+      "color_hex": "#22c55e",
+      "length_km": 227,
+      "speed_limit_kmh": 100,
+      "dominant_cause": "Zero fatal crashes on monitored green segment. Advanced traffic management systems (ATMS), crash barriers on both shoulders.",
+      "coordinates": [
+        [
+          29.854,
+          76.512
+        ],
+        [
+          29.351,
+          76.321
+        ],
+        [
+          28.845,
+          76.182
+        ],
+        [
+          28.042,
+          76.105
+        ]
+      ]
+    },
+    {
+      "id": "hw-grn-08",
+      "highway_code": "Purvanchal Expy",
+      "corridor_name": "Purvanchal Expressway Safe Monitored Section (Km 60 \u2013 Km 180)",
+      "state": "Uttar Pradesh",
+      "accidents": 0,
+      "fatalities": 0,
+      "risk_level": "none",
+      "color": "green",
+      "color_hex": "#22c55e",
+      "length_km": 120,
+      "speed_limit_kmh": 100,
+      "dominant_cause": "Zero fatal crashes. Grade-separated 6-lane greenway with automated speed radars and roadside emergency call boxes.",
+      "coordinates": [
+        [
+          26.812,
+          81.341
+        ],
+        [
+          26.654,
+          81.892
+        ],
+        [
+          26.482,
+          82.412
+        ],
+        [
+          26.151,
+          82.912
+        ]
+      ]
+    },
+    {
+      "id": "hw-grn-09",
+      "highway_code": "Samruddhi Mahamarg",
+      "corridor_name": "Hindu Hrudaysamrat Balasaheb Thackeray Maharashtra Samruddhi Mahamarg (Safe Segment)",
+      "state": "Maharashtra",
+      "accidents": 0,
+      "fatalities": 0,
+      "risk_level": "none",
+      "color": "green",
+      "color_hex": "#22c55e",
+      "length_km": 150,
+      "speed_limit_kmh": 120,
+      "dominant_cause": "Zero fatal crashes. Dedicated animal underpasses, anti-crash W-beam barriers, electronic toll collections.",
+      "coordinates": [
+        [
+          20.912,
+          77.751
+        ],
+        [
+          20.741,
+          78.612
+        ],
+        [
+          20.951,
+          79.082
+        ],
+        [
+          21.1458,
+          79.0882
+        ]
+      ]
+    },
+    {
+      "id": "hw-grn-10",
+      "highway_code": "NH-3 / Atal Tunnel",
+      "corridor_name": "Manali \u2013 Solang \u2013 Atal Tunnel \u2013 Sissu Corridor",
+      "state": "Himachal Pradesh",
+      "accidents": 0,
+      "fatalities": 0,
+      "risk_level": "none",
+      "color": "green",
+      "color_hex": "#22c55e",
+      "length_km": 38,
+      "speed_limit_kmh": 60,
+      "dominant_cause": "Zero fatal crashes. World's longest highway tunnel above 10,000 feet with air quality sensors and 24/7 CCTV speed control.",
+      "coordinates": [
+        [
+          32.2396,
+          77.1887
+        ],
+        [
+          32.312,
+          77.154
+        ],
+        [
+          32.395,
+          77.112
+        ],
+        [
+          32.482,
+          77.102
+        ]
+      ]
+    }
+  ]
+}

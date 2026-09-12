@@ -2,6 +2,12 @@ from pydantic_settings import BaseSettings
 from typing import List
 
 
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DEFAULT_DB_FILE = (BASE_DIR / "road_safety.db").as_posix()
+
+
 class Settings(BaseSettings):
     """Application configuration settings"""
     
@@ -11,7 +17,7 @@ class Settings(BaseSettings):
     VERSION: str = "1.0.0"
     
     # Database
-    DATABASE_URL: str = "sqlite:///./road_safety.db"
+    DATABASE_URL: str = f"sqlite:///{DEFAULT_DB_FILE}"
     
     # CORS
     ALLOWED_ORIGINS: List[str] = ["*"]

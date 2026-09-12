@@ -1,0 +1,11 @@
+location,latitude,longitude,state,district,accident_type,severity,casualties,injuries,fatalities,weather_condition,road_condition,time_of_day,contributing_factors
+Mukarba Chowk Flyover Junction NH-44,28.7365,77.1643,Delhi,North Delhi,collision,severe,5,3,2,Clear,Dry,Evening,Overspeeding; Pedestrian crossing; Inadequate lighting
+Zero Point Yamuna Expressway km 14.5,28.4350,77.5180,Uttar Pradesh,Gautam Buddha Nagar,vehicle_rollover,fatal,4,1,3,Clear,Dry,Night,Overspeeding; High tarmac temperature tyre blowout
+Bhatan Tunnel Curve Mumbai-Pune Expressway,18.8920,73.1890,Maharashtra,Raigad,collision,severe,6,4,2,Heavy Rain,Wet,Night,Hydroplaning; Blind curve; Tailgating
+GST Road Tambaram Sanatorium Junction,12.9352,80.1450,Tamil Nadu,Chengalpattu,pedestrian,fatal,3,1,2,Clear,Poor,Night,Pedestrian road crossing; Inadequate lighting; Speeding
+Silk Board Junction Hosur Road,12.9176,77.6234,Karnataka,Bengaluru Urban,side_impact,moderate,2,2,0,Clear,Dry,Evening,Signal jumping; Two-wheeler blind merge
+Khedki Daula Toll Plaza NH-48,28.3986,76.9822,Haryana,Gurugram,rear_end,severe,4,3,1,Fog,Dry,Late Night,Winter fog; Stationary truck rear-end; High speed
+Benz Circle Vijayawada NH-16,16.5010,80.6480,Andhra Pradesh,NTR,collision,moderate,3,3,0,Clear,Dry,Morning,Flyover merge conflict; Two-wheeler weaving
+Edappally Toll Bypass Junction NH-66,10.0261,76.3082,Kerala,Ernakulam,pedestrian,severe,4,3,1,Rain,Wet,Evening,Monsoon wet skidding; Pedestrian crossing
+Transport Nagar Bypass Jaipur NH-21,26.9020,75.8450,Rajasthan,Jaipur,head_on,fatal,4,1,3,Clear,Poor,Night,Drunk driving; High speed freight truck
+Kona Expressway Toll Junction,22.5850,88.2910,West Bengal,Howrah,side_impact,moderate,3,3,0,Rain,Wet,Night,Container truck blind spot; Auto-rickshaw collision

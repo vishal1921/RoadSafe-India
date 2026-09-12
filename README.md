@@ -1,250 +1,180 @@
-# Road Safety AI System
+# 🛡️ RoadSafe India — AI Road Safety Intelligence Platform
+> **Problem Statement No. 3 — Transport: RoadSafe India**  
+> **National Level Hackathon | Team 015**
 
-Transform India into a global leader in AI-driven road safety by creating an equitable, predictive system that prevents accidents before they occur across all geographic regions.
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.104.1-009688.svg?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/)
+[![Scikit-Learn](https://img.shields.io/badge/Machine%20Learning-Scikit--Learn-F7931E.svg?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![Leaflet GIS](https://img.shields.io/badge/GIS%20Mapping-Leaflet.js-199900.svg?logo=leaflet&logoColor=white)](https://leafletjs.com/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-## Overview
+---
 
-The Road Safety AI System is a backend API designed for transportation officials, district administrators, policy makers, and safety enforcement agencies responsible for road infrastructure and accident prevention across India.
+## 📌 Executive Summary
 
-## Target Audience
+India accounts for approximately **11% of global road crash fatalities** despite possessing only **1% of the world's vehicle population**. Official open government data from the **Ministry of Road Transport & Highways (MoRTH)** and the **National Crime Records Bureau (NCRB ADSI 2023)** reveals that over **1,68,000 lives are lost annually** on Indian roads.
 
-- Transportation officials
-- District administrators
-- Policy makers
-- Safety enforcement agencies
+**RoadSafe India** is an AI-powered Decision Support Cockpit built for transport ministries, district collectors, traffic police, and highway infrastructure planners. Rather than merely visualizing past accidents, RoadSafe India transforms heterogeneous historical and spatial open government datasets into **actionable, predictive intelligence** to prevent crashes before they occur.
 
-## Core Features
+---
 
-- **Accident Record Management**: Complete CRUD operations for accident data
-- **Geographic Filtering**: Filter accidents by state and district
-- **Severity Tracking**: Categorize and track accident severity levels
-- **Statistical Analysis**: Get comprehensive accident statistics and trends
-- **Real-time Data**: Track casualties, injuries, and fatalities
+## 🎯 Direct Alignment with Problem Statement Questions
 
-## Technology Stack
+| # | Problem Statement Challenge | RoadSafe India Solution & AI Capability |
+|---|---|---|
+| **1** | **Where are accidents most likely to occur?** | **Interactive GIS Risk Map & Blackspot Cluster Engine**: Ranks **130 geocoded Indian Blackspots & hazard zones** across all 36 States & Union Territories across all three severity tiers (**🔴 Critical $\ge 80$: 41 spots**, **🟠 High $60-79$: 55 spots**, and **🔵 Moderate $< 60$: 34 spots**) with live interactive filter chips, plus a **50-corridor color-coded major highway network (7,749 km)** categorized into Green (Safe), Yellow (Very Few), Orange (Moderate), and Red (Extreme). |
+| **2** | **Why are accidents occurring there?** | **Explainable AI (XAI) & Causal Attribution**: Quantifies exact additive feature weights (e.g., *Overspeeding +28 pts*, *Unlit dusk window +14 pts*, *Wet monsoon surface +10 pts*, *Blind curve geometry +14 pts*). Integrates official MoRTH cause distributions (Overspeeding accounts for 69.6% of crashes). |
+| **3** | **Who/what is most vulnerable?** | **Vulnerable Road User (VRU) Profiler**: Mode-of-transport risk analysis revealing that **Two-wheelers (44.5%)** and **Pedestrians (19.5%)** comprise **64% of all road fatalities**, while Heavy Commercial Trucks (HCV) act as primary lethal colliding agents. |
+| **4** | **When is the risk highest?** | **24-Hour Diurnal & Seasonal Hazard Matrix**: Pinpoints the critical **18:00 – 21:00 dusk rush** (twilight glare + peak commuter density) and **21:00 – 03:00 freight speed window**, alongside seasonal **Monsoon hydroplaning** (June–Sept) and **Winter radiation fog** (Dec–Feb). |
+| **5** | **What intervention should be implemented first?** | **Ranked IRC-Standard Engineering & Enforcement**: Prioritizes Indian Roads Congress (IRC) interventions: P1 Immediate (Speed Radars under *IRC:SP:108*, Pedestrian Islands under *IRC:103*, High-Mast Lighting under *IRC:SP:73*, Golden Hour EMS); P2 High (Anti-skid micro-surfacing under *IRC:SP:81*, Curve realignments under *IRC:73*). |
+| **6** | **Can we predict whether the intervention will reduce accidents?** | **Interactive Counterfactual "What-If" Simulator**: Quantifies combined safety benefits using empirical crash modification factors (CMF) with diminishing returns: outputs new simulated risk score (e.g. 84 $\rightarrow$ 29), crash reduction %, annual lives saved counter, and safety ROI rating. |
 
-- **Framework**: FastAPI 0.104.1
-- **Database**: SQLAlchemy 2.0.23 (SQLite default, PostgreSQL/MySQL supported)
-- **Validation**: Pydantic 2.5.0
-- **Server**: Uvicorn 0.24.0
+---
 
-## Architecture
+## 📊 Dataset Stack Integrated
 
-Modular Monolith architecture with clear separation of concerns:
-- `backend/main.py` - Application entry point
-- `backend/models.py` - Database models
-- `backend/schemas.py` - Pydantic schemas for validation
-- `backend/routers/` - API route handlers
-- `backend/config.py` - Configuration management
-- `backend/database.py` - Database connection and session management
+The platform bundles authentic, standardized datasets based on official government reports:
 
-## Prerequisites
+1. **Dataset A — Pan-India MoRTH State/UT Time-Series (2018–2023)** (`data/morth_timeseries_state_accidents.json`): Complete dataset covering **all 36 Indian States & Union Territories** (28 States + 8 UTs) with longitudinal accident, fatality, injury, severity %, and primary corridor statistics.
+2. **Dataset B & C — NCRB ADSI 2023 & MoRTH Detailed Reports**: City-level and national highway casualty counts.
+3. **Dataset D — Cause of Accident Classifications** (`data/causes_distribution.json`): Official cause breakdown (Overspeeding 69.6%, Wrong side driving 5.8%, Substandard geometry 5.2%, Adverse weather 4.3%, Potholes/defects 4.2%, Drunk driving 3.5%, etc.).
+4. **Dataset E — Mode of Transport & VRU Exposure** (`data/transport_modes_vulnerability.json`): Fatality distribution across Two-wheelers, Pedestrians, Cars/SUVs, Trucks, Auto-rickshaws, Buses, Bicycles.
+5. **Diurnal 24-Hour & Seasonality Grid** (`data/diurnal_temporal_distribution.json`): Hourly casualty shares and seasonal multipliers.
+6. **National Blackspots & Hazard Database (130 Geocoded Locations across 3 Tiers)** (`data/indian_blackspots_database.json`): 130 geocoded accident clusters across all 36 States & UTs with coordinates, AADT, speed limits, lighting, geometry, calibrated ML risk scores, and full distribution across **Critical (41)**, **High (55)**, and **Moderate (34)**.
+7. **Golden Hour Emergency Trauma Centers** (`data/trauma_care_centers.json`): Network of 22 Level-1 and Level-2 Trauma Care hospitals and ambulance dispatch stations nationwide.
+8. **MoRTH 50-Year Historical Motorization & Safety Trends (1970–2019)** (`data/morth_50year_historical_trends.json`): Longitudinal dataset of registered motor vehicles (+21,112%), fatalities (+942%), road network length, and population/vehicle normalized fatality rates.
+9. **MoRTH Official Police Station Blackspot Registry (2016–2018)** (`data/official_police_blackspots_registry.json`): 270+ audited blackspots across 30 states with exact police stations, highway numbers, chainages, and 3-year casualty histories.
+10. **Intersection Traffic Control Matrix across 50 Million-Plus Cities** (`data/million_plus_cities_junction_traffic_control.json`): Casualty distribution across Traffic Light Signals, Police Controlled, Stop Signs, Flashing Blinkers, and Uncontrolled Junctions.
+11. **Color-Coded Pan-India Major Highway Risk Network (50 Corridors, 7,749 km)** (`data/indian_highways_risk_network.json`): Comprehensive GIS polyline network color-coded by accident frequency: 🟢 Green (Safe / 0 Fatalities), 🟡 Yellow (Very Few / 1–15 Crashes), 🟠 Orange (Moderate / 16–44 Crashes), and 🔴 Red (Extreme / 45+ Crashes).
 
-- Python 3.9 or higher
-- pip (Python package manager)
 
-## Installation
+---
 
-1. **Clone or navigate to the project directory**
+## 🧠 AI & Machine Learning Architecture
 
-2. **Create a virtual environment**
-```bash
-python -m venv venv
+```
+                               ┌──────────────────────────────────────────────────────────┐
+                               │                 RoadSafe India AI Engine                 │
+                               └──────────────────────────────────────────────────────────┘
+                                                             │
+                  ┌───────────────────────────┬──────────────┴───────────────┬────────────────────────────┐
+                  ▼                           ▼                              ▼                            ▼
+      ┌───────────────────────┐   ┌──────────────────────────┐   ┌────────────────────────┐   ┌───────────────────────────┐
+      │  Calibrated ML Risk   │   │     Explainable AI       │   │  Predictive Forecast   │   │ Counterfactual Simulator  │
+      │    Scoring (0-100)    │   │  (Feature Attribution)   │   │ (30/60/90-Day Horizon) │   │ (What-If Intervention)    │
+      ├───────────────────────┤   ├──────────────────────────┤   ├────────────────────────┤   ├───────────────────────────┤
+      │ • Speed Differential  │   │ • Additive weight score  │   │ • Seasonal Multipliers │   │ • Diminishing returns CMF │
+      │ • Surface Friction    │   │ • Specific risk driver   │   │ • Monsoon Hydroplaning │   │ • New simulated risk      │
+      │ • Geometry Hazard     │   │ • Actionable IRC advice  │   │ • Winter Fog Index     │   │ • Annual lives saved      │
+      │ • Diurnal Exposure    │   │ • Safe operating speed   │   │ • 95% Confidence Band  │   │ • Safety ROI Rating       │
+      └───────────────────────┘   └──────────────────────────┘   └────────────────────────┘   └───────────────────────────┘
 ```
 
-3. **Activate the virtual environment**
+---
 
-On Linux/Mac:
+## 🚀 Quickstart & Installation
+
+### Prerequisites
+- Python 3.10+ (Python 3.13 supported)
+- Modern web browser (Chrome, Edge, Firefox)
+
+### Step 1: Clone the Repository
 ```bash
-source venv/bin/activate
+git clone https://github.com/nandeshmontfort-bot/Team_015.git
+cd Team_015
 ```
 
-On Windows:
-```bash
-venv\Scripts\activate
+### Step 2: One-Click Startup on Windows
+Double-click `run_windows.bat` or run from PowerShell / CMD:
+```bat
+run_windows.bat
 ```
 
-4. **Install dependencies**
+### Manual Installation (Linux / macOS / Windows)
 ```bash
+# 1. Install dependencies
 pip install -r backend/requirements.txt
+
+# 2. Run automated test suite
+python tests/test_api.py
+
+# 3. Start Uvicorn ASGI Server
+python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
-5. **Configure environment variables**
+Open your browser at:
+- 🌐 **Command Center Dashboard**: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+- 📚 **Interactive Swagger API Docs**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+- 📖 **ReDoc OpenAPI Specifications**: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
+
+---
+
+## 🔌 API Endpoint Reference
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/health` | Service health status check |
+| `GET` | `/api/v1/meta` | Hackathon metadata & problem statement answer mapping |
+| `GET` | `/api/v1/accidents/stats/summary` | National & state-filtered KPI statistics |
+| `GET` | `/api/v1/accidents/analytics/hotspots` | **Q1**: Ranked geocoded blackspots with 0-100 risk score and XAI drivers |
+| `GET` | `/api/v1/accidents/analytics/risk` | **Q2**: Calculate explainable ML risk score for any coordinate & condition |
+| `POST` | `/api/v1/accidents/analytics/predict-segment` | **Q2**: JSON-based road segment risk auditor |
+| `GET` | `/api/v1/accidents/analytics/causes` | **Q2**: MoRTH cause distribution dataset & analytical takeaways |
+| `GET` | `/api/v1/accidents/analytics/vulnerability` | **Q3**: Mode of transport & Vulnerable Road User (VRU) profile |
+| `GET` | `/api/v1/accidents/analytics/temporal` | **Q4**: 24-hour diurnal risk curve and seasonal monsoon/fog indices |
+| `GET` | `/api/v1/accidents/analytics/prediction` | **Q4**: 30, 60, 90-day time-series risk forecasting with confidence bounds |
+| `GET` | `/api/v1/accidents/analytics/interventions` | **Q5**: Ranked IRC-standard engineering & enforcement interventions |
+| `POST` | `/api/v1/accidents/analytics/simulate` | **Q6**: Interactive Counterfactual "What-If" impact simulation engine |
+| `GET` | `/api/v1/accidents/analytics/states` | Pan-India ranking & metrics for all 36 States & Union Territories |
+| `GET` | `/api/v1/accidents/analytics/states/{state_name}` | In-depth State Road Safety Dossier & IRC engineering action plan |
+| `GET` | `/api/v1/accidents/analytics/historical-50yr` | MoRTH 50-Year (1970–2019) longitudinal motorization & safety trends |
+| `GET` | `/api/v1/accidents/analytics/junction-control` | 50 Million-Plus Cities intersection traffic control crash distribution |
+| `GET` | `/api/v1/accidents/analytics/police-blackspots` | MoRTH 270+ audited police station blackspots registry (2016–2018) |
+| `GET` | `/api/v1/accidents/analytics/route-risk` | Safe routing & corridor hazard assessment between two cities |
+| `GET` | `/api/v1/accidents/analytics/trauma-centers` | Golden Hour emergency trauma care hospital locator |
+| `POST` | `/api/v1/accidents/seed-demo` | Seeds authentic Indian blackspots into intelligence base |
+| `POST` | `/api/v1/accidents/import-csv` | Bulk imports accident records via CSV upload |
+| `POST` | `/api/v1/accidents/` | Register new incident or reported road hazard |
+| `GET` | `/api/v1/accidents/{id}` | Retrieve individual incident record |
+| `DELETE` | `/api/v1/accidents/{id}` | Delete incident record |
+
+---
+
+## 🧪 Verification & Automated Testing
+
+A comprehensive automated test suite is included in `tests/test_api.py` validating all 6 questions of Problem Statement 3, data integrity, and REST endpoints:
+
 ```bash
-cp .env.example .env
+python tests/test_api.py
 ```
 
-Edit `.env` file and update configuration as needed, especially:
-- `DATABASE_URL` for production database
-- `SECRET_KEY` for security
-- `ALLOWED_ORIGINS` for CORS
+**Test Execution Results:**
+```text
+.....................
+----------------------------------------------------------------------
+Ran 21 tests in 0.729s
 
-## Running the Application
-
-### Development Mode
-
-```bash
-uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000
+OK
 ```
 
-The API will be available at: `http://localhost:8000`
 
-### Production Mode
+---
 
-```bash
-uvicorn backend.main:app --host 0.0.0.0 --port 8000 --workers 4
-```
+## 🏛️ Decision Support Cockpit Modules
 
-## API Documentation
+1. **National Command Center**: Live KPIs, GIS Leaflet map with pulsing critical markers (>80 score), and instantaneous Explainable AI inspector.
+2. **Where & Why (Spatial & Causal Intelligence)**: All 36 State & UT rankings, National Highway vs State Highway severity paradox, and MoRTH cause breakdowns.
+3. **Who & When (Vulnerability & Temporal Matrix)**: VRU vulnerability indices (Two-wheelers vs Pedestrians vs Heavy Trucks) and 24-hour diurnal hazard curve (18:00–21:00 peak).
+4. **50-Year Trends & City Junctions**: 50-year motorization vs fatality visualizer (1970–2019), 50 million-plus cities intersection traffic control matrix (Uncontrolled vs Signals), and 270+ audited police station blackspots registry.
+5. **AI Risk Predictor & Segment Auditor**: Interactive feature simulator with 0–100 calibrated scoring and 30/60/90-day forecasting with 95% confidence intervals.
+6. **Counterfactual Intervention Simulator**: Interactive policy sandbox predicting crash reduction %, lives saved/year, and IRC safety ROI for selected interventions.
+7. **Safe Route & Golden Hour Dispatch**: Evaluates corridor hazard between cities (e.g., Delhi–Agra, Mumbai–Pune) and maps nearest Level-1 trauma care centers.
+8. **Accident Evidence Base**: Searchable data table, CSV import, sample download, and new incident registration.
 
-Once the application is running, access the interactive API documentation:
+---
 
-- **Swagger UI**: http://localhost:8000/docs
-- **ReDoc**: http://localhost:8000/redoc
+## 👥 Team 015
 
-## API Endpoints
-
-### Health Check
-- `GET /` - Root endpoint
-- `GET /health` - Health check
-
-### Accident Management
-- `POST /api/v1/accidents/` - Create new accident record
-- `GET /api/v1/accidents/` - List accidents (with pagination and filters)
-- `GET /api/v1/accidents/{accident_id}` - Get specific accident
-- `PUT /api/v1/accidents/{accident_id}` - Update accident record
-- `DELETE /api/v1/accidents/{accident_id}` - Delete accident record
-
-### Statistics
-- `GET /api/v1/accidents/stats/summary` - Get accident statistics
-
-### Query Parameters for Listing
-
-- `page` - Page number (default: 1)
-- `page_size` - Items per page (default: 50, max: 100)
-- `state` - Filter by state
-- `district` - Filter by district
-- `severity` - Filter by severity (minor, moderate, severe, fatal)
-- `accident_type` - Filter by accident type
-
-## Data Models
-
-### Accident Record
-
-```json
-{
-  "location": "NH-44, Near Toll Plaza",
-  "latitude": 28.7041,
-  "longitude": 77.1025,
-  "state": "Delhi",
-  "district": "New Delhi",
-  "accident_type": "collision",
-  "severity": "moderate",
-  "casualties": 2,
-  "injuries": 2,
-  "fatalities": 0,
-  "weather_condition": "Clear",
-  "road_condition": "Dry",
-  "time_of_day": "Morning",
-  "description": "Two-vehicle collision at intersection",
-  "contributing_factors": "Speeding, Poor visibility",
-  "reported_by": "Traffic Police"
-}
-```
-
-### Severity Levels
-- `minor` - Minor accidents with minimal damage
-- `moderate` - Moderate accidents with injuries
-- `severe` - Severe accidents with serious injuries
-- `fatal` - Fatal accidents with deaths
-
-### Accident Types
-- `collision` - Vehicle collision
-- `pedestrian` - Pedestrian involved
-- `vehicle_rollover` - Vehicle rollover
-- `head_on` - Head-on collision
-- `rear_end` - Rear-end collision
-- `side_impact` - Side impact collision
-- `other` - Other types
-
-## Database
-
-The application uses SQLite by default for development. For production, configure PostgreSQL or MySQL in the `.env` file:
-
-**PostgreSQL:**
-```
-DATABASE_URL=postgresql://user:password@localhost:5432/road_safety_db
-```
-
-**MySQL:**
-```
-DATABASE_URL=mysql+pymysql://user:password@localhost:3306/road_safety_db
-```
-
-The database tables are automatically created on application startup.
-
-## Security
-
-- Environment variables for sensitive configuration
-- Input validation using Pydantic
-- SQL injection prevention through SQLAlchemy ORM
-- CORS configuration for API access control
-- Logging for audit trails
-
-## Project Structure
-
-```
-.
-├── backend/
-│   ├── __init__.py
-│   ├── main.py              # Application entry point
-│   ├── config.py            # Configuration settings
-│   ├── database.py          # Database setup
-│   ├── models.py            # SQLAlchemy models
-│   ├── schemas.py           # Pydantic schemas
-│   ├── requirements.txt     # Python dependencies
-│   └── routers/
-│       ├── __init__.py
-│       └── accidents.py     # Accident endpoints
-├── .env.example             # Environment variables template
-└── README.md               # This file
-```
-
-## Development
-
-### Adding New Features
-
-1. Define models in `backend/models.py`
-2. Create schemas in `backend/schemas.py`
-3. Implement routes in `backend/routers/`
-4. Register router in `backend/main.py`
-
-### Code Quality
-
-- Follow PEP 8 style guidelines
-- Add type hints for better code clarity
-- Include docstrings for functions and classes
-- Use meaningful variable and function names
-
-## Troubleshooting
-
-### Database Connection Issues
-- Verify DATABASE_URL in `.env` file
-- Ensure database server is running (for PostgreSQL/MySQL)
-- Check database credentials and permissions
-
-### Import Errors
-- Ensure virtual environment is activated
-- Verify all dependencies are installed: `pip install -r backend/requirements.txt`
-
-### Port Already in Use
-- Change the port: `uvicorn backend.main:app --port 8001`
-- Or kill the process using port 8000
-
-## Support
-
-For issues and questions, refer to the API documentation at `/docs` endpoint.
-
-## License
-
-This project is part of the Road Safety AI initiative for India.
+- **Project**: RoadSafe India — AI Road Safety Intelligence Platform
+- **Problem Statement**: No. 3 — Transport: RoadSafe India
+- **Built for**: National Level Hackathon 2026

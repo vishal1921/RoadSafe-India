@@ -1,0 +1,198 @@
+{
+  "hourly_distribution": [
+    {
+      "hour": "00:00 - 01:00",
+      "crashes_pct": 2.1,
+      "fatalities_pct": 2.4,
+      "risk_index": 52,
+      "dominant_factor": "Commercial freight & driver fatigue"
+    },
+    {
+      "hour": "01:00 - 02:00",
+      "crashes_pct": 1.9,
+      "fatalities_pct": 2.2,
+      "risk_index": 50,
+      "dominant_factor": "Drowsiness, deserted high-speed stretches"
+    },
+    {
+      "hour": "02:00 - 03:00",
+      "crashes_pct": 2.1,
+      "fatalities_pct": 2.2,
+      "risk_index": 51,
+      "dominant_factor": "Micro-sleep episodes, poor visibility"
+    },
+    {
+      "hour": "03:00 - 04:00",
+      "crashes_pct": 2.2,
+      "fatalities_pct": 2.1,
+      "risk_index": 48,
+      "dominant_factor": "Pre-dawn fog, truck tailgating"
+    },
+    {
+      "hour": "04:00 - 05:00",
+      "crashes_pct": 2.3,
+      "fatalities_pct": 2.0,
+      "risk_index": 46,
+      "dominant_factor": "Early morning fog, morning walkers"
+    },
+    {
+      "hour": "05:00 - 06:00",
+      "crashes_pct": 2.8,
+      "fatalities_pct": 2.5,
+      "risk_index": 45,
+      "dominant_factor": "Commuter start, heavy fog in winter"
+    },
+    {
+      "hour": "06:00 - 07:00",
+      "crashes_pct": 3.4,
+      "fatalities_pct": 3.2,
+      "risk_index": 47,
+      "dominant_factor": "School buses & morning commuters"
+    },
+    {
+      "hour": "07:00 - 08:00",
+      "crashes_pct": 4.1,
+      "fatalities_pct": 3.8,
+      "risk_index": 52,
+      "dominant_factor": "Morning peak traffic building up"
+    },
+    {
+      "hour": "08:00 - 09:00",
+      "crashes_pct": 5.2,
+      "fatalities_pct": 4.6,
+      "risk_index": 58,
+      "dominant_factor": "Peak morning rush, two-wheeler congestion"
+    },
+    {
+      "hour": "09:00 - 10:00",
+      "crashes_pct": 6.1,
+      "fatalities_pct": 5.2,
+      "risk_index": 62,
+      "dominant_factor": "Dense office traffic, aggressive lane changing"
+    },
+    {
+      "hour": "10:00 - 11:00",
+      "crashes_pct": 5.8,
+      "fatalities_pct": 4.9,
+      "risk_index": 57,
+      "dominant_factor": "Mixed commercial & passenger traffic"
+    },
+    {
+      "hour": "11:00 - 12:00",
+      "crashes_pct": 5.4,
+      "fatalities_pct": 4.6,
+      "risk_index": 53,
+      "dominant_factor": "Midday flow, high highway cruising speeds"
+    },
+    {
+      "hour": "12:00 - 13:00",
+      "crashes_pct": 5.3,
+      "fatalities_pct": 4.8,
+      "risk_index": 52,
+      "dominant_factor": "Lunch-hour traffic, local delivery bikes"
+    },
+    {
+      "hour": "13:00 - 14:00",
+      "crashes_pct": 5.1,
+      "fatalities_pct": 4.7,
+      "risk_index": 51,
+      "dominant_factor": "School pickup rush, heat glare"
+    },
+    {
+      "hour": "14:00 - 15:00",
+      "crashes_pct": 5.4,
+      "fatalities_pct": 4.9,
+      "risk_index": 53,
+      "dominant_factor": "Commercial loading, moderate congestion"
+    },
+    {
+      "hour": "15:00 - 16:00",
+      "crashes_pct": 6.2,
+      "fatalities_pct": 5.7,
+      "risk_index": 60,
+      "dominant_factor": "Afternoon traffic acceleration"
+    },
+    {
+      "hour": "16:00 - 17:00",
+      "crashes_pct": 6.8,
+      "fatalities_pct": 6.2,
+      "risk_index": 66,
+      "dominant_factor": "Evening school/office transition"
+    },
+    {
+      "hour": "17:00 - 18:00",
+      "crashes_pct": 7.4,
+      "fatalities_pct": 7.1,
+      "risk_index": 73,
+      "dominant_factor": "Dusk onset, intense pedestrian & two-wheeler mix"
+    },
+    {
+      "hour": "18:00 - 19:00",
+      "crashes_pct": 8.9,
+      "fatalities_pct": 9.4,
+      "risk_index": 92,
+      "dominant_factor": "CRITICAL: Twilight glare, heavy rush, poor lighting"
+    },
+    {
+      "hour": "19:00 - 20:00",
+      "crashes_pct": 9.1,
+      "fatalities_pct": 9.6,
+      "risk_index": 95,
+      "dominant_factor": "CRITICAL: Peak rush hour, high pedestrian conflict"
+    },
+    {
+      "hour": "20:00 - 21:00",
+      "crashes_pct": 7.8,
+      "fatalities_pct": 8.4,
+      "risk_index": 86,
+      "dominant_factor": "HIGH: Heavy freight entry into city, high speeds"
+    },
+    {
+      "hour": "21:00 - 22:00",
+      "crashes_pct": 6.4,
+      "fatalities_pct": 7.2,
+      "risk_index": 78,
+      "dominant_factor": "HIGH: Inter-city freight surge, drunken driving"
+    },
+    {
+      "hour": "22:00 - 23:00",
+      "crashes_pct": 5.2,
+      "fatalities_pct": 6.1,
+      "risk_index": 71,
+      "dominant_factor": "HIGH: Unregulated truck speeds on bypass roads"
+    },
+    {
+      "hour": "23:00 - 00:00",
+      "crashes_pct": 3.8,
+      "fatalities_pct": 4.7,
+      "risk_index": 64,
+      "dominant_factor": "Late night speed, reduced police enforcement"
+    }
+  ],
+  "seasonal_factors": [
+    {
+      "season": "Winter Fog (Dec - Feb)",
+      "risk_multiplier": 1.28,
+      "affected_regions": "North & Central India (UP, Haryana, Punjab, Delhi, Bihar, MP)",
+      "hazard": "Dense radiation fog (<50m visibility) causing multi-vehicle pileups"
+    },
+    {
+      "season": "Southwest Monsoon (Jun - Sep)",
+      "risk_multiplier": 1.22,
+      "affected_regions": "Western Ghats, Coastal Maharashtra, Kerala, Karnataka, Goa, NE",
+      "hazard": "Hydroplaning on wet asphalt, hidden waterlogged potholes, landslides in ghats"
+    },
+    {
+      "season": "Festive Season (Oct - Nov)",
+      "risk_multiplier": 1.18,
+      "affected_regions": "All India National & State Highways",
+      "hazard": "Heavy inter-city traffic surges, overcrowding, late night celebratory driving"
+    },
+    {
+      "season": "Summer Heat (Mar - May)",
+      "risk_multiplier": 1.05,
+      "affected_regions": "Northern & Central Plains, Rajasthan, Gujarat",
+      "hazard": "Tyre blowouts due to expressway tarmac heat (>55\u00b0C), driver heat fatigue"
+    }
+  ]
+}

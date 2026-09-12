@@ -1,0 +1,1934 @@
+[
+  {
+    "state": "Tamil Nadu",
+    "code": "TN",
+    "zone": "South",
+    "capital": "Chennai",
+    "lat": 11.1271,
+    "lng": 78.6569,
+    "accidents_2023": 67153,
+    "fatalities_2023": 15874,
+    "injuries_2023": 69210,
+    "severity_2023": 23.6,
+    "blackspots_count": 482,
+    "top_cause": "Overspeeding & Two-wheeler conflicts",
+    "vulnerable_user_pct": 68.4,
+    "primary_corridor": "NH-44 (Chennai-Hosur) & NH-48",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 63920,
+        "fatalities": 12216,
+        "injuries": 68420
+      },
+      {
+        "year": 2019,
+        "accidents": 57228,
+        "fatalities": 10525,
+        "injuries": 62510
+      },
+      {
+        "year": 2020,
+        "accidents": 45484,
+        "fatalities": 8059,
+        "injuries": 49830
+      },
+      {
+        "year": 2021,
+        "accidents": 55682,
+        "fatalities": 14730,
+        "injuries": 60120
+      },
+      {
+        "year": 2022,
+        "accidents": 64105,
+        "fatalities": 15384,
+        "injuries": 66490
+      },
+      {
+        "year": 2023,
+        "accidents": 67153,
+        "fatalities": 15874,
+        "injuries": 69210
+      }
+    ]
+  },
+  {
+    "state": "Uttar Pradesh",
+    "code": "UP",
+    "zone": "North",
+    "capital": "Lucknow",
+    "lat": 26.8467,
+    "lng": 80.9462,
+    "accidents_2023": 44320,
+    "fatalities_2023": 23652,
+    "injuries_2023": 31450,
+    "severity_2023": 53.4,
+    "blackspots_count": 612,
+    "top_cause": "High-speed Expressways & Winter Fog",
+    "vulnerable_user_pct": 59.2,
+    "primary_corridor": "Yamuna Expressway, Agra-Lucknow & NH-19",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 42568,
+        "fatalities": 22256,
+        "injuries": 29660
+      },
+      {
+        "year": 2019,
+        "accidents": 42572,
+        "fatalities": 22655,
+        "injuries": 28980
+      },
+      {
+        "year": 2020,
+        "accidents": 34243,
+        "fatalities": 19149,
+        "injuries": 22310
+      },
+      {
+        "year": 2021,
+        "accidents": 37729,
+        "fatalities": 21227,
+        "injuries": 25890
+      },
+      {
+        "year": 2022,
+        "accidents": 41746,
+        "fatalities": 22595,
+        "injuries": 28840
+      },
+      {
+        "year": 2023,
+        "accidents": 44320,
+        "fatalities": 23652,
+        "injuries": 31450
+      }
+    ]
+  },
+  {
+    "state": "Maharashtra",
+    "code": "MH",
+    "zone": "West",
+    "capital": "Mumbai",
+    "lat": 19.7515,
+    "lng": 75.7139,
+    "accidents_2023": 35840,
+    "fatalities_2023": 15220,
+    "injuries_2023": 30890,
+    "severity_2023": 42.5,
+    "blackspots_count": 418,
+    "top_cause": "Ghat sections, Rollovers & Night Freight",
+    "vulnerable_user_pct": 63.8,
+    "primary_corridor": "Mumbai-Pune Expressway & NH-48 / Samruddhi Mahamarg",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 35717,
+        "fatalities": 13261,
+        "injuries": 31360
+      },
+      {
+        "year": 2019,
+        "accidents": 32925,
+        "fatalities": 12788,
+        "injuries": 28630
+      },
+      {
+        "year": 2020,
+        "accidents": 24971,
+        "fatalities": 11569,
+        "injuries": 19930
+      },
+      {
+        "year": 2021,
+        "accidents": 29477,
+        "fatalities": 13911,
+        "injuries": 24890
+      },
+      {
+        "year": 2022,
+        "accidents": 33383,
+        "fatalities": 14888,
+        "injuries": 28540
+      },
+      {
+        "year": 2023,
+        "accidents": 35840,
+        "fatalities": 15220,
+        "injuries": 30890
+      }
+    ]
+  },
+  {
+    "state": "Madhya Pradesh",
+    "code": "MP",
+    "zone": "Central",
+    "capital": "Bhopal",
+    "lat": 22.9734,
+    "lng": 78.6569,
+    "accidents_2023": 54432,
+    "fatalities_2023": 13426,
+    "injuries_2023": 54210,
+    "severity_2023": 24.7,
+    "blackspots_count": 395,
+    "top_cause": "Rural Highways & Unregulated Freight Speed",
+    "vulnerable_user_pct": 61.5,
+    "primary_corridor": "NH-44 (Gwalior-Seoni) & NH-46",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 51397,
+        "fatalities": 10706,
+        "injuries": 52140
+      },
+      {
+        "year": 2019,
+        "accidents": 51641,
+        "fatalities": 11249,
+        "injuries": 52410
+      },
+      {
+        "year": 2020,
+        "accidents": 42340,
+        "fatalities": 11141,
+        "injuries": 41890
+      },
+      {
+        "year": 2021,
+        "accidents": 48877,
+        "fatalities": 12057,
+        "injuries": 47910
+      },
+      {
+        "year": 2022,
+        "accidents": 52410,
+        "fatalities": 12780,
+        "injuries": 51920
+      },
+      {
+        "year": 2023,
+        "accidents": 54432,
+        "fatalities": 13426,
+        "injuries": 54210
+      }
+    ]
+  },
+  {
+    "state": "Karnataka",
+    "code": "KA",
+    "zone": "South",
+    "capital": "Bengaluru",
+    "lat": 15.3173,
+    "lng": 75.7139,
+    "accidents_2023": 43210,
+    "fatalities_2023": 11780,
+    "injuries_2023": 51840,
+    "severity_2023": 27.3,
+    "blackspots_count": 340,
+    "top_cause": "Urban Ring Roads, Expressway Pedestrian Knockdowns",
+    "vulnerable_user_pct": 66.2,
+    "primary_corridor": "Bengaluru-Mysuru Expressway & NH-44 Hosur",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 41707,
+        "fatalities": 10990,
+        "injuries": 51560
+      },
+      {
+        "year": 2019,
+        "accidents": 40658,
+        "fatalities": 10958,
+        "injuries": 50410
+      },
+      {
+        "year": 2020,
+        "accidents": 34178,
+        "fatalities": 9760,
+        "injuries": 39820
+      },
+      {
+        "year": 2021,
+        "accidents": 34647,
+        "fatalities": 10038,
+        "injuries": 40150
+      },
+      {
+        "year": 2022,
+        "accidents": 39762,
+        "fatalities": 11702,
+        "injuries": 47830
+      },
+      {
+        "year": 2023,
+        "accidents": 43210,
+        "fatalities": 11780,
+        "injuries": 51840
+      }
+    ]
+  },
+  {
+    "state": "Kerala",
+    "code": "KL",
+    "zone": "South",
+    "capital": "Thiruvananthapuram",
+    "lat": 10.8505,
+    "lng": 76.2711,
+    "accidents_2023": 48210,
+    "fatalities_2023": 4320,
+    "injuries_2023": 52140,
+    "severity_2023": 9.0,
+    "blackspots_count": 276,
+    "top_cause": "Dense Ribbon Corridor Collisions & Two-wheelers",
+    "vulnerable_user_pct": 74.1,
+    "primary_corridor": "NH-66 Coastal Corridor & MC Road",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 40181,
+        "fatalities": 4303,
+        "injuries": 45450
+      },
+      {
+        "year": 2019,
+        "accidents": 41111,
+        "fatalities": 4440,
+        "injuries": 46050
+      },
+      {
+        "year": 2020,
+        "accidents": 27883,
+        "fatalities": 2970,
+        "injuries": 30510
+      },
+      {
+        "year": 2021,
+        "accidents": 33296,
+        "fatalities": 3429,
+        "injuries": 35910
+      },
+      {
+        "year": 2022,
+        "accidents": 43910,
+        "fatalities": 4317,
+        "injuries": 49300
+      },
+      {
+        "year": 2023,
+        "accidents": 48210,
+        "fatalities": 4320,
+        "injuries": 52140
+      }
+    ]
+  },
+  {
+    "state": "Rajasthan",
+    "code": "RJ",
+    "zone": "North",
+    "capital": "Jaipur",
+    "lat": 27.0238,
+    "lng": 74.2179,
+    "accidents_2023": 24890,
+    "fatalities_2023": 11180,
+    "injuries_2023": 23450,
+    "severity_2023": 44.9,
+    "blackspots_count": 298,
+    "top_cause": "Desert Highway High Speed, Stray Cattle & Blind Curves",
+    "vulnerable_user_pct": 57.8,
+    "primary_corridor": "NH-48 (Jaipur-Ajmer-Udaipur) & Delhi-Mumbai Expressway",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 21743,
+        "fatalities": 10320,
+        "injuries": 21980
+      },
+      {
+        "year": 2019,
+        "accidents": 23480,
+        "fatalities": 10563,
+        "injuries": 22990
+      },
+      {
+        "year": 2020,
+        "accidents": 19114,
+        "fatalities": 9250,
+        "injuries": 17820
+      },
+      {
+        "year": 2021,
+        "accidents": 20951,
+        "fatalities": 10045,
+        "injuries": 19890
+      },
+      {
+        "year": 2022,
+        "accidents": 23614,
+        "fatalities": 10842,
+        "injuries": 22460
+      },
+      {
+        "year": 2023,
+        "accidents": 24890,
+        "fatalities": 11180,
+        "injuries": 23450
+      }
+    ]
+  },
+  {
+    "state": "Gujarat",
+    "code": "GJ",
+    "zone": "West",
+    "capital": "Gandhinagar",
+    "lat": 22.2587,
+    "lng": 71.1924,
+    "accidents_2023": 16420,
+    "fatalities_2023": 7890,
+    "injuries_2023": 15320,
+    "severity_2023": 48.1,
+    "blackspots_count": 224,
+    "top_cause": "Industrial Freight Corridors & Night Rear-ends",
+    "vulnerable_user_pct": 58.6,
+    "primary_corridor": "NE-1 (Ahmedabad-Vadodara) & NH-48 Golden Corridor",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 18769,
+        "fatalities": 7994,
+        "injuries": 17350
+      },
+      {
+        "year": 2019,
+        "accidents": 17045,
+        "fatalities": 7390,
+        "injuries": 15890
+      },
+      {
+        "year": 2020,
+        "accidents": 13398,
+        "fatalities": 6050,
+        "injuries": 11840
+      },
+      {
+        "year": 2021,
+        "accidents": 15200,
+        "fatalities": 7457,
+        "injuries": 13910
+      },
+      {
+        "year": 2022,
+        "accidents": 15751,
+        "fatalities": 7618,
+        "injuries": 14660
+      },
+      {
+        "year": 2023,
+        "accidents": 16420,
+        "fatalities": 7890,
+        "injuries": 15320
+      }
+    ]
+  },
+  {
+    "state": "Telangana",
+    "code": "TG",
+    "zone": "South",
+    "capital": "Hyderabad",
+    "lat": 18.1124,
+    "lng": 79.0193,
+    "accidents_2023": 23450,
+    "fatalities_2023": 7650,
+    "injuries_2023": 24120,
+    "severity_2023": 32.6,
+    "blackspots_count": 210,
+    "top_cause": "Outer Ring Road Speeding & National Highway Merges",
+    "vulnerable_user_pct": 64.9,
+    "primary_corridor": "Hyderabad ORR, NH-44 & NH-65",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 22230,
+        "fatalities": 6603,
+        "injuries": 23640
+      },
+      {
+        "year": 2019,
+        "accidents": 21570,
+        "fatalities": 6964,
+        "injuries": 21990
+      },
+      {
+        "year": 2020,
+        "accidents": 19172,
+        "fatalities": 6050,
+        "injuries": 19020
+      },
+      {
+        "year": 2021,
+        "accidents": 21236,
+        "fatalities": 7093,
+        "injuries": 21740
+      },
+      {
+        "year": 2022,
+        "accidents": 22530,
+        "fatalities": 7559,
+        "injuries": 23140
+      },
+      {
+        "year": 2023,
+        "accidents": 23450,
+        "fatalities": 7650,
+        "injuries": 24120
+      }
+    ]
+  },
+  {
+    "state": "Andhra Pradesh",
+    "code": "AP",
+    "zone": "South",
+    "capital": "Amaravati",
+    "lat": 15.9129,
+    "lng": 79.74,
+    "accidents_2023": 22180,
+    "fatalities_2023": 8920,
+    "injuries_2023": 23890,
+    "severity_2023": 40.2,
+    "blackspots_count": 245,
+    "top_cause": "East Coast Highway Freight & Agricultural Vehicles",
+    "vulnerable_user_pct": 63.1,
+    "primary_corridor": "NH-16 (Chennai-Kolkata corridor) & NH-65",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 24475,
+        "fatalities": 8415,
+        "injuries": 27310
+      },
+      {
+        "year": 2019,
+        "accidents": 21992,
+        "fatalities": 7984,
+        "injuries": 24650
+      },
+      {
+        "year": 2020,
+        "accidents": 18105,
+        "fatalities": 7039,
+        "injuries": 19890
+      },
+      {
+        "year": 2021,
+        "accidents": 19523,
+        "fatalities": 8186,
+        "injuries": 21540
+      },
+      {
+        "year": 2022,
+        "accidents": 21249,
+        "fatalities": 8299,
+        "injuries": 22910
+      },
+      {
+        "year": 2023,
+        "accidents": 22180,
+        "fatalities": 8920,
+        "injuries": 23890
+      }
+    ]
+  },
+  {
+    "state": "Bihar",
+    "code": "BR",
+    "zone": "East",
+    "capital": "Patna",
+    "lat": 25.0961,
+    "lng": 85.3131,
+    "accidents_2023": 11240,
+    "fatalities_2023": 8940,
+    "injuries_2023": 7620,
+    "severity_2023": 79.5,
+    "blackspots_count": 268,
+    "top_cause": "High Fatal Severity, Unregulated Overtaking & Narrow Bridges",
+    "vulnerable_user_pct": 69.4,
+    "primary_corridor": "NH-19 (GT Road) & NH-27 East-West",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 9600,
+        "fatalities": 6729,
+        "injuries": 6800
+      },
+      {
+        "year": 2019,
+        "accidents": 10007,
+        "fatalities": 7286,
+        "injuries": 7020
+      },
+      {
+        "year": 2020,
+        "accidents": 8639,
+        "fatalities": 6699,
+        "injuries": 5890
+      },
+      {
+        "year": 2021,
+        "accidents": 9553,
+        "fatalities": 7660,
+        "injuries": 6510
+      },
+      {
+        "year": 2022,
+        "accidents": 10801,
+        "fatalities": 8898,
+        "injuries": 7120
+      },
+      {
+        "year": 2023,
+        "accidents": 11240,
+        "fatalities": 8940,
+        "injuries": 7620
+      }
+    ]
+  },
+  {
+    "state": "West Bengal",
+    "code": "WB",
+    "zone": "East",
+    "capital": "Kolkata",
+    "lat": 22.9868,
+    "lng": 87.855,
+    "accidents_2023": 12890,
+    "fatalities_2023": 5870,
+    "injuries_2023": 11980,
+    "severity_2023": 45.5,
+    "blackspots_count": 218,
+    "top_cause": "Dense Pedestrian Encroachments & Heavy Trucks",
+    "vulnerable_user_pct": 67.8,
+    "primary_corridor": "NH-19 (Durgapur Expressway) & Kona Expressway",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 12705,
+        "fatalities": 5711,
+        "injuries": 12510
+      },
+      {
+        "year": 2019,
+        "accidents": 10158,
+        "fatalities": 5500,
+        "injuries": 9890
+      },
+      {
+        "year": 2020,
+        "accidents": 10172,
+        "fatalities": 4918,
+        "injuries": 9210
+      },
+      {
+        "year": 2021,
+        "accidents": 11234,
+        "fatalities": 5800,
+        "injuries": 10450
+      },
+      {
+        "year": 2022,
+        "accidents": 12100,
+        "fatalities": 5770,
+        "injuries": 11340
+      },
+      {
+        "year": 2023,
+        "accidents": 12890,
+        "fatalities": 5870,
+        "injuries": 11980
+      }
+    ]
+  },
+  {
+    "state": "Haryana",
+    "code": "HR",
+    "zone": "North",
+    "capital": "Chandigarh",
+    "lat": 29.0588,
+    "lng": 76.0856,
+    "accidents_2023": 11340,
+    "fatalities_2023": 5150,
+    "injuries_2023": 9840,
+    "severity_2023": 45.4,
+    "blackspots_count": 184,
+    "top_cause": "High-Speed NCR Expressways & Winter Fog",
+    "vulnerable_user_pct": 58.1,
+    "primary_corridor": "KMP Expressway, NH-44 Murthal & NH-48 Gurugram",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 11238,
+        "fatalities": 5118,
+        "injuries": 10120
+      },
+      {
+        "year": 2019,
+        "accidents": 10944,
+        "fatalities": 5057,
+        "injuries": 9650
+      },
+      {
+        "year": 2020,
+        "accidents": 9431,
+        "fatalities": 4507,
+        "injuries": 8110
+      },
+      {
+        "year": 2021,
+        "accidents": 9983,
+        "fatalities": 4822,
+        "injuries": 8760
+      },
+      {
+        "year": 2022,
+        "accidents": 10654,
+        "fatalities": 4983,
+        "injuries": 9320
+      },
+      {
+        "year": 2023,
+        "accidents": 11340,
+        "fatalities": 5150,
+        "injuries": 9840
+      }
+    ]
+  },
+  {
+    "state": "Punjab",
+    "code": "PB",
+    "zone": "North",
+    "capital": "Chandigarh",
+    "lat": 31.1471,
+    "lng": 75.3412,
+    "accidents_2023": 6840,
+    "fatalities_2023": 4780,
+    "injuries_2023": 3950,
+    "severity_2023": 69.9,
+    "blackspots_count": 162,
+    "top_cause": "Excessive Speed, Tractor-Trolley Conflicts & Severe Fog",
+    "vulnerable_user_pct": 60.5,
+    "primary_corridor": "NH-44 (Ambala-Jalandhar) & NH-7",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 6428,
+        "fatalities": 4725,
+        "injuries": 3810
+      },
+      {
+        "year": 2019,
+        "accidents": 6348,
+        "fatalities": 4523,
+        "injuries": 3710
+      },
+      {
+        "year": 2020,
+        "accidents": 5104,
+        "fatalities": 3868,
+        "injuries": 2980
+      },
+      {
+        "year": 2021,
+        "accidents": 6096,
+        "fatalities": 4516,
+        "injuries": 3490
+      },
+      {
+        "year": 2022,
+        "accidents": 6542,
+        "fatalities": 4688,
+        "injuries": 3790
+      },
+      {
+        "year": 2023,
+        "accidents": 6840,
+        "fatalities": 4780,
+        "injuries": 3950
+      }
+    ]
+  },
+  {
+    "state": "Odisha",
+    "code": "OD",
+    "zone": "East",
+    "capital": "Bhubaneswar",
+    "lat": 20.9517,
+    "lng": 85.0985,
+    "accidents_2023": 11980,
+    "fatalities_2023": 5740,
+    "injuries_2023": 10840,
+    "severity_2023": 47.9,
+    "blackspots_count": 192,
+    "top_cause": "Mining Belt Mineral Freight Trucks & Two-wheelers",
+    "vulnerable_user_pct": 65.4,
+    "primary_corridor": "NH-16 Coastal & NH-53 Sambalpur-Cuttack",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 11262,
+        "fatalities": 5315,
+        "injuries": 11790
+      },
+      {
+        "year": 2019,
+        "accidents": 11064,
+        "fatalities": 5333,
+        "injuries": 11180
+      },
+      {
+        "year": 2020,
+        "accidents": 9817,
+        "fatalities": 4737,
+        "injuries": 8920
+      },
+      {
+        "year": 2021,
+        "accidents": 10984,
+        "fatalities": 5081,
+        "injuries": 9780
+      },
+      {
+        "year": 2022,
+        "accidents": 11663,
+        "fatalities": 5467,
+        "injuries": 10480
+      },
+      {
+        "year": 2023,
+        "accidents": 11980,
+        "fatalities": 5740,
+        "injuries": 10840
+      }
+    ]
+  },
+  {
+    "state": "Chhattisgarh",
+    "code": "CG",
+    "zone": "Central",
+    "capital": "Raipur",
+    "lat": 21.2787,
+    "lng": 81.8661,
+    "accidents_2023": 13420,
+    "fatalities_2023": 5890,
+    "injuries_2023": 12150,
+    "severity_2023": 43.9,
+    "blackspots_count": 172,
+    "top_cause": "Heavy Mineral Freight, Forest Curves & Drunken Driving",
+    "vulnerable_user_pct": 62.7,
+    "primary_corridor": "NH-53 (Raipur-Durg) & NH-30",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 13864,
+        "fatalities": 4502,
+        "injuries": 13120
+      },
+      {
+        "year": 2019,
+        "accidents": 13899,
+        "fatalities": 5003,
+        "injuries": 12980
+      },
+      {
+        "year": 2020,
+        "accidents": 11791,
+        "fatalities": 4647,
+        "injuries": 10450
+      },
+      {
+        "year": 2021,
+        "accidents": 12716,
+        "fatalities": 5371,
+        "injuries": 11420
+      },
+      {
+        "year": 2022,
+        "accidents": 13250,
+        "fatalities": 5780,
+        "injuries": 11940
+      },
+      {
+        "year": 2023,
+        "accidents": 13420,
+        "fatalities": 5890,
+        "injuries": 12150
+      }
+    ]
+  },
+  {
+    "state": "Jharkhand",
+    "code": "JH",
+    "zone": "East",
+    "capital": "Ranchi",
+    "lat": 23.6102,
+    "lng": 85.2799,
+    "accidents_2023": 5420,
+    "fatalities_2023": 3890,
+    "injuries_2023": 3840,
+    "severity_2023": 71.8,
+    "blackspots_count": 145,
+    "top_cause": "Coal Transport Heavy Freight & Extreme Severity Crashes",
+    "vulnerable_user_pct": 61.2,
+    "primary_corridor": "NH-19 (Govindpur-Dhanbad) & NH-33",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 5394,
+        "fatalities": 3411,
+        "injuries": 4410
+      },
+      {
+        "year": 2019,
+        "accidents": 5217,
+        "fatalities": 3801,
+        "injuries": 4120
+      },
+      {
+        "year": 2020,
+        "accidents": 4381,
+        "fatalities": 3044,
+        "injuries": 3290
+      },
+      {
+        "year": 2021,
+        "accidents": 4728,
+        "fatalities": 3513,
+        "injuries": 3510
+      },
+      {
+        "year": 2022,
+        "accidents": 5175,
+        "fatalities": 3812,
+        "injuries": 3720
+      },
+      {
+        "year": 2023,
+        "accidents": 5420,
+        "fatalities": 3890,
+        "injuries": 3840
+      }
+    ]
+  },
+  {
+    "state": "Uttarakhand",
+    "code": "UK",
+    "zone": "North",
+    "capital": "Dehradun",
+    "lat": 30.0668,
+    "lng": 79.0193,
+    "accidents_2023": 1680,
+    "fatalities_2023": 1040,
+    "injuries_2023": 1540,
+    "severity_2023": 61.9,
+    "blackspots_count": 82,
+    "top_cause": "Ghat Mountain Roads, Landslide Zones & Gorge Rollovers",
+    "vulnerable_user_pct": 42.5,
+    "primary_corridor": "Char Dham All-Weather Highway & NH-7 Rishikesh",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 1468,
+        "fatalities": 1047,
+        "injuries": 1570
+      },
+      {
+        "year": 2019,
+        "accidents": 1352,
+        "fatalities": 867,
+        "injuries": 1450
+      },
+      {
+        "year": 2020,
+        "accidents": 1041,
+        "fatalities": 674,
+        "injuries": 850
+      },
+      {
+        "year": 2021,
+        "accidents": 1405,
+        "fatalities": 820,
+        "injuries": 1280
+      },
+      {
+        "year": 2022,
+        "accidents": 1674,
+        "fatalities": 1044,
+        "injuries": 1610
+      },
+      {
+        "year": 2023,
+        "accidents": 1680,
+        "fatalities": 1040,
+        "injuries": 1540
+      }
+    ]
+  },
+  {
+    "state": "Himachal Pradesh",
+    "code": "HP",
+    "zone": "North",
+    "capital": "Shimla",
+    "lat": 31.1048,
+    "lng": 77.1734,
+    "accidents_2023": 2640,
+    "fatalities_2023": 980,
+    "injuries_2023": 3890,
+    "severity_2023": 37.1,
+    "blackspots_count": 78,
+    "top_cause": "Hairpin Bends, Brake Failure on descents & Black Ice",
+    "vulnerable_user_pct": 39.8,
+    "primary_corridor": "NH-5 (Kalka-Shimla) & NH-21 (Chandigarh-Manali)",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 3119,
+        "fatalities": 1200,
+        "injuries": 5550
+      },
+      {
+        "year": 2019,
+        "accidents": 2873,
+        "fatalities": 1146,
+        "injuries": 4980
+      },
+      {
+        "year": 2020,
+        "accidents": 2233,
+        "fatalities": 886,
+        "injuries": 3190
+      },
+      {
+        "year": 2021,
+        "accidents": 2404,
+        "fatalities": 1051,
+        "injuries": 3610
+      },
+      {
+        "year": 2022,
+        "accidents": 2597,
+        "fatalities": 1032,
+        "injuries": 4010
+      },
+      {
+        "year": 2023,
+        "accidents": 2640,
+        "fatalities": 980,
+        "injuries": 3890
+      }
+    ]
+  },
+  {
+    "state": "Assam",
+    "code": "AS",
+    "zone": "North-East",
+    "capital": "Dispur",
+    "lat": 26.2006,
+    "lng": 92.9376,
+    "accidents_2023": 7420,
+    "fatalities_2023": 3120,
+    "injuries_2023": 6120,
+    "severity_2023": 42.0,
+    "blackspots_count": 112,
+    "top_cause": "Monsoon Flooding Hydroplaning, Fog & Highway Overspeeding",
+    "vulnerable_user_pct": 63.4,
+    "primary_corridor": "NH-27 East-West Corridor & NH-37 Kaziranga",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 8248,
+        "fatalities": 2966,
+        "injuries": 7370
+      },
+      {
+        "year": 2019,
+        "accidents": 8350,
+        "fatalities": 3208,
+        "injuries": 7410
+      },
+      {
+        "year": 2020,
+        "accidents": 6593,
+        "fatalities": 2629,
+        "injuries": 5560
+      },
+      {
+        "year": 2021,
+        "accidents": 7411,
+        "fatalities": 3036,
+        "injuries": 6050
+      },
+      {
+        "year": 2022,
+        "accidents": 7023,
+        "fatalities": 2994,
+        "injuries": 5790
+      },
+      {
+        "year": 2023,
+        "accidents": 7420,
+        "fatalities": 3120,
+        "injuries": 6120
+      }
+    ]
+  },
+  {
+    "state": "Goa",
+    "code": "GA",
+    "zone": "West",
+    "capital": "Panaji",
+    "lat": 15.2993,
+    "lng": 74.124,
+    "accidents_2023": 3140,
+    "fatalities_2023": 280,
+    "injuries_2023": 1420,
+    "severity_2023": 8.9,
+    "blackspots_count": 38,
+    "top_cause": "Tourist Rent-a-bike Crashes, Blind Curves & Drunken Driving",
+    "vulnerable_user_pct": 72.5,
+    "primary_corridor": "NH-66 Zuari Bridge & Atal Setu Panaji",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 3709,
+        "fatalities": 262,
+        "injuries": 1590
+      },
+      {
+        "year": 2019,
+        "accidents": 3440,
+        "fatalities": 297,
+        "injuries": 1450
+      },
+      {
+        "year": 2020,
+        "accidents": 2361,
+        "fatalities": 223,
+        "injuries": 980
+      },
+      {
+        "year": 2021,
+        "accidents": 2854,
+        "fatalities": 226,
+        "injuries": 1190
+      },
+      {
+        "year": 2022,
+        "accidents": 3011,
+        "fatalities": 271,
+        "injuries": 1380
+      },
+      {
+        "year": 2023,
+        "accidents": 3140,
+        "fatalities": 280,
+        "injuries": 1420
+      }
+    ]
+  },
+  {
+    "state": "Tripura",
+    "code": "TR",
+    "zone": "North-East",
+    "capital": "Agartala",
+    "lat": 23.9408,
+    "lng": 91.9882,
+    "accidents_2023": 540,
+    "fatalities_2023": 210,
+    "injuries_2023": 620,
+    "severity_2023": 38.9,
+    "blackspots_count": 22,
+    "top_cause": "Two-wheeler Knockdowns & Border Corridor Speeding",
+    "vulnerable_user_pct": 68.1,
+    "primary_corridor": "NH-8 (Churaibari-Agartala)",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 552,
+        "fatalities": 212,
+        "injuries": 710
+      },
+      {
+        "year": 2019,
+        "accidents": 607,
+        "fatalities": 239,
+        "injuries": 810
+      },
+      {
+        "year": 2020,
+        "accidents": 466,
+        "fatalities": 178,
+        "injuries": 520
+      },
+      {
+        "year": 2021,
+        "accidents": 481,
+        "fatalities": 194,
+        "injuries": 580
+      },
+      {
+        "year": 2022,
+        "accidents": 512,
+        "fatalities": 204,
+        "injuries": 600
+      },
+      {
+        "year": 2023,
+        "accidents": 540,
+        "fatalities": 210,
+        "injuries": 620
+      }
+    ]
+  },
+  {
+    "state": "Meghalaya",
+    "code": "ML",
+    "zone": "North-East",
+    "capital": "Shillong",
+    "lat": 25.467,
+    "lng": 91.3662,
+    "accidents_2023": 280,
+    "fatalities_2023": 170,
+    "injuries_2023": 190,
+    "severity_2023": 60.7,
+    "blackspots_count": 24,
+    "top_cause": "Rain, Cloud Fog, Sharp Mountain Descending Curves",
+    "vulnerable_user_pct": 44.0,
+    "primary_corridor": "NH-6 (Guwahati-Shillong-Silchar)",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 399,
+        "fatalities": 182,
+        "injuries": 210
+      },
+      {
+        "year": 2019,
+        "accidents": 482,
+        "fatalities": 224,
+        "injuries": 270
+      },
+      {
+        "year": 2020,
+        "accidents": 234,
+        "fatalities": 141,
+        "injuries": 140
+      },
+      {
+        "year": 2021,
+        "accidents": 212,
+        "fatalities": 153,
+        "injuries": 160
+      },
+      {
+        "year": 2022,
+        "accidents": 265,
+        "fatalities": 162,
+        "injuries": 180
+      },
+      {
+        "year": 2023,
+        "accidents": 280,
+        "fatalities": 170,
+        "injuries": 190
+      }
+    ]
+  },
+  {
+    "state": "Manipur",
+    "code": "MN",
+    "zone": "North-East",
+    "capital": "Imphal",
+    "lat": 24.6637,
+    "lng": 93.9063,
+    "accidents_2023": 310,
+    "fatalities_2023": 110,
+    "injuries_2023": 390,
+    "severity_2023": 35.5,
+    "blackspots_count": 18,
+    "top_cause": "Hilly terrain narrow passes & Lack of crash barriers",
+    "vulnerable_user_pct": 52.0,
+    "primary_corridor": "NH-2 (Imphal-Dimapur) & NH-37",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 601,
+        "fatalities": 98,
+        "injuries": 910
+      },
+      {
+        "year": 2019,
+        "accidents": 672,
+        "fatalities": 156,
+        "injuries": 1050
+      },
+      {
+        "year": 2020,
+        "accidents": 342,
+        "fatalities": 87,
+        "injuries": 480
+      },
+      {
+        "year": 2021,
+        "accidents": 435,
+        "fatalities": 92,
+        "injuries": 610
+      },
+      {
+        "year": 2022,
+        "accidents": 325,
+        "fatalities": 105,
+        "injuries": 410
+      },
+      {
+        "year": 2023,
+        "accidents": 310,
+        "fatalities": 110,
+        "injuries": 390
+      }
+    ]
+  },
+  {
+    "state": "Nagaland",
+    "code": "NL",
+    "zone": "North-East",
+    "capital": "Kohima",
+    "lat": 26.1584,
+    "lng": 94.5624,
+    "accidents_2023": 210,
+    "fatalities_2023": 58,
+    "injuries_2023": 180,
+    "severity_2023": 27.6,
+    "blackspots_count": 14,
+    "top_cause": "Ghat landslides & Night freight overspeeding",
+    "vulnerable_user_pct": 46.0,
+    "primary_corridor": "NH-29 (Dimapur-Kohima 4-lane)",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 430,
+        "fatalities": 39,
+        "injuries": 380
+      },
+      {
+        "year": 2019,
+        "accidents": 358,
+        "fatalities": 26,
+        "injuries": 290
+      },
+      {
+        "year": 2020,
+        "accidents": 310,
+        "fatalities": 45,
+        "injuries": 240
+      },
+      {
+        "year": 2021,
+        "accidents": 213,
+        "fatalities": 47,
+        "injuries": 190
+      },
+      {
+        "year": 2022,
+        "accidents": 198,
+        "fatalities": 52,
+        "injuries": 170
+      },
+      {
+        "year": 2023,
+        "accidents": 210,
+        "fatalities": 58,
+        "injuries": 180
+      }
+    ]
+  },
+  {
+    "state": "Arunachal Pradesh",
+    "code": "AR",
+    "zone": "North-East",
+    "capital": "Itanagar",
+    "lat": 28.218,
+    "lng": 94.7278,
+    "accidents_2023": 230,
+    "fatalities_2023": 86,
+    "injuries_2023": 260,
+    "severity_2023": 37.4,
+    "blackspots_count": 16,
+    "top_cause": "Trans-Arunachal Highway landslides & River canyon roads",
+    "vulnerable_user_pct": 38.0,
+    "primary_corridor": "NH-415 & Trans-Arunachal Highway",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 277,
+        "fatalities": 113,
+        "injuries": 390
+      },
+      {
+        "year": 2019,
+        "accidents": 248,
+        "fatalities": 127,
+        "injuries": 310
+      },
+      {
+        "year": 2020,
+        "accidents": 145,
+        "fatalities": 82,
+        "injuries": 160
+      },
+      {
+        "year": 2021,
+        "accidents": 198,
+        "fatalities": 90,
+        "injuries": 220
+      },
+      {
+        "year": 2022,
+        "accidents": 215,
+        "fatalities": 84,
+        "injuries": 240
+      },
+      {
+        "year": 2023,
+        "accidents": 230,
+        "fatalities": 86,
+        "injuries": 260
+      }
+    ]
+  },
+  {
+    "state": "Mizoram",
+    "code": "MZ",
+    "zone": "North-East",
+    "capital": "Aizawl",
+    "lat": 23.1645,
+    "lng": 92.9376,
+    "accidents_2023": 85,
+    "fatalities_2023": 44,
+    "injuries_2023": 80,
+    "severity_2023": 51.8,
+    "blackspots_count": 10,
+    "top_cause": "Mountain cliff drop-offs & Overloaded utility vehicles",
+    "vulnerable_user_pct": 41.0,
+    "primary_corridor": "NH-54 / NH-306 (Silchar-Aizawl)",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 53,
+        "fatalities": 45,
+        "injuries": 60
+      },
+      {
+        "year": 2019,
+        "accidents": 62,
+        "fatalities": 49,
+        "injuries": 70
+      },
+      {
+        "year": 2020,
+        "accidents": 49,
+        "fatalities": 37,
+        "injuries": 50
+      },
+      {
+        "year": 2021,
+        "accidents": 64,
+        "fatalities": 41,
+        "injuries": 60
+      },
+      {
+        "year": 2022,
+        "accidents": 78,
+        "fatalities": 42,
+        "injuries": 70
+      },
+      {
+        "year": 2023,
+        "accidents": 85,
+        "fatalities": 44,
+        "injuries": 80
+      }
+    ]
+  },
+  {
+    "state": "Sikkim",
+    "code": "SK",
+    "zone": "North-East",
+    "capital": "Gangtok",
+    "lat": 27.533,
+    "lng": 88.5122,
+    "accidents_2023": 140,
+    "fatalities_2023": 48,
+    "injuries_2023": 170,
+    "severity_2023": 34.3,
+    "blackspots_count": 12,
+    "top_cause": "Teesta river gorge roads, Monsoon slush & Tourist taxis",
+    "vulnerable_user_pct": 36.5,
+    "primary_corridor": "NH-10 (Siliguri-Gangtok lifeline)",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 196,
+        "fatalities": 67,
+        "injuries": 280
+      },
+      {
+        "year": 2019,
+        "accidents": 162,
+        "fatalities": 73,
+        "injuries": 250
+      },
+      {
+        "year": 2020,
+        "accidents": 139,
+        "fatalities": 48,
+        "injuries": 160
+      },
+      {
+        "year": 2021,
+        "accidents": 137,
+        "fatalities": 46,
+        "injuries": 150
+      },
+      {
+        "year": 2022,
+        "accidents": 132,
+        "fatalities": 45,
+        "injuries": 160
+      },
+      {
+        "year": 2023,
+        "accidents": 140,
+        "fatalities": 48,
+        "injuries": 170
+      }
+    ]
+  },
+  {
+    "state": "Delhi",
+    "code": "DL",
+    "zone": "Union Territory",
+    "capital": "New Delhi",
+    "lat": 28.6139,
+    "lng": 77.209,
+    "accidents_2023": 5652,
+    "fatalities_2023": 1457,
+    "injuries_2023": 5120,
+    "severity_2023": 25.8,
+    "blackspots_count": 114,
+    "top_cause": "Urban Pedestrian knockdowns, Flyover merges & Night trucks",
+    "vulnerable_user_pct": 69.8,
+    "primary_corridor": "Ring Road, Outer Ring Road, NH-44 GT Karnal Road",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 6515,
+        "fatalities": 1690,
+        "injuries": 6080
+      },
+      {
+        "year": 2019,
+        "accidents": 5610,
+        "fatalities": 1463,
+        "injuries": 5150
+      },
+      {
+        "year": 2020,
+        "accidents": 4178,
+        "fatalities": 1196,
+        "injuries": 3660
+      },
+      {
+        "year": 2021,
+        "accidents": 4720,
+        "fatalities": 1239,
+        "injuries": 4280
+      },
+      {
+        "year": 2022,
+        "accidents": 5352,
+        "fatalities": 1433,
+        "injuries": 4910
+      },
+      {
+        "year": 2023,
+        "accidents": 5652,
+        "fatalities": 1457,
+        "injuries": 5120
+      }
+    ]
+  },
+  {
+    "state": "Jammu and Kashmir",
+    "code": "JK",
+    "zone": "Union Territory",
+    "capital": "Srinagar / Jammu",
+    "lat": 33.7782,
+    "lng": 76.5762,
+    "accidents_2023": 5890,
+    "fatalities_2023": 890,
+    "injuries_2023": 8120,
+    "severity_2023": 15.1,
+    "blackspots_count": 76,
+    "top_cause": "Ghat tunnel approaches, Snow ice & Overcrowded minibuses",
+    "vulnerable_user_pct": 48.2,
+    "primary_corridor": "NH-44 (Jammu-Srinagar Banihal tunnel)",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 5978,
+        "fatalities": 984,
+        "injuries": 7840
+      },
+      {
+        "year": 2019,
+        "accidents": 5796,
+        "fatalities": 996,
+        "injuries": 7520
+      },
+      {
+        "year": 2020,
+        "accidents": 4860,
+        "fatalities": 728,
+        "injuries": 5810
+      },
+      {
+        "year": 2021,
+        "accidents": 5452,
+        "fatalities": 774,
+        "injuries": 6970
+      },
+      {
+        "year": 2022,
+        "accidents": 5760,
+        "fatalities": 860,
+        "injuries": 7910
+      },
+      {
+        "year": 2023,
+        "accidents": 5890,
+        "fatalities": 890,
+        "injuries": 8120
+      }
+    ]
+  },
+  {
+    "state": "Ladakh",
+    "code": "LA",
+    "zone": "Union Territory",
+    "capital": "Leh",
+    "lat": 34.1526,
+    "lng": 77.5771,
+    "accidents_2023": 210,
+    "fatalities_2023": 54,
+    "injuries_2023": 290,
+    "severity_2023": 25.7,
+    "blackspots_count": 15,
+    "top_cause": "High-altitude passes (Zoji La, Khardung La), Ice & Oxygen fatigue",
+    "vulnerable_user_pct": 32.0,
+    "primary_corridor": "NH-1 (Srinagar-Leh) & Leh-Manali Highway",
+    "history": [
+      {
+        "year": 2020,
+        "accidents": 158,
+        "fatalities": 42,
+        "injuries": 210
+      },
+      {
+        "year": 2021,
+        "accidents": 182,
+        "fatalities": 49,
+        "injuries": 250
+      },
+      {
+        "year": 2022,
+        "accidents": 198,
+        "fatalities": 51,
+        "injuries": 270
+      },
+      {
+        "year": 2023,
+        "accidents": 210,
+        "fatalities": 54,
+        "injuries": 290
+      }
+    ]
+  },
+  {
+    "state": "Puducherry",
+    "code": "PY",
+    "zone": "Union Territory",
+    "capital": "Puducherry",
+    "lat": 11.9416,
+    "lng": 79.8083,
+    "accidents_2023": 1280,
+    "fatalities_2023": 178,
+    "injuries_2023": 1390,
+    "severity_2023": 13.9,
+    "blackspots_count": 26,
+    "top_cause": "East Coast Road tourist speeding & Two-wheelers",
+    "vulnerable_user_pct": 76.5,
+    "primary_corridor": "ECR (Chennai-Puducherry Highway) & NH-32",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 1597,
+        "fatalities": 227,
+        "injuries": 1760
+      },
+      {
+        "year": 2019,
+        "accidents": 1392,
+        "fatalities": 149,
+        "injuries": 1510
+      },
+      {
+        "year": 2020,
+        "accidents": 969,
+        "fatalities": 139,
+        "injuries": 1050
+      },
+      {
+        "year": 2021,
+        "accidents": 1145,
+        "fatalities": 152,
+        "injuries": 1240
+      },
+      {
+        "year": 2022,
+        "accidents": 1215,
+        "fatalities": 165,
+        "injuries": 1310
+      },
+      {
+        "year": 2023,
+        "accidents": 1280,
+        "fatalities": 178,
+        "injuries": 1390
+      }
+    ]
+  },
+  {
+    "state": "Chandigarh",
+    "code": "CH",
+    "zone": "Union Territory",
+    "capital": "Chandigarh",
+    "lat": 30.7333,
+    "lng": 76.7794,
+    "accidents_2023": 240,
+    "fatalities_2023": 84,
+    "injuries_2023": 190,
+    "severity_2023": 35.0,
+    "blackspots_count": 18,
+    "top_cause": "Rotary junction collisions & Night speeding on Madhya Marg",
+    "vulnerable_user_pct": 68.4,
+    "primary_corridor": "Madhya Marg, Dakshin Marg & NH-5 bypass",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 316,
+        "fatalities": 98,
+        "injuries": 280
+      },
+      {
+        "year": 2019,
+        "accidents": 305,
+        "fatalities": 104,
+        "injuries": 270
+      },
+      {
+        "year": 2020,
+        "accidents": 159,
+        "fatalities": 53,
+        "injuries": 140
+      },
+      {
+        "year": 2021,
+        "accidents": 209,
+        "fatalities": 96,
+        "injuries": 160
+      },
+      {
+        "year": 2022,
+        "accidents": 228,
+        "fatalities": 82,
+        "injuries": 180
+      },
+      {
+        "year": 2023,
+        "accidents": 240,
+        "fatalities": 84,
+        "injuries": 190
+      }
+    ]
+  },
+  {
+    "state": "Dadra and Nagar Haveli and Daman and Diu",
+    "code": "DNHDD",
+    "zone": "Union Territory",
+    "capital": "Daman",
+    "lat": 20.4283,
+    "lng": 72.8397,
+    "accidents_2023": 220,
+    "fatalities_2023": 92,
+    "injuries_2023": 210,
+    "severity_2023": 41.8,
+    "blackspots_count": 14,
+    "top_cause": "Industrial chemical freight & Coastal tourist two-wheelers",
+    "vulnerable_user_pct": 66.0,
+    "primary_corridor": "NH-848A & Vapi-Silvassa Main Road",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 274,
+        "fatalities": 105,
+        "injuries": 270
+      },
+      {
+        "year": 2019,
+        "accidents": 251,
+        "fatalities": 98,
+        "injuries": 240
+      },
+      {
+        "year": 2020,
+        "accidents": 168,
+        "fatalities": 74,
+        "injuries": 160
+      },
+      {
+        "year": 2021,
+        "accidents": 195,
+        "fatalities": 84,
+        "injuries": 190
+      },
+      {
+        "year": 2022,
+        "accidents": 210,
+        "fatalities": 89,
+        "injuries": 200
+      },
+      {
+        "year": 2023,
+        "accidents": 220,
+        "fatalities": 92,
+        "injuries": 210
+      }
+    ]
+  },
+  {
+    "state": "Andaman and Nicobar Islands",
+    "code": "AN",
+    "zone": "Union Territory",
+    "capital": "Port Blair",
+    "lat": 11.6234,
+    "lng": 92.7265,
+    "accidents_2023": 135,
+    "fatalities_2023": 24,
+    "injuries_2023": 160,
+    "severity_2023": 17.8,
+    "blackspots_count": 8,
+    "top_cause": "Andaman Trunk Road sharp jungle curves & Two-wheelers",
+    "vulnerable_user_pct": 64.0,
+    "primary_corridor": "NH-4 (Andaman Trunk Road)",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 254,
+        "fatalities": 18,
+        "injuries": 310
+      },
+      {
+        "year": 2019,
+        "accidents": 230,
+        "fatalities": 21,
+        "injuries": 270
+      },
+      {
+        "year": 2020,
+        "accidents": 140,
+        "fatalities": 13,
+        "injuries": 160
+      },
+      {
+        "year": 2021,
+        "accidents": 112,
+        "fatalities": 19,
+        "injuries": 130
+      },
+      {
+        "year": 2022,
+        "accidents": 128,
+        "fatalities": 22,
+        "injuries": 150
+      },
+      {
+        "year": 2023,
+        "accidents": 135,
+        "fatalities": 24,
+        "injuries": 160
+      }
+    ]
+  },
+  {
+    "state": "Lakshadweep",
+    "code": "LD",
+    "zone": "Union Territory",
+    "capital": "Kavaratti",
+    "lat": 10.5667,
+    "lng": 72.6417,
+    "accidents_2023": 6,
+    "fatalities_2023": 1,
+    "injuries_2023": 7,
+    "severity_2023": 16.7,
+    "blackspots_count": 2,
+    "top_cause": "Island ring pathway low-speed two-wheeler slips",
+    "vulnerable_user_pct": 100.0,
+    "primary_corridor": "Kavaratti Coastal Loop Road",
+    "history": [
+      {
+        "year": 2018,
+        "accidents": 3,
+        "fatalities": 1,
+        "injuries": 3
+      },
+      {
+        "year": 2019,
+        "accidents": 4,
+        "fatalities": 0,
+        "injuries": 5
+      },
+      {
+        "year": 2020,
+        "accidents": 2,
+        "fatalities": 0,
+        "injuries": 2
+      },
+      {
+        "year": 2021,
+        "accidents": 3,
+        "fatalities": 1,
+        "injuries": 3
+      },
+      {
+        "year": 2022,
+        "accidents": 5,
+        "fatalities": 1,
+        "injuries": 6
+      },
+      {
+        "year": 2023,
+        "accidents": 6,
+        "fatalities": 1,
+        "injuries": 7
+      }
+    ]
+  }
+]

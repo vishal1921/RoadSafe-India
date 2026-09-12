@@ -1,0 +1,3 @@
+location,latitude,longitude,state,district,accident_type,severity,casualties,injuries,fatalities,weather_condition,road_condition,time_of_day,contributing_factors
+NH-44 Junction,17.385,78.487,Telangana,Hyderabad,collision,severe,4,2,2,Rain,Wet,Night,Speeding;poor visibility
+GST Road,12.9352,80.145,Tamil Nadu,Chengalpattu,pedestrian,fatal,3,2,1,Clear,Poor,Night,Speeding;inadequate lighting
