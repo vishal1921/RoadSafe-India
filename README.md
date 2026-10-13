@@ -173,8 +173,3 @@ OK
 
 ---
 
-## 👥 Team 015
-
-- **Project**: RoadSafe India — AI Road Safety Intelligence Platform
-- **Problem Statement**: No. 3 — Transport: RoadSafe India
-- **Built for**: National Level Hackathon 2026
