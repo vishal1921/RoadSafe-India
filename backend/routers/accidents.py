@@ -146,7 +146,8 @@ def predict_segment_post(req: RiskPredictionRequest):
         time_of_day=req.time_of_day,
         geometry=req.geometry,
         lighting=req.lighting,
-        vulnerable_user_density=req.vulnerable_user_density
+        vulnerable_user_density=req.vulnerable_user_density,
+        verified_pothole_count=getattr(req, "verified_potholes", 0)
     )
 
 @router.get('/analytics/states')

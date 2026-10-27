@@ -1,7 +1,5 @@
 from pydantic_settings import BaseSettings
 from typing import List
-
-
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,7 +12,7 @@ class Settings(BaseSettings):
     # Application
     APP_NAME: str = "Road Safety AI System"
     DEBUG: bool = False
-    VERSION: str = "1.0.0"
+    VERSION: str = "2.6.0"
     
     # Database
     DATABASE_URL: str = f"sqlite:///{DEFAULT_DB_FILE}"
@@ -24,6 +22,12 @@ class Settings(BaseSettings):
     
     # API
     API_V1_PREFIX: str = "/api/v1"
+    
+    # Pothole AI & Vision Configuration
+    POTHOLE_MODEL_PATH: str = str(BASE_DIR / "models" / "pothole_best.pt")
+    UPLOAD_DIR: str = str(BASE_DIR / "uploads")
+    MAX_IMAGE_SIZE_MB: int = 15
+    ROBOFLOW_DATASET_URL: str = "https://universe.roboflow.com/smartathon/new-pothole-detection"
     
     # Security
     SECRET_KEY: str = "your-secret-key-change-in-production"

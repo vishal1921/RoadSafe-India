@@ -104,6 +104,7 @@ class RiskPredictionRequest(BaseModel):
     geometry: str = "sharp_curve"
     lighting: str = "poor_lighting"
     vulnerable_user_density: str = "high"
+    verified_potholes: int = 0
 
 class RiskPredictionResponse(BaseModel):
     risk_score: float

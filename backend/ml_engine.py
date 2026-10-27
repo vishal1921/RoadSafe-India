@@ -127,7 +127,8 @@ class RoadSafetyMLEngine:
                              geometry: str = "sharp_curve",
                              lighting: str = "poor_lighting",
                              vulnerable_user_density: str = "high",
-                             target_score: Optional[float] = None) -> Dict[str, Any]:
+                             target_score: Optional[float] = None,
+                             verified_pothole_count: int = 0) -> Dict[str, Any]:
         """
         Calibrated Explainable AI scoring engine producing 0-100 score + feature attribution
         Supports Critical (>=80), High (60-79), and Moderate (<60) risk bands.
@@ -274,6 +275,17 @@ class RoadSafetyMLEngine:
         elif "mode" in v:
             v_pts = 3.0
 
+        # 6. Physical Pothole & Road Defect Evidence (Separated from general pavement condition)
+        pothole_pts = 0.0
+        if verified_pothole_count > 0:
+            pothole_pts = min(12.0, verified_pothole_count * 3.5)
+            drivers.append({
+                "factor": f"Observed Physical Road Potholes ({verified_pothole_count} verified defect{'s' if verified_pothole_count > 1 else ''})",
+                "weight": round(pothole_pts, 1),
+                "category": "Physical Road Defects",
+                "actionable_insight": "Physical cavities detected by RoadSafe Vision AI. Induces high-risk emergency swerving and 2-wheeler loss of control. Dispatch patch repair crew."
+            })
+
         # Score computation
         if target_score is not None:
             score = float(target_score)
@@ -281,7 +293,7 @@ class RoadSafetyMLEngine:
             # Evaluating a known calibrated blackspot: respect its calibrated score
             base_spot_score = nearest_bs["risk_score"]
             cond_delta = (speed_pts - 10.0) * 0.25 + (w_pts - 5.0) * 0.25 + (l_pts - 5.0) * 0.25
-            score = base_spot_score + cond_delta
+            score = base_spot_score + cond_delta + (pothole_pts * 0.5)
             # Ensure it stays within its calibrated band unless extreme conditions
             if nearest_bs.get("risk_band") == "Critical":
                 score = max(80.0, min(99.0, score))
@@ -305,7 +317,7 @@ class RoadSafetyMLEngine:
                     "category": "Historical Evidence",
                     "actionable_insight": f"Located within 8 km cluster zone of {nearest_bs['name']} ({nearest_bs.get('fatalities_3yr', 0)} deaths in 3 years)."
                 })
-            score = 18.0 + speed_pts + w_pts + l_pts + g_pts + v_pts + p_pts
+            score = 18.0 + speed_pts + w_pts + l_pts + g_pts + v_pts + p_pts + pothole_pts
 
         score = round(max(15.0, min(100.0, score)), 1)
 
